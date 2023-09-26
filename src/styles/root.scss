@@ -1,0 +1,61 @@
+/*
+
+// Pantone colors
+$pantone-bright-white: #f4f5f0;
+$pantone-moonbeam: #cdc6bd;
+$pantone-silver: #a2a2a1;
+$pantone-dusk-blue: #7ba0c0;
+$pantone-bright-cobalt: #385d8d;
+$pantone-twilight-blue: #313d64;
+$pantone-night-sky: #2a2a35;
+$pantone-jet-black: #2d2c2f;
+$pantone-phantom: #39373b;
+$pantone-solar-power: #f4bf3a;
+
+// Modded
+
+$modded-pantone-phantom-darker: hsl(260 3% 14%);
+
+*/
+
+:root {
+  --dvh: 100vh;
+}
+
+:root[data-theme="light"] {
+  --background-primary: #{$pantone-bright-white};
+  --background-secondary: #{$pantone-bright-cobalt};
+  --text-primary: #{$pantone-jet-black};
+  --text-secondary: #{$pantone-bright-white};
+  --accent: #{#ff0000};
+  --theme-icon: #{$pantone-solar-power};
+  --theme-icon-background: #{$pantone-twilight-blue};
+  --theme-switch-background: #{$pantone-dusk-blue};
+  --spinner: #{$pantone-night-sky};
+  --switch-background: #{$pantone-dusk-blue};
+  --switch-pin: #{$pantone-twilight-blue};
+  --button-primary-background: #{$pantone-bright-cobalt};
+  --button-primary-text: #{$pantone-bright-white};
+  --list-background: #{$pantone-bright-cobalt};
+  --progressbar: #{$pantone-dusk-blue};
+  --selected: #{$pantone-dusk-blue};
+}
+
+:root[data-theme="dark"] {
+  --background-primary: #{$pantone-phantom};
+  --background-secondary: #{$pantone-jet-black};
+  --text-primary: #{$pantone-bright-white};
+  --text-secondary: #{$pantone-bright-white};
+  --accent: #{#ff0000};
+  --theme-icon: #{$pantone-moonbeam};
+  --theme-icon-background: #{$pantone-night-sky};
+  --theme-switch-background: #{$pantone-phantom};
+  --spinner: #{$pantone-bright-white};
+  --switch-background: #{$pantone-phantom};
+  --switch-pin: #{$pantone-moonbeam};
+  --button-primary-background: #{$pantone-jet-black};
+  --button-primary-text: #{$pantone-bright-white};
+  --list-background: #{$pantone-jet-black};
+  --progressbar: #{$pantone-moonbeam};
+  --selected: #{$modded-pantone-phantom-darker};
+}

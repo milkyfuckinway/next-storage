@@ -1,0 +1,65 @@
+.switch {
+  $toggler-height: 30px;
+
+  overflow: hidden;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  color: var(--theme-icon);
+
+  transition: color $td;
+
+  & .toggler {
+    position: relative;
+    z-index: 0;
+
+    overflow: hidden;
+
+    width: $toggler-height * 2;
+    height: $toggler-height;
+
+    background-color: var(--theme-switch-background);
+    border-radius: 5000px;
+
+    transition: background-color $td;
+  }
+
+  & .background-icon {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+  }
+
+  & .pin {
+    position: absolute;
+    top: 50%;
+    left: calc($toggler-height / 2);
+    transform: translate(-50%, -50%) rotate(0);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: $toggler-height - 5px;
+    height: $toggler-height - 5px;
+
+    background-color: var(--theme-icon-background);
+    border-radius: 100%;
+
+    transition:
+      background-color $td,
+      left $td,
+      transform $td;
+  }
+
+  &.dark .pin {
+    left: calc($toggler-height + $toggler-height / 2);
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  & .icon {
+    width: calc(100% - 10px);
+  }
+}

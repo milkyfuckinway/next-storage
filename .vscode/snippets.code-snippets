@@ -1,0 +1,20 @@
+{
+  "Print to console": {
+    "prefix": "cl",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "reactComponent": {
+    "prefix": "rfc",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["export default function ${TM_FILENAME_BASE}() {", "  return <div>$1</div>", "}"],
+    "description": "React component"
+  },
+  "importSCSSModule": {
+    "prefix": "csm",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["import styles from './${TM_FILENAME_BASE}.module.scss'"],
+    "description": "Import SCSS Module as `styles`"
+  }
+}
