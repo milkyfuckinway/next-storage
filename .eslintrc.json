@@ -60,6 +60,12 @@
         },
         "allowChildren": false
       }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "crlf"
+      }
     ]
   }
 }
