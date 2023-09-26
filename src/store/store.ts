@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
+import filesReducer from './files.slice';
 import themeReducer from './theme.slice';
 
 export const store = configureStore({
   reducer: {
+    files: filesReducer,
     theme: themeReducer,
   },
 });

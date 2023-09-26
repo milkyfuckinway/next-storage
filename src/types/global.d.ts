@@ -6,6 +6,6 @@ declare module '*.svg' {
 }
 
 type Item = {
-  id: number;
+  id: string;
   name: string;
 };

@@ -1,27 +1,66 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
-  theme: string;
+  active: Item | undefined;
+  files: Item[];
+  hiddenIds: string[];
+  openedIds: string[];
+  zIndex: number;
 };
 
 const initialState = {
-  theme: 'light',
+  active: undefined,
+  files: [
+    {
+      id: '1',
+      name: 'a',
+    },
+    {
+      id: '2',
+      name: 'b',
+    },
+    {
+      id: '3',
+      name: 'c',
+    },
+  ],
+  hiddenIds: [],
+  openedIds: [],
+  zIndex: 1,
 } as InitialState;
 
-const themeSlice = createSlice({
+const filesSlice = createSlice({
   initialState,
-  name: 'theme',
+  name: 'files',
   reducers: {
-    setTheme(state, action: PayloadAction<string>) {
-      state.theme = action.payload;
+    addHiddenFile(state, action: PayloadAction<string>) {
+      state.hiddenIds = [...state.hiddenIds, action.payload];
     },
-    toggle(state) {
-      state.theme = state.theme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', state.theme);
+    addOpenedFile(state, action: PayloadAction<string>) {
+      state.openedIds = [...state.openedIds, action.payload];
+    },
+    increaceZIndex(state) {
+      state.zIndex++;
+    },
+    removeHiddenFile(state, action: PayloadAction<string>) {
+      state.hiddenIds = state.hiddenIds.filter((a) => a !== action.payload);
+    },
+    removeOpenedFile(state, action: PayloadAction<string>) {
+      state.openedIds = state.openedIds.filter((a) => a !== action.payload);
+    },
+    setFileActive(state, action: PayloadAction<Item>) {
+      state.active = action.payload;
     },
   },
 });
 
-export const { setTheme, toggle } = themeSlice.actions;
+export const {
+  addHiddenFile,
+  addOpenedFile,
+  increaceZIndex,
+  removeHiddenFile,
+  removeOpenedFile,
+  setFileActive,
+} = filesSlice.actions;
 
-export default themeSlice.reducer;
+export default filesSlice.reducer;

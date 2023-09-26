@@ -1,31 +1,26 @@
+import {
+  addHiddenFile,
+  addOpenedFile,
+  increaceZIndex,
+  removeOpenedFile,
+  setFileActive,
+} from '@/store/files.slice';
+import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls } from 'framer-motion';
-import { PointerEvent, SetStateAction, useEffect, useRef, useState } from 'react';
+import { PointerEvent, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import styles from './Label.module.scss';
 
-export default function Label({
-  active,
-  children,
-  hidden,
-  item,
-  scalableZIndex,
-  setActive,
-  setHidden,
-  setScalableZIndex,
-}: {
-  active: Item | undefined;
-  children: string;
-  hidden: Item[];
-  item: Item;
-  scalableZIndex: number;
-  setActive: React.Dispatch<SetStateAction<Item | undefined>>;
-  setHidden: React.Dispatch<SetStateAction<Item[]>>;
-  setScalableZIndex: React.Dispatch<SetStateAction<number>>;
-}) {
-  const [open, setOpen] = useState(false);
-  const [hiddenLocal, setHiddenLocal] = useState(false);
+export default function Label({ children, item }: { children: string; item: Item }) {
   const [expanded, setExpanded] = useState(false);
+
+  const dispatch = useDispatch();
+  const active = useAppSelector((state) => state.files.active);
+  const hiddenIds = useAppSelector((state) => state.files.hiddenIds);
+  const openedIds = useAppSelector((state) => state.files.openedIds);
+  const globalZIndex = useAppSelector((state) => state.files.zIndex);
 
   const controls = useDragControls();
   const windowRef = useRef<HTMLDivElement>(null);
@@ -36,24 +31,28 @@ export default function Label({
   }
 
   const setWindowActive = () => {
-    setActive(item);
+    dispatch(setFileActive(item));
     if (windowRef.current) {
-      windowRef.current.style.zIndex = `${scalableZIndex}`;
-      setScalableZIndex(scalableZIndex + 1);
+      windowRef.current.style.zIndex = `${globalZIndex}`;
+      dispatch(increaceZIndex());
     }
   };
 
   const onLabelClick = () => {
-    setOpen(true);
+    dispatch(addOpenedFile(item.id));
     setWindowActive();
   };
 
-  useEffect(() => {
-    setHiddenLocal(!!hidden.find((a) => a === item));
-  }, [hidden, item]);
-
   const onExpand = () => {
     setExpanded(!expanded);
+  };
+
+  const onHidden = () => {
+    dispatch(addHiddenFile(item.id));
+  };
+
+  const onClose = () => {
+    dispatch(removeOpenedFile(item.id));
   };
 
   return (
@@ -61,11 +60,11 @@ export default function Label({
       <button className={styles.label} onClick={onLabelClick} type="button">
         {children}
       </button>
-      {open && (
+      {openedIds.includes(item.id) && (
         <motion.div
           className={clsx(
             styles.window,
-            hiddenLocal ? styles.hidden : '',
+            hiddenIds.includes(item.id) ? styles.hidden : '',
             active === item ? styles.active : '',
             expanded ? styles.expanded : ''
           )}
@@ -78,20 +77,19 @@ export default function Label({
         >
           <div className={styles.dragbar}>
             <div className={styles.dragarea} onPointerDown={startDrag} />
-            <button onClick={() => setHidden([...hidden, item])} type="button">
+            <button onClick={onHidden} type="button">
               _
             </button>
             <button onClick={onExpand} type="button">
               п
             </button>
-            <button onClick={() => setOpen(false)} type="button">
+            <button onClick={onClose} type="button">
               x
             </button>
           </div>
           {children}
         </motion.div>
       )}
-      {hiddenLocal}
     </>
   );
 }
