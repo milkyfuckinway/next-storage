@@ -62,7 +62,11 @@ export default function Window({ item }: { item: Item }) {
         ref={windowRef}
       >
         <div className={styles.dragbar}>
-          <div className={styles.dragarea} onPointerDown={startDrag} />
+          <div
+            className={styles.dragarea}
+            onPointerDown={startDrag}
+            style={{ touchAction: 'none' }}
+          />
           <button onClick={handleCollapse} type="button">
             _
           </button>
