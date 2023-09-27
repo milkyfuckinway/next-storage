@@ -1,31 +1,33 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {
-  active: Item | undefined;
+  active: string;
   files: Item[];
-  hiddenIds: string[];
-  openedIds: string[];
+  hiddenList: string[];
+  openedList: string[];
   zIndex: number;
 };
 
+const files = [
+  {
+    id: '1',
+    name: 'a',
+  },
+  {
+    id: '2',
+    name: 'b',
+  },
+  {
+    id: '3',
+    name: 'c',
+  },
+];
+
 const initialState = {
-  active: undefined,
-  files: [
-    {
-      id: '1',
-      name: 'a',
-    },
-    {
-      id: '2',
-      name: 'b',
-    },
-    {
-      id: '3',
-      name: 'c',
-    },
-  ],
-  hiddenIds: [],
-  openedIds: [],
+  active: '',
+  files,
+  hiddenList: [],
+  openedList: [],
   zIndex: 1,
 } as InitialState;
 
@@ -34,21 +36,23 @@ const filesSlice = createSlice({
   name: 'files',
   reducers: {
     addHiddenFile(state, action: PayloadAction<string>) {
-      state.hiddenIds = [...state.hiddenIds, action.payload];
+      state.hiddenList = [...state.hiddenList, action.payload];
     },
     addOpenedFile(state, action: PayloadAction<string>) {
-      state.openedIds = [...state.openedIds, action.payload];
+      if (!state.openedList.includes(action.payload)) {
+        state.openedList = [...state.openedList, action.payload];
+      }
     },
     increaceZIndex(state) {
       state.zIndex++;
     },
     removeHiddenFile(state, action: PayloadAction<string>) {
-      state.hiddenIds = state.hiddenIds.filter((a) => a !== action.payload);
+      state.hiddenList = state.hiddenList.filter((a) => a !== action.payload);
     },
     removeOpenedFile(state, action: PayloadAction<string>) {
-      state.openedIds = state.openedIds.filter((a) => a !== action.payload);
+      state.openedList = state.openedList.filter((a) => a !== action.payload);
     },
-    setFileActive(state, action: PayloadAction<Item>) {
+    setFileActive(state, action: PayloadAction<string>) {
       state.active = action.payload;
     },
   },
