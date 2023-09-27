@@ -42,11 +42,11 @@ export default function Window({ item }: { item: Item }) {
   };
 
   const handleClose = () => {
-    dispatch(removeOpenedFile(item.id));
+    dispatch(removeOpenedFile(item));
   };
 
   return (
-    openedList.includes(item.id) && (
+    openedList.includes(item) && (
       <motion.div
         className={clsx(
           styles.window,

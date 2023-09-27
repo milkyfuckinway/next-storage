@@ -19,7 +19,7 @@ export default function Label({ item }: { item: Item }) {
   };
 
   const handleOpen = () => {
-    dispatch(addOpenedFile(item.id));
+    dispatch(addOpenedFile(item));
     setCurrentFileActive();
   };
 

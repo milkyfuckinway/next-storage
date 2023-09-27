@@ -6,8 +6,8 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 
 import styles from './Desktop.module.scss';
+import Display from './Display';
 import Label from './Label';
-import Window from './Window';
 
 export default function Desktop() {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export default function Desktop() {
       </div>
       <div className={styles.footer}>
         {files
-          .filter((file) => openedList.includes(file.id))
+          .filter((file) => openedList.includes(file))
           .map((file) => (
             <button
               className={clsx(hiddenList.includes(file.id) ? styles.hidden : '')}
@@ -41,7 +41,7 @@ export default function Desktop() {
             </button>
           ))}
       </div>
-      {openedList.map((a) => files.map((b) => (b.id === a ? <Window item={b} key={a} /> : null)))}
+      <Display />
     </div>
   );
 }

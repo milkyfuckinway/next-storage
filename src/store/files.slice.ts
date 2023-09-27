@@ -4,7 +4,7 @@ type InitialState = {
   active: string;
   files: Item[];
   hiddenList: string[];
-  openedList: string[];
+  openedList: Item[];
   zIndex: number;
 };
 
@@ -38,9 +38,9 @@ const filesSlice = createSlice({
     addHiddenFile(state, action: PayloadAction<string>) {
       state.hiddenList = [...state.hiddenList, action.payload];
     },
-    addOpenedFile(state, action: PayloadAction<string>) {
-      if (!state.openedList.includes(action.payload)) {
-        state.openedList = [...state.openedList, action.payload];
+    addOpenedFile(state, action: PayloadAction<Item>) {
+      if (!state.openedList.some((item) => item.id === action.payload.id)) {
+        state.openedList.push(action.payload);
       }
     },
     increaceZIndex(state) {
@@ -49,9 +49,10 @@ const filesSlice = createSlice({
     removeHiddenFile(state, action: PayloadAction<string>) {
       state.hiddenList = state.hiddenList.filter((a) => a !== action.payload);
     },
-    removeOpenedFile(state, action: PayloadAction<string>) {
-      state.openedList = state.openedList.filter((a) => a !== action.payload);
+    removeOpenedFile(state, action: PayloadAction<Item>) {
+      state.openedList = state.openedList.filter((a) => a.id !== action.payload.id);
     },
+
     setFileActive(state, action: PayloadAction<string>) {
       state.active = action.payload;
     },
