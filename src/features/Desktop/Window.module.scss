@@ -1,7 +1,7 @@
 .window {
   @include vp-md {
-    top: calc(50% - 50vw);
-    left: calc(50% - 22.5vh);
+    top: calc(50% - 40vh);
+    left: calc(50% - 40vw);
     width: 80vw;
     height: 60vh;
   }
@@ -9,8 +9,8 @@
   user-select: none;
 
   position: absolute;
-  top: calc(50% - 25vw);
-  left: calc(50% - 25vh);
+  top: calc(50% - 25vh);
+  left: calc(50% - 25vw);
 
   display: flex;
   flex-direction: column;
@@ -27,14 +27,15 @@
 }
 
 .content {
-  padding: 10px;
+  padding: 5px;
 
   .folder & {
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 85px);
-    grid-template-rows: repeat(auto-fill, 85px);
+    grid-template-columns: repeat(auto-fill, var(--square));
+    grid-template-rows: repeat(auto-fill, var(--square));
     flex-grow: 1;
+    gap: 5px;
 
     height: 100%;
   }

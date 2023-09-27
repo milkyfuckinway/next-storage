@@ -1,5 +1,6 @@
 import { addOpenedFile, increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
+import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -24,7 +25,7 @@ export default function Label({ item }: { item: Item }) {
   };
 
   return (
-    <button className={styles.label} onClick={handleOpen} type="button">
+    <button className={clsx(styles.label, styles[item.type])} onClick={handleOpen} type="button">
       <div className={styles.label__icon} />
       <div className={styles.label__name}>{item.name}</div>
     </button>

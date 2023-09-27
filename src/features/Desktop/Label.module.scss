@@ -3,6 +3,7 @@
 
   display: flex;
   flex-direction: column;
+  gap: 5px;
   align-items: center;
 
   width: 100%;
@@ -12,13 +13,22 @@
 }
 
 .label__icon {
-  width: 100%;
+  flex-shrink: 0;
+
   width: 48px;
-  height: 100%;
   height: 48px;
 
-  background: url("/icons/folder-closed.png") no-repeat center;
-  background-size: 48px 48px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 48px;
+
+  .folder & {
+    background-image: url("/icons/folder-closed.png");
+  }
+
+  .file & {
+    background-image: url("/icons/file.png");
+  }
 }
 
 .label__name {
