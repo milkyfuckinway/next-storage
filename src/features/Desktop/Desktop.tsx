@@ -14,6 +14,7 @@ export default function Desktop() {
   const files = useAppSelector((state) => state.files.files);
   const hiddenList = useAppSelector((state) => state.files.hiddenList);
   const openedList = useAppSelector((state) => state.files.openedList);
+  const active = useAppSelector((state) => state.files.active);
 
   const handleUnhide = (item: Item) => {
     dispatch(removeHiddenFile(item.id));
@@ -30,12 +31,18 @@ export default function Desktop() {
       <div className={styles.footer}>
         {openedList.map((file) => (
           <button
-            className={clsx(hiddenList.includes(file.id) ? styles.hidden : '')}
+            className={clsx(
+              styles.anchor,
+              hiddenList.includes(file.id) ? styles.hidden : '',
+              active === file.id ? styles.active : '',
+              styles[file.type]
+            )}
             key={file.id}
             onClick={() => handleUnhide(file)}
             type="button"
           >
-            {file.name}
+            <div className={styles.anchor__icon} />
+            <div className={styles.anchor__text}> {file.name}</div>
           </button>
         ))}
       </div>

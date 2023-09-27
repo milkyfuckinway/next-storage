@@ -53,7 +53,8 @@ export default function Window({ item }: { item: Item }) {
           styles.window,
           hiddenList.includes(item.id) ? styles.hidden : '',
           active === item.id ? styles.active : '',
-          expanded ? styles.expanded : ''
+          expanded ? styles.expanded : '',
+          item.type === 'folder' ? styles.folder : ''
         )}
         drag
         dragControls={controls}
@@ -78,14 +79,16 @@ export default function Window({ item }: { item: Item }) {
             x
           </button>
         </div>
-        {item.type === 'folder' && item.files
-          ? item.files.map((a) => <Label item={a} key={a.id} />)
-          : item.content && (
-              <>
-                <a href={item.content?.link}>{item.content.link}</a>
-                <p>{item.content?.paragraph}</p>
-              </>
-            )}
+        <div className={styles.content}>
+          {item.type === 'folder' && item.files
+            ? item.files.map((a) => <Label item={a} key={a.id} />)
+            : item.content && (
+                <>
+                  <a href={item.content?.link}>{item.content.link}</a>
+                  <p>{item.content?.paragraph}</p>
+                </>
+              )}
+        </div>
       </motion.div>
     )
   );

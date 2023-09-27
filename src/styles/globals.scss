@@ -1,9 +1,16 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  overflow: hidden;
   font-family: var(--eesti);
 
   -webkit-tap-highlight-color: transparent;
@@ -50,6 +57,10 @@ button {
   padding: 0;
   background-color: transparent;
   border: 0;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 ul {

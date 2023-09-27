@@ -1,7 +1,10 @@
 .screen {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+
   height: 100%;
+  max-height: 100vh;
 }
 
 .desktop {
@@ -21,12 +24,46 @@
   background-color: $pantone-solar-power;
 }
 
-.footer button {
-  width: 40px;
+.anchor {
+  display: flex;
+  align-items: center;
+
+  width: 160px;
   height: 40px;
+  padding: 5px;
+
   background-color: $pantone-bright-cobalt;
 
   &.hidden {
     background-color: $pantone-moonbeam;
   }
+
+  &.active {
+    background-color: #ff0000;
+  }
+}
+
+.anchor__icon {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+
+  .folder & {
+    background-image: url("/icons/folder-closed.png");
+  }
+
+  .file & {
+    background-image: url("/icons/file.png");
+  }
+}
+
+.anchor__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
