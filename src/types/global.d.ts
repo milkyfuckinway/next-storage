@@ -5,7 +5,13 @@ declare module '*.svg' {
   export default SVG;
 }
 
+interface Content {
+  link: string;
+  paragraph: string;
+}
+
 type Item = {
+  content: Content | undefined;
   files: Item[] | undefined;
   id: string;
   name: string;

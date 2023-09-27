@@ -80,7 +80,12 @@ export default function Window({ item }: { item: Item }) {
         </div>
         {item.type === 'folder' && item.files
           ? item.files.map((a) => <Label item={a} key={a.id} />)
-          : item.name}
+          : item.content && (
+              <>
+                <a href={item.content?.link}>{item.content.link}</a>
+                <p>{item.content?.paragraph}</p>
+              </>
+            )}
       </motion.div>
     )
   );

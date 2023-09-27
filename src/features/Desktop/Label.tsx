@@ -25,7 +25,8 @@ export default function Label({ item }: { item: Item }) {
 
   return (
     <button className={styles.label} onClick={handleOpen} type="button">
-      {item.name}
+      <div className={styles.label__icon} />
+      <div className={styles.label__name}>{item.name}</div>
     </button>
   );
 }
