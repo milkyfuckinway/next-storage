@@ -1,6 +1,6 @@
 'use client';
 
-import { removeHiddenFile, setFileActive } from '@/store/files.slice';
+import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
@@ -17,8 +17,12 @@ export default function Desktop() {
   const active = useAppSelector((state) => state.files.active);
 
   const handleUnhide = (item: Item) => {
-    dispatch(removeHiddenFile(item.id));
     dispatch(setFileActive(item.id));
+    if (hiddenList.includes(item.id)) {
+      dispatch(removeHiddenFile(item.id));
+    } else {
+      dispatch(addHiddenFile(item.id));
+    }
   };
 
   return (
@@ -42,7 +46,7 @@ export default function Desktop() {
             type="button"
           >
             <div className={styles.anchor__icon} />
-            <div className={styles.anchor__text}> {file.name}</div>
+            <div className={styles.anchor__text}>{file.name}</div>
           </button>
         ))}
       </div>

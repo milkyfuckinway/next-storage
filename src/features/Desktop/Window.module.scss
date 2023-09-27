@@ -27,6 +27,8 @@
 }
 
 .content {
+  padding: 10px;
+
   .folder & {
     overflow: auto;
     display: grid;
