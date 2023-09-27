@@ -10,16 +10,26 @@ type InitialState = {
 
 const files = [
   {
+    files: [
+      {
+        id: '4',
+        name: 'd',
+        type: 'file',
+      },
+    ],
     id: '1',
     name: 'a',
+    type: 'folder',
   },
   {
     id: '2',
     name: 'b',
+    type: 'file',
   },
   {
     id: '3',
     name: 'c',
+    type: 'file',
   },
 ];
 

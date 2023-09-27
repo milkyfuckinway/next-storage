@@ -6,6 +6,8 @@ declare module '*.svg' {
 }
 
 type Item = {
+  files: Item[] | undefined;
   id: string;
   name: string;
+  type: string;
 };

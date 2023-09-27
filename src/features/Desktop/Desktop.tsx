@@ -28,18 +28,16 @@ export default function Desktop() {
         ))}
       </div>
       <div className={styles.footer}>
-        {files
-          .filter((file) => openedList.includes(file))
-          .map((file) => (
-            <button
-              className={clsx(hiddenList.includes(file.id) ? styles.hidden : '')}
-              key={file.id}
-              onClick={() => handleUnhide(file)}
-              type="button"
-            >
-              {file.name}
-            </button>
-          ))}
+        {openedList.map((file) => (
+          <button
+            className={clsx(hiddenList.includes(file.id) ? styles.hidden : '')}
+            key={file.id}
+            onClick={() => handleUnhide(file)}
+            type="button"
+          >
+            {file.name}
+          </button>
+        ))}
       </div>
       <Display />
     </div>

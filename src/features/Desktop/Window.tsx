@@ -10,6 +10,7 @@ import { motion, useDragControls } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import Label from './Label';
 import styles from './Window.module.scss';
 
 export default function Window({ item }: { item: Item }) {
@@ -77,7 +78,9 @@ export default function Window({ item }: { item: Item }) {
             x
           </button>
         </div>
-        {item.name}
+        {item.type === 'folder' && item.files
+          ? item.files.map((a) => <Label item={a} key={a.id} />)
+          : item.name}
       </motion.div>
     )
   );
