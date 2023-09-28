@@ -32,9 +32,10 @@
 
 .label__name {
   overflow: hidden;
-  display: -webkit-box;
+  display: -webkit-inline-box;
 
   width: 100%;
+  max-height: 24px;
 
   text-overflow: ellipsis;
   word-break: break-word;
