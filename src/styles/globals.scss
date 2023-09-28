@@ -54,6 +54,10 @@ body {
   transition: none !important;
 }
 
+.visually-hidden {
+  @include visually-hidden;
+}
+
 main {
   flex-grow: 1;
 }
