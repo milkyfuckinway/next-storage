@@ -23,6 +23,7 @@ function HtmlProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const currentTheme = useAppSelector((state) => state.theme.theme);
+
   useEffect(() => {
     // Create dvh variable
     calculateDocumentHeight();
@@ -36,6 +37,7 @@ function HtmlProvider({ children }: { children: React.ReactNode }) {
     // Set isLoading to false
     setIsLoading(false);
   }, [dispatch]);
+
   return (
     <StrictMode>
       <html className={EestiFont.variable} data-theme={currentTheme} lang="en">
