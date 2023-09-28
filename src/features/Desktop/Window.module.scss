@@ -19,11 +19,6 @@
   height: 50vh;
 
   background-color: $pantone-dusk-blue;
-  filter: grayscale(100%);
-
-  &.active {
-    filter: grayscale(0);
-  }
 }
 
 .content {

@@ -58,14 +58,14 @@
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 20px;
+  background-size: 16px;
 
   .folder & {
-    background-image: url("/icons/folder-closed.png");
+    background-image: url("/icons/folder-closed16.png");
   }
 
   .file & {
-    background-image: url("/icons/file.png");
+    background-image: url("/icons/file16.png");
   }
 }
 

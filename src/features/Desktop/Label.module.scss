@@ -23,11 +23,11 @@
   background-size: 48px;
 
   .folder & {
-    background-image: url("/icons/folder-closed.png");
+    background-image: url("/icons/folder-closed48.png");
   }
 
   .file & {
-    background-image: url("/icons/file.png");
+    background-image: url("/icons/file48.png");
   }
 }
 
@@ -37,8 +37,9 @@
 
   width: 100%;
 
-  font-size: 16px;
-  line-height: 16px;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 100%;
   text-overflow: ellipsis;
   word-break: break-word;
 

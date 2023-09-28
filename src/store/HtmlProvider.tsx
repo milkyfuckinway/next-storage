@@ -3,6 +3,7 @@
 import SpinnerComponent from '@/components/SpinnerComponent';
 import '@/styles/index.scss';
 import calculateDocumentHeight from '@/utils/CalculateDocumentHeight';
+import clsx from 'clsx';
 import localFont from 'next/font/local';
 import { StrictMode, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -17,6 +18,15 @@ const EestiFont = localFont({
     { path: '../fonts/GTEesti-700.woff2', weight: '700' },
   ],
   variable: '--eesti',
+});
+
+const MsSansSerif = localFont({
+  preload: true,
+  src: [
+    { path: '../fonts/ms-sans-serif-regular.woff2', weight: '400' },
+    { path: '../fonts/ms-sans-serif-bold.woff2', weight: '700' },
+  ],
+  variable: '--ms',
 });
 
 function HtmlProvider({ children }: { children: React.ReactNode }) {
@@ -40,7 +50,11 @@ function HtmlProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <StrictMode>
-      <html className={EestiFont.variable} data-theme={currentTheme} lang="en">
+      <html
+        className={clsx(EestiFont.variable, MsSansSerif.variable)}
+        data-theme={currentTheme}
+        lang="en"
+      >
         <body className={isLoading ? 'no-transition' : ''}>
           {isLoading ? <SpinnerComponent /> : children}
         </body>
