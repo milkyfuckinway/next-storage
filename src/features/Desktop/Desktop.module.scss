@@ -21,34 +21,43 @@
 }
 
 .footer {
+  @include border(2);
+
   overflow-x: auto;
   display: flex;
-  gap: 5px;
+  gap: 2px;
+  align-items: center;
 
-  min-height: 40px;
+  min-height: 32px;
+  padding: 2px;
 
-  background-color: $pantone-solar-power;
+  background-color: #e6e6e6;
 }
 
 .anchor {
+  @include border(2);
+
   user-select: none;
 
   display: flex;
   flex-shrink: 0;
+  gap: 5px;
   align-items: center;
 
   width: 160px;
-  height: 40px;
+  height: 24px;
   padding: 5px;
 
-  background-color: $pantone-bright-cobalt;
-
-  &.hidden {
-    background-color: $pantone-moonbeam;
-  }
+  background-color: #b8b8b8;
 
   &.active {
-    background-color: #ff0000;
+    @include border-active(2);
+
+    background-color: #e6e6e6;
+  }
+
+  &.hidden {
+    background-color: #aaaaaa;
   }
 }
 

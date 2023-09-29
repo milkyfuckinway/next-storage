@@ -1,4 +1,6 @@
 .window {
+  @include border(2);
+
   user-select: none;
 
   position: absolute;
@@ -31,6 +33,8 @@
 }
 
 .content {
+  @include border-active(2);
+
   height: 100%;
   margin: 8px;
   padding: 8px;
@@ -64,6 +68,6 @@
   opacity: 0.5;
   background-image: url("/interface/corner.png");
   background-repeat: no-repeat;
-  background-position: 6px 6px;
+  background-position: 2px 2px;
   background-size: 12px;
 }

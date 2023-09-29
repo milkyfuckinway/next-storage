@@ -2,6 +2,8 @@
   $size: 20px;
   $icon-size: 8px;
 
+  @include border(2);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +11,11 @@
   width: $size;
   height: $size;
 
-  background-color: $pantone-bright-white;
+  background-color: #ececec;
+
+  &:active {
+    @include border-active(2);
+  }
 
   &__icon {
     display: flex;

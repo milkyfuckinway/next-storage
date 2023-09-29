@@ -1,0 +1,13 @@
+@mixin border($size: 2) {
+  border-top: #{$size}px inset rgb(255 255 255 / 0.5);
+  border-right: #{$size}px inset rgb(255 255 255 / 0.5);
+  border-bottom: #{$size}px inset rgb(0 0 0 / 0.5);
+  border-left: #{$size}px inset rgb(0 0 0 / 0.5);
+}
+
+@mixin border-active($size: 2) {
+  border-top: #{$size}px inset rgb(0 0 0 / 0.5);
+  border-right: #{$size}px inset rgb(0 0 0 / 0.5);
+  border-bottom: #{$size}px inset rgb(255 255 255 / 0.5);
+  border-left: #{$size}px inset rgb(255 255 255 / 0.5);
+}
