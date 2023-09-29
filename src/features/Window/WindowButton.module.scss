@@ -1,5 +1,6 @@
 .button {
-  $size: 15px;
+  $size: 20px;
+  $icon-size: 8px;
 
   display: flex;
   align-items: center;
@@ -13,8 +14,8 @@
   &__icon {
     display: flex;
     align-items: flex-end;
-    width: 10px;
-    height: 10px;
+    width: $icon-size;
+    height: $icon-size;
 
     & svg {
       width: 100%;

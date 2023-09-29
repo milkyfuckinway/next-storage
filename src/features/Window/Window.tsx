@@ -34,9 +34,9 @@ export default function Window({ item }: { item: Item }) {
         className={clsx(
           styles.window,
           hiddenList.includes(item.id) ? 'hidden' : '',
+          item.type,
           active === item.id ? 'active' : '',
-          expanded ? 'expanded' : '',
-          item.type === 'folder' ? 'folder' : ''
+          expanded ? 'expanded' : ''
         )}
         drag
         dragControls={controls}
