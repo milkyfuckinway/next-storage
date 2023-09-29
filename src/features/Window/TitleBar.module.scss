@@ -1,6 +1,6 @@
 .titlebar {
   position: relative;
-  background-color: var(--title-bar);
+  background: linear-gradient(90deg, var(--title-bar) 0%, #1084d0 100%);
 }
 
 .titlebar__dragarea {

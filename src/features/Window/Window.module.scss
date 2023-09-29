@@ -1,25 +1,12 @@
 .window {
-  // @include vp-md {
-  //   top: calc(50% - 40vh);
-  //   left: calc(50% - 40vw);
-  //   width: 80vw;
-  //   height: 60vh;
-  // }
-
   user-select: none;
 
   position: absolute;
 
-  // top: calc(50% - 25vh);
-  // left: calc(50% - 25vw);
-
   display: flex;
   flex-direction: column;
 
-  // width: 50vw;
-  // height: 50vh;
-
-  background-color: $pantone-dusk-blue;
+  background-color: #dddddd;
 
   &:global(.expanded) {
     top: 0 !important;
@@ -41,8 +28,8 @@
 
 .content {
   height: 100%;
-  margin: 5px;
-  padding: 5px;
+  margin: 8px;
+  padding: 8px;
   background-color: #ececec;
 
   :global(.folder) & {
@@ -58,15 +45,19 @@
 }
 
 .pin {
+  $size: 12px;
+
   cursor: pointer;
 
   position: absolute;
   z-index: 100;
-  top: -10px;
-  left: -10px;
+  top: -$size;
+  left: -$size;
 
-  width: 10px;
-  height: 10px;
+  width: $size;
+  height: $size;
 
-  background-color: rgb(255 0 0);
+  background-image: url("/interface/corner.png");
+  background-position: bottom;
+  background-size: cover;
 }

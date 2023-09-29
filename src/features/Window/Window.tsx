@@ -67,6 +67,7 @@ export default function Window({ item }: { item: Item }) {
             drag
             dragConstraints={{ bottom: displayHeight, left: 200, right: displayWidth, top: 200 }}
             dragControls={resizeControls}
+            dragElastic={0}
             dragMomentum={false}
             style={{ touchAction: 'none', x: handleX, y: handleY }}
           />
