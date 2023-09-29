@@ -43,11 +43,9 @@ export default function TitleBar({
         style={{ touchAction: 'none' }}
       />
       <div className={styles.titlebar__content}>
-        <div>
-          <div className={styles.titlebar__details}>
-            <div className={styles.titlebar__icon} />
-            <div className={styles.titlebar__name}>{item.name}</div>
-          </div>
+        <div className={styles.titlebar__details}>
+          <div className={styles.titlebar__icon} />
+          <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>
           <WindowButton onClick={handleCollapse} type="collapse" />

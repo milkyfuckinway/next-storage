@@ -1,6 +1,5 @@
 .titlebar {
   position: relative;
-  width: 100%;
   background-color: var(--title-bar);
 }
 
@@ -11,13 +10,33 @@
   height: 100%;
 }
 
+.titlebar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
 .titlebar__details {
+  overflow: hidden;
   display: flex;
   gap: 4px;
 }
 
 .titlebar__name {
+  overflow: hidden;
+
   color: #ffffff;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.titlebar__icon,
+.titlebar__name,
+.titlebar__controls {
+  position: relative;
+  z-index: 1;
 }
 
 .titlebar__icon,
@@ -26,6 +45,8 @@
 }
 
 .titlebar__icon {
+  flex-shrink: 0;
+
   width: 16px;
   height: 16px;
 
@@ -45,20 +66,4 @@
 .titlebar__controls {
   display: flex;
   gap: 4px;
-}
-
-.titlebar__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  height: 100%;
-  padding: 5px;
-
-  & .titlebar__icon,
-  & .titlebar__name,
-  & .titlebar__controls {
-    position: relative;
-    z-index: 1;
-  }
 }
