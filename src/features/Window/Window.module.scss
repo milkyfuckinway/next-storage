@@ -24,6 +24,10 @@
   &:global(.active) {
     z-index: 100000000000 !important;
   }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .content {
@@ -47,17 +51,19 @@
 .pin {
   $size: 12px;
 
-  cursor: pointer;
+  cursor: se-resize;
 
   position: absolute;
   z-index: 100;
-  top: -$size;
-  left: -$size;
+  top: -$size * 1.5;
+  left: -$size * 1.5;
 
-  width: $size;
-  height: $size;
+  width: $size * 3;
+  height: $size * 3;
 
+  opacity: 0.5;
   background-image: url("/interface/corner.png");
-  background-position: bottom;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 6px 6px;
+  background-size: 12px;
 }

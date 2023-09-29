@@ -9,6 +9,14 @@ import Label from './Label';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
+const calculatePosition = (cycle: number) => {
+  // const displayWidth = window.innerWidth;
+  // const displayHeight = window.innerHeight;
+  const left = `${50 + cycle * 10}px`;
+  const top = `${200 + cycle * 10}px`;
+  return { left, top };
+};
+
 export default function Window({ item }: { item: Item }) {
   const dispatch = useDispatch();
 
@@ -19,14 +27,11 @@ export default function Window({ item }: { item: Item }) {
 
   const [expanded, setExpanded] = useState(false);
 
-  const displayWidth = window.innerWidth;
-  const displayHeight = window.innerHeight;
-
   const handleX = useMotionValue(300);
   const handleY = useMotionValue(200);
 
-  const windowWidth = useTransform(handleX, [0, displayWidth], [0, displayWidth]);
-  const windowHeight = useTransform(handleY, [0, displayHeight], [0, displayHeight]);
+  const windowWidth = useTransform(handleX, [0, 10000], [0, 10000]);
+  const windowHeight = useTransform(handleY, [0, 10000], [0, 10000]);
 
   const dragControls = useDragControls();
   const resizeControls = useDragControls();
@@ -39,6 +44,8 @@ export default function Window({ item }: { item: Item }) {
       dispatch(increaceZIndex());
     }
   };
+
+  const { left, top } = calculatePosition(openedList.length - hiddenList.length);
 
   return (
     openedList.includes(item) && (
@@ -54,6 +61,7 @@ export default function Window({ item }: { item: Item }) {
         dragControls={dragControls}
         dragListener={false}
         dragTransition={{ power: 0 }}
+        initial={{ left, top }}
         onTapStart={() => setCurrentFileActive()}
         ref={windowRef}
         style={{
@@ -65,7 +73,7 @@ export default function Window({ item }: { item: Item }) {
           <motion.div
             className={styles.pin}
             drag
-            dragConstraints={{ bottom: displayHeight, left: 200, right: displayWidth, top: 200 }}
+            dragConstraints={{ left: 200, top: 140 }}
             dragControls={resizeControls}
             dragElastic={0}
             dragMomentum={false}
