@@ -22,8 +22,8 @@ export default function Window({ item }: { item: Item }) {
   const displayWidth = window.innerWidth;
   const displayHeight = window.innerHeight;
 
-  const handleX = useMotionValue(200);
-  const handleY = useMotionValue(400);
+  const handleX = useMotionValue(400);
+  const handleY = useMotionValue(300);
 
   const windowWidth = useTransform(handleX, [0, displayWidth], [0, displayWidth]);
   const windowHeight = useTransform(handleY, [0, displayHeight], [0, displayHeight]);
@@ -56,48 +56,27 @@ export default function Window({ item }: { item: Item }) {
         dragTransition={{ power: 0 }}
         onTapStart={() => setCurrentFileActive()}
         ref={windowRef}
-        style={{ height: windowHeight, width: windowWidth }}
+        style={{
+          height: expanded ? '100%' : windowHeight,
+          width: expanded ? '100%' : windowWidth,
+        }}
       >
-        <motion.div
-          className={styles.top}
-          drag="y"
-          dragConstraints={{ bottom: displayHeight, top: 0 }}
-          dragControls={resizeControls}
-          dragElastic={0}
-          style={{ touchAction: 'none', y: handleY }}
-        />
-        <motion.div
-          className={styles.left}
-          drag="x"
-          dragConstraints={{ left: 120, right: displayWidth }}
-          dragControls={resizeControls}
-          dragElastic={0}
-          style={{ touchAction: 'none', x: handleX }}
-        />
-        <motion.div
-          className={styles.right}
-          drag="x"
-          dragConstraints={{ left: 120, right: displayWidth }}
-          dragControls={resizeControls}
-          dragElastic={0}
-          style={{ touchAction: 'none', x: handleX }}
-        />
-        <motion.div
-          className={styles.bottom}
-          drag="y"
-          dragConstraints={{ bottom: displayHeight, top: 0 }}
-          dragControls={resizeControls}
-          dragElastic={0}
-          style={{ touchAction: 'none', y: handleY }}
-        />
-
+        {!expanded && (
+          <motion.div
+            className={styles.pin}
+            drag
+            dragConstraints={{ bottom: displayHeight, left: 200, right: displayWidth, top: 200 }}
+            dragControls={resizeControls}
+            dragMomentum={false}
+            style={{ touchAction: 'none', x: handleX, y: handleY }}
+          />
+        )}
         <TitleBar
           controls={dragControls}
           expanded={expanded}
           item={item}
           setExpanded={setExpanded}
         />
-
         <div className={styles.content}>
           {item.type === 'folder' && item.files
             ? item.files.map((a) => <Label item={a} key={a.id} />)
