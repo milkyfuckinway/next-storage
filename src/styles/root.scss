@@ -20,12 +20,14 @@ $modded-pantone-phantom-darker: hsl(260 3% 14%);
 
 :root {
   --dvh: 100vh;
-  --square: 76px;
-  --fz: 12px;
-  --lh: 12px;
+  --fz: 14px;
+
+  // 48px + fz*2 + gap(4px)
+  --square: calc(48px + 14px + 14px + 4px);
 }
 
 :root[data-theme="light"] {
+  --title-bar: #{#000080};
   --background-primary: #{$pantone-bright-white};
   --background-secondary: #{$pantone-bright-cobalt};
   --text-primary: #{$pantone-jet-black};
@@ -45,6 +47,7 @@ $modded-pantone-phantom-darker: hsl(260 3% 14%);
 }
 
 :root[data-theme="dark"] {
+  --title-bar: #{#000080};
   --background-primary: #{$pantone-phantom};
   --background-secondary: #{$pantone-jet-black};
   --text-primary: #{$pantone-bright-white};

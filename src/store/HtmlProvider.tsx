@@ -1,6 +1,6 @@
 'use client';
 
-import SpinnerComponent from '@/components/SpinnerComponent';
+import SpinnerComponent from '@/components/base/SpinnerComponent';
 import '@/styles/index.scss';
 import calculateDocumentHeight from '@/utils/CalculateDocumentHeight';
 import clsx from 'clsx';

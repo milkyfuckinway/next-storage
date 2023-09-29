@@ -2,7 +2,7 @@
   user-select: none;
 
   display: grid;
-  grid-template-rows: 48px 24px;
+  grid-template-rows: 48px calc(var(--fz) * 2);
   gap: 4px;
   align-items: center;
   justify-items: center;
@@ -35,7 +35,7 @@
   display: -webkit-inline-box;
 
   width: 100%;
-  max-height: 24px;
+  max-height: calc(var(--fz) * 2);
 
   text-overflow: ellipsis;
   word-break: break-word;

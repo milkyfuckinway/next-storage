@@ -1,0 +1,47 @@
+.titlebar {
+  position: relative;
+  width: 100%;
+  height: 40px;
+}
+
+.titlebar__dragarea {
+  cursor: pointer;
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--title-bar);
+}
+
+.titlebar__icon {
+}
+
+.titlebar__name {
+  color: #ffffff;
+}
+
+.titlebar__icon,
+.titlebar__name {
+  pointer-events: none;
+}
+
+.titlebar__controls {
+  display: flex;
+  gap: 2px;
+}
+
+.titlebar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  & .titlebar__icon,
+  & .titlebar__name,
+  & .titlebar__controls {
+    position: relative;
+    z-index: 1;
+  }
+}

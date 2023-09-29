@@ -1,0 +1,19 @@
+.button {
+  $size: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $size;
+  height: $size;
+
+  background-color: $pantone-bright-white;
+
+  &__icon {
+    display: flex;
+    align-items: flex-end;
+    width: 10px;
+    height: 10px;
+  }
+}

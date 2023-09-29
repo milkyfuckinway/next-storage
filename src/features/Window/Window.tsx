@@ -1,16 +1,12 @@
-import {
-  addHiddenFile,
-  increaceZIndex,
-  removeOpenedFile,
-  setFileActive,
-} from '@/store/files.slice';
+import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Label from './Label';
+import Label from '../Desktop/Label';
+import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
 export default function Window({ item }: { item: Item }) {
@@ -20,12 +16,10 @@ export default function Window({ item }: { item: Item }) {
   const hiddenList = useAppSelector((state) => state.files.hiddenList);
   const openedList = useAppSelector((state) => state.files.openedList);
   const globalZIndex = useAppSelector((state) => state.files.zIndex);
-  const controls = useDragControls();
   const windowRef = useRef<HTMLDivElement>(null);
 
-  function startDrag(evt: PointerEvent | React.PointerEvent<Element>) {
-    controls.start(evt);
-  }
+  const controls = useDragControls();
+
   const setCurrentFileActive = () => {
     dispatch(setFileActive(item.id));
     if (windowRef.current) {
@@ -34,27 +28,15 @@ export default function Window({ item }: { item: Item }) {
     }
   };
 
-  const handleExpand = () => {
-    setExpanded(!expanded);
-  };
-
-  const handleCollapse = () => {
-    dispatch(addHiddenFile(item.id));
-  };
-
-  const handleClose = () => {
-    dispatch(removeOpenedFile(item));
-  };
-
   return (
     openedList.includes(item) && (
       <motion.div
         className={clsx(
           styles.window,
-          hiddenList.includes(item.id) ? styles.hidden : '',
-          active === item.id ? styles.active : '',
-          expanded ? styles.expanded : '',
-          item.type === 'folder' ? styles.folder : ''
+          hiddenList.includes(item.id) ? 'hidden' : '',
+          active === item.id ? 'active' : '',
+          expanded ? 'expanded' : '',
+          item.type === 'folder' ? 'folder' : ''
         )}
         drag
         dragControls={controls}
@@ -63,22 +45,7 @@ export default function Window({ item }: { item: Item }) {
         onTapStart={() => setCurrentFileActive()}
         ref={windowRef}
       >
-        <div className={styles.dragbar}>
-          <div
-            className={styles.dragarea}
-            onPointerDown={startDrag}
-            style={{ touchAction: 'none' }}
-          />
-          <button onClick={handleCollapse} type="button">
-            _
-          </button>
-          <button onClick={handleExpand} type="button">
-            п
-          </button>
-          <button onClick={handleClose} type="button">
-            x
-          </button>
-        </div>
+        <TitleBar controls={controls} expanded={expanded} item={item} setExpanded={setExpanded} />
         <div className={styles.content}>
           {item.type === 'folder' && item.files
             ? item.files.map((a) => <Label item={a} key={a.id} />)
