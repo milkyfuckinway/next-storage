@@ -44,25 +44,6 @@
   pointer-events: none;
 }
 
-.titlebar__icon {
-  flex-shrink: 0;
-
-  width: 16px;
-  height: 16px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px;
-
-  :global(.folder) & {
-    background-image: url("/icons/folder-closed16.png");
-  }
-
-  :global(.file) & {
-    background-image: url("/icons/file16.png");
-  }
-}
-
 .titlebar__controls {
   display: flex;
   gap: 4px;

@@ -5,9 +5,10 @@ import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 
+import Icon from '../Icons/Icon';
+import Label from '../Window/Label';
 import styles from './Desktop.module.scss';
 import Display from './Display';
-import Label from './Label';
 
 export default function Desktop() {
   const dispatch = useDispatch();
@@ -37,15 +38,15 @@ export default function Desktop() {
           <button
             className={clsx(
               styles.anchor,
-              hiddenList.includes(file.id) ? styles.hidden : '',
+              file.type,
               active === file.id ? styles.active : '',
-              styles[file.type]
+              hiddenList.includes(file.id) ? styles.hidden : ''
             )}
             key={file.id}
             onClick={() => handleUnhide(file)}
             type="button"
           >
-            <div className={styles.anchor__icon} />
+            <Icon size="small" />
             <div className={styles.anchor__text}>{file.name}</div>
           </button>
         ))}

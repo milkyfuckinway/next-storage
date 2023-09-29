@@ -5,7 +5,7 @@ import { motion, useDragControls } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Label from '../Desktop/Label';
+import Label from './Label';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
@@ -33,9 +33,9 @@ export default function Window({ item }: { item: Item }) {
       <motion.div
         className={clsx(
           styles.window,
-          hiddenList.includes(item.id) ? 'hidden' : '',
           item.type,
           active === item.id ? 'active' : '',
+          hiddenList.includes(item.id) ? 'hidden' : '',
           expanded ? 'expanded' : ''
         )}
         drag

@@ -1,0 +1,36 @@
+.icon {
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.big {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.medium {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.small {
+    width: 16px;
+    height: 16px;
+  }
+
+  :global(.folder) &.small {
+    background-image: url("/icons/folder-closed16.png");
+  }
+
+  :global(.file) &.small {
+    background-image: url("/icons/file16.png");
+  }
+
+  :global(.folder) &.big {
+    background-image: url("/icons/folder-closed48.png");
+  }
+
+  :global(.file) &.big {
+    background-image: url("/icons/file48.png");
+  }
+}

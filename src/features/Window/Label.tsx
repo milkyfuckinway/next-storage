@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
+import Icon from '../Icons/Icon';
 import styles from './Label.module.scss';
 
 export default function Label({ item }: { item: Item }) {
@@ -25,8 +26,8 @@ export default function Label({ item }: { item: Item }) {
   };
 
   return (
-    <button className={clsx(styles.label, styles[item.type])} onClick={handleOpen} type="button">
-      <div className={styles.label__icon} />
+    <button className={clsx(styles.label, item.type)} onClick={handleOpen} type="button">
+      <Icon size="big" />
       <div className={styles.label__name}>{item.name}</div>
     </button>
   );

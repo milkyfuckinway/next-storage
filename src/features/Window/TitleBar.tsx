@@ -3,6 +3,7 @@ import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 
+import Icon from '../Icons/Icon';
 import styles from './TitleBar.module.scss';
 import WindowButton from './WindowButton';
 
@@ -44,7 +45,7 @@ export default function TitleBar({
       />
       <div className={styles.titlebar__content}>
         <div className={styles.titlebar__details}>
-          <div className={styles.titlebar__icon} />
+          <Icon size="small" />
           <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>
