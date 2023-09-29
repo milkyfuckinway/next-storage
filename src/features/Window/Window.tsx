@@ -22,8 +22,8 @@ export default function Window({ item }: { item: Item }) {
   const displayWidth = window.innerWidth;
   const displayHeight = window.innerHeight;
 
-  const handleX = useMotionValue(400);
-  const handleY = useMotionValue(300);
+  const handleX = useMotionValue(300);
+  const handleY = useMotionValue(200);
 
   const windowWidth = useTransform(handleX, [0, displayWidth], [0, displayWidth]);
   const windowHeight = useTransform(handleY, [0, displayHeight], [0, displayHeight]);
