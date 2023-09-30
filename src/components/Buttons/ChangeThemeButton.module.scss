@@ -1,6 +1,8 @@
 .switch {
   $toggler-height: 30px;
 
+  user-select: none;
+
   overflow: hidden;
   display: flex;
   flex-shrink: 0;
