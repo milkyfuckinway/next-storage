@@ -26,8 +26,10 @@ export default function Anchor({
       onClick={() => handleUnhide(file)}
       type="button"
     >
-      <Icon size="small" />
-      <div className={styles.anchor__text}>{file.name}</div>
+      <div className={styles.anchor__content}>
+        <Icon size="small" />
+        <div className={styles.anchor__text}>{file.name}</div>
+      </div>
     </button>
   );
 }

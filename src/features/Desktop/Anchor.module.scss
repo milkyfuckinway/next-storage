@@ -2,26 +2,33 @@
   @include border(2px);
 
   user-select: none;
-
-  display: flex;
   flex-shrink: 0;
+  width: 160px;
+  height: 24px;
+
+  &.active {
+    @include border-active(2px);
+  }
+}
+
+.anchor__content {
+  display: flex;
   gap: 5px;
   align-items: center;
 
-  width: 160px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
   padding: 5px;
 
   background-color: #b8b8b8;
 
-  &.active {
-    @include border-active(2px);
+  .active & {
     @include rectangles(2px, transparent, #aaaaaa);
 
     font-weight: 700;
   }
 
-  &.hidden {
+  .hidden & {
     @include rectangles(2px, transparent, #444444);
   }
 }
