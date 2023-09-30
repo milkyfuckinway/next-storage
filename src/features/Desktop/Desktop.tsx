@@ -2,11 +2,10 @@
 
 import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
-import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 
-import Icon from '../Icons/Icon';
 import Label from '../Window/Label';
+import Anchor from './Anchor';
 import styles from './Desktop.module.scss';
 import Display from './Display';
 
@@ -35,20 +34,7 @@ export default function Desktop() {
       </div>
       <div className={styles.footer}>
         {openedList.map((file) => (
-          <button
-            className={clsx(
-              styles.anchor,
-              file.type,
-              active === file.id ? styles.active : '',
-              hiddenList.includes(file.id) ? styles.hidden : ''
-            )}
-            key={file.id}
-            onClick={() => handleUnhide(file)}
-            type="button"
-          >
-            <Icon size="small" />
-            <div className={styles.anchor__text}>{file.name}</div>
-          </button>
+          <Anchor active={active} file={file} handleUnhide={handleUnhide} hiddenList={hiddenList} />
         ))}
       </div>
       <Display />

@@ -1,0 +1,53 @@
+.anchor {
+  @include border(2px);
+
+  user-select: none;
+
+  display: flex;
+  flex-shrink: 0;
+  gap: 5px;
+  align-items: center;
+
+  width: 160px;
+  height: 24px;
+  padding: 5px;
+
+  background-color: #b8b8b8;
+
+  &.active {
+    @include border-active(2px);
+    @include rectangles(2px, transparent, #aaaaaa);
+
+    font-weight: 700;
+  }
+
+  &.hidden {
+    @include rectangles(2px, transparent, #444444);
+  }
+}
+
+.anchor__icon {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+
+  .folder & {
+    background-image: url("/icons/folder-closed16.png");
+  }
+
+  .file & {
+    background-image: url("/icons/file16.png");
+  }
+}
+
+.anchor__text {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

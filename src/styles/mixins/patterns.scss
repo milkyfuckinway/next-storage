@@ -1,0 +1,39 @@
+@mixin rhombus($size: 4px, $color-light: transparent, $color-dark: #000000) {
+  background-image: linear-gradient(135deg, $color-dark 25%, $color-light 25%),
+    linear-gradient(225deg, $color-dark 25%, $color-light 25%),
+    linear-gradient(45deg, $color-dark 25%, $color-light 25%),
+    linear-gradient(315deg, $color-dark 25%, $color-light 25%);
+  background-repeat: repeat;
+  background-position:
+    $size 0,
+    $size 0,
+    0 0,
+    0 0;
+  background-size: $size $size;
+}
+
+@mixin rectangles($size: 4px, $color-light: transparent, $color-dark: #000000) {
+  $size-half: $size / 2;
+
+  background-color: $color-light;
+  background-image: repeating-linear-gradient(
+      45deg,
+      $color-dark 25%,
+      $color-light 25%,
+      $color-light 75%,
+      $color-dark 75%,
+      $color-dark
+    ),
+    repeating-linear-gradient(
+      45deg,
+      $color-dark 25%,
+      $color-light 25%,
+      $color-light 75%,
+      $color-dark 75%,
+      $color-dark
+    );
+  background-position:
+    0 0,
+    $size-half $size-half;
+  background-size: $size $size;
+}
