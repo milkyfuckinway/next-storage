@@ -5,9 +5,9 @@ import { useAppSelector } from '@/store/store';
 import { useDispatch } from 'react-redux';
 
 import Label from '../Window/Label';
+import Window from '../Window/Window';
 import Anchor from './Anchor';
 import styles from './Desktop.module.scss';
-import Display from './Display';
 
 export default function Desktop() {
   const dispatch = useDispatch();
@@ -31,6 +31,9 @@ export default function Desktop() {
         {files.map((item) => (
           <Label item={item} key={item.id} />
         ))}
+        {openedList.map((a) => (
+          <Window item={a} key={a.id} />
+        ))}
       </div>
       <div className={styles.footer}>
         {openedList.map((file) => (
@@ -43,7 +46,6 @@ export default function Desktop() {
           />
         ))}
       </div>
-      <Display />
     </div>
   );
 }
