@@ -48,7 +48,8 @@ export default function Window({ item }: { item: Item }) {
   const { left, top } = calculatePosition(openedList.length - hiddenList.length);
 
   return (
-    openedList.includes(item) && (
+    openedList.includes(item) &&
+    item.type !== 'button' && (
       <motion.div
         className={clsx(
           styles.window,
@@ -89,7 +90,8 @@ export default function Window({ item }: { item: Item }) {
         <div className={styles.content}>
           {item.type === 'folder' && item.files
             ? item.files.map((a) => <Label item={a} key={a.id} />)
-            : item.content && (
+            : item.type === 'file' &&
+              item.content && (
                 <>
                   <a href={item.content?.link}>{item.content.link}</a>
                   <p>{item.content?.paragraph}</p>
