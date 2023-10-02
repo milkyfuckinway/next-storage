@@ -36,8 +36,8 @@
   @include border-active;
 
   height: 100%;
-  margin: 10px;
-  padding: 10px;
+  margin: 6px;
+  padding: 6px;
   background-color: var(--background-primary);
 
   :global(.folder) & {
@@ -53,7 +53,7 @@
 }
 
 .pin {
-  $size: 12px;
+  $size: 8px;
 
   cursor: se-resize;
 
