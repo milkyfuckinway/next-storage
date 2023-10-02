@@ -26,7 +26,12 @@ export default function Anchor({
       type="button"
     >
       <div className={styles.anchor__content}>
-        <Icon active={active === file.id} icon={file.type} size="small" />
+        <Icon
+          active={active === file.id}
+          icon={file.type}
+          size="small"
+          src={file.type === 'image' ? file.src : ''}
+        />
         <div className={styles.anchor__text}>{file.name}</div>
       </div>
     </button>

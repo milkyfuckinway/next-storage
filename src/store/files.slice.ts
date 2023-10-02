@@ -41,6 +41,7 @@ const files = [
     type: 'file',
   },
   { action: 'toggle-theme', id: '7', name: 'Изменить тему', type: 'button' },
+  { action: 'image', id: '8', name: 'Изображение', src: '/images/uv-texture.png', type: 'image' },
 ];
 
 const initialState = {

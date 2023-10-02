@@ -54,6 +54,7 @@ export default function Label({ item }: { item: Item }) {
         active={openedList.includes(item)}
         icon={item.type !== 'button' ? item.type : item.action}
         size="big"
+        src={item.type === 'image' ? item.src : ''}
       />
       <div className={styles.label__name}>{item.name}</div>
     </button>

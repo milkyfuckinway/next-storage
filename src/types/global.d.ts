@@ -31,4 +31,11 @@ interface Button {
   type: 'button';
 }
 
-type Item = Button | File | Folder;
+interface Image {
+  id: string;
+  name: string;
+  src: string;
+  type: 'image';
+}
+
+type Item = Button | File | Folder | Image;

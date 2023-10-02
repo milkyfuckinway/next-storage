@@ -2,6 +2,7 @@ import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -89,15 +90,22 @@ export default function Window({ item }: { item: Item }) {
           setExpanded={setExpanded}
         />
         <div className={styles.content}>
-          {item.type === 'folder' && item.files
-            ? item.files.map((a) => <Label item={a} key={a.id} />)
-            : item.type === 'file' &&
-              item.content && (
-                <>
-                  <a href={item.content?.link}>{item.content.link}</a>
-                  <p>{item.content?.paragraph}</p>
-                </>
-              )}
+          {item.type === 'folder' &&
+            item.files &&
+            item.files.map((a) => <Label item={a} key={a.id} />)}
+
+          {item.type === 'file' && item.content && (
+            <>
+              <a href={item.content?.link}>{item.content.link}</a>
+              <p>{item.content?.paragraph}</p>
+            </>
+          )}
+
+          {item.type === 'image' && item.src && (
+            <div className={styles.image}>
+              <Image alt="image" height={100} src={item.src} width={100} />
+            </div>
+          )}
         </div>
       </motion.div>
     )
