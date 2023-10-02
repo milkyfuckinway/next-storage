@@ -13,7 +13,7 @@
   background-color: rgb(200 200 200);
 
   & svg {
-    padding: 2px;
+    padding: 4px;
 
     &.collapse {
       margin-top: auto;
@@ -23,9 +23,8 @@
   &:active {
     @include border-active(2px, $type);
 
-    background-color: rgb(128 128 128);
-
     & svg {
+      transform: translate(1px, 1px);
       fill: rgb(16 45 208);
     }
   }

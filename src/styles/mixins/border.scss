@@ -1,7 +1,7 @@
 @mixin border($size: 2px, $type: solid, $color-1: rgb(128 128 128), $color-2: rgb(223 223 223)) {
-  border-top: $size $type $color-1;
+  border-top: $size $type $color-2;
   border-right: $size $type $color-1;
-  border-bottom: $size $type $color-2;
+  border-bottom: $size $type $color-1;
   border-left: $size $type $color-2;
 }
 
@@ -11,8 +11,8 @@
   $color-1: rgb(223 223 223),
   $color-2: rgb(128 128 128)
 ) {
-  border-top: $size $type $color-1;
+  border-top: $size $type $color-2;
   border-right: $size $type $color-1;
-  border-bottom: $size $type $color-2;
+  border-bottom: $size $type $color-1;
   border-left: $size $type $color-2;
 }

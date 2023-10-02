@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 6px;
+  padding: 4px;
 
   background: linear-gradient(90deg, rgb(128 128 128) 0%, rgb(181 181 181) 100%);
 
@@ -51,5 +51,8 @@
 
 .titlebar__controls {
   display: flex;
-  gap: 4px;
+
+  & button:last-child {
+    margin-left: 2px;
+  }
 }

@@ -12,6 +12,7 @@ export default function Label({ item }: { item: Item }) {
   const dispatch = useDispatch();
   const globalZIndex = useAppSelector((state) => state.files.zIndex);
   const windowRef = useRef<HTMLDivElement>(null);
+  const openedList = useAppSelector((state) => state.files.openedList);
 
   const setCurrentFileActive = () => {
     dispatch(setFileActive(item.id));
@@ -35,7 +36,11 @@ export default function Label({ item }: { item: Item }) {
 
   return (
     <button
-      className={clsx(styles.label, item.type !== 'button' ? item.type : item.action)}
+      className={clsx(
+        styles.label,
+        item.type !== 'button' ? item.type : item.action,
+        openedList.includes(item) ? 'opened' : ''
+      )}
       onClick={handleClick}
       type="button"
     >

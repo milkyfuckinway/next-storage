@@ -1,5 +1,5 @@
 .window {
-  @include border(4px, double);
+  @include border(2px, ridge);
 
   user-select: none;
 
@@ -38,7 +38,7 @@
   height: 100%;
   margin: 8px;
   padding: 8px;
-  background-color: #ececec;
+  background-color: var(--background-primary);
 
   :global(.folder) & {
     overflow: auto;
