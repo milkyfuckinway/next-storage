@@ -4,20 +4,13 @@
 
   @include border(2px, $type);
 
-  display: flex;
-  align-items: center;
-
   width: $size;
   height: $size;
-
   background-color: rgb(200 200 200);
 
   & svg {
-    padding: 4px;
-
-    &.collapse {
-      margin-top: auto;
-    }
+    width: 100%;
+    height: 100%;
   }
 
   &:active {
@@ -26,6 +19,23 @@
     & svg {
       transform: translate(1px, 1px);
       fill: rgb(16 45 208);
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+
+  &.collapse {
+    align-items: flex-end;
+
+    svg {
+      height: auto;
     }
   }
 }
