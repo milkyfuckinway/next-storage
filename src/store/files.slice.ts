@@ -40,6 +40,7 @@ const files = [
     name: 'c',
     type: 'file',
   },
+  { action: 'toggle-theme', id: '7', name: 'Изменить тему', type: 'button' },
 ];
 
 const initialState = {

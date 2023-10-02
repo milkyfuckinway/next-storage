@@ -10,10 +10,25 @@ interface Content {
   paragraph: string;
 }
 
-type Item = {
-  content: Content | undefined;
-  files: Item[] | undefined;
+interface File {
+  content: Content;
   id: string;
   name: string;
-  type: string;
-};
+  type: 'file';
+}
+
+interface Folder {
+  files: File[];
+  id: string;
+  name: string;
+  type: 'folder';
+}
+
+interface Button {
+  action: 'toggle-theme';
+  id: string;
+  name: string;
+  type: 'button';
+}
+
+type Item = Button | File | Folder;

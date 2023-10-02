@@ -21,7 +21,7 @@
 }
 
 .footer {
-  @include border(2px);
+  @include border;
 
   overflow-x: auto;
   display: flex;

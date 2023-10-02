@@ -1,14 +1,6 @@
 .titlebar {
-  @include border(2px);
-
   position: relative;
   color: rgb(192 192 192);
-  background: linear-gradient(90deg, rgb(128 128 128) 0%, rgb(181 181 181) 100%);
-
-  :global(.active) & {
-    color: #ffffff;
-    background: linear-gradient(90deg, var(--title-bar) 0%, #1084d0 100%);
-  }
 }
 
 .titlebar__dragarea {
@@ -22,7 +14,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+
+  padding: 6px;
+
+  background: linear-gradient(90deg, rgb(128 128 128) 0%, rgb(181 181 181) 100%);
+
+  :global(.active) & {
+    color: #ffffff;
+    background: linear-gradient(90deg, var(--title-bar) 0%, #1084d0 100%);
+  }
 }
 
 .titlebar__details {

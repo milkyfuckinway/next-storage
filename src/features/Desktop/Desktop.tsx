@@ -34,7 +34,13 @@ export default function Desktop() {
       </div>
       <div className={styles.footer}>
         {openedList.map((file) => (
-          <Anchor active={active} file={file} handleUnhide={handleUnhide} hiddenList={hiddenList} />
+          <Anchor
+            active={active}
+            file={file}
+            handleUnhide={handleUnhide}
+            hiddenList={hiddenList}
+            key={file.id}
+          />
         ))}
       </div>
       <Display />

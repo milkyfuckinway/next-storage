@@ -20,6 +20,9 @@ const images = [
   'icons/notepad16.png',
   'icons/notepad32.png',
   'icons/notepad48.png',
+  'icons/themes16.png',
+  'icons/themes32.png',
+  'icons/themes48.png',
 ];
 
 export default function Preload() {

@@ -1,5 +1,5 @@
 .window {
-  @include border(2px);
+  @include border;
 
   user-select: none;
 
@@ -33,7 +33,7 @@
 }
 
 .content {
-  @include border-active(2px);
+  @include border-active;
 
   height: 100%;
   margin: 8px;

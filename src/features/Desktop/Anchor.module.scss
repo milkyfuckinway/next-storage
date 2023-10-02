@@ -1,5 +1,5 @@
 .anchor {
-  @include border(2px);
+  @include border;
 
   user-select: none;
   flex-shrink: 0;
@@ -7,7 +7,7 @@
   height: 24px;
 
   &.active {
-    @include border-active(2px);
+    @include border-active;
   }
 }
 

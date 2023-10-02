@@ -33,4 +33,8 @@
   :global(.file) &.big {
     background-image: url("/icons/file48.png");
   }
+
+  :global(.toggle-theme) &.big {
+    background-image: url("/icons/themes48.png");
+  }
 }
