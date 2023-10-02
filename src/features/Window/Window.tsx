@@ -1,3 +1,4 @@
+import { Corner } from '@/assets/svg/index.svg';
 import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
@@ -79,7 +80,9 @@ export default function Window({ item }: { item: Item }) {
             dragElastic={0}
             dragMomentum={false}
             style={{ touchAction: 'none', x: handleX, y: handleY }}
-          />
+          >
+            <Corner className={styles.corner} />
+          </motion.div>
         )}
         <TitleBar
           controls={dragControls}
