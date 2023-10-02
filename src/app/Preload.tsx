@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const images = [
-  'interface/corner.png',
+  'interface/corner.svg',
   'icons/briefcase16.png',
   'icons/briefcase32.png',
   'icons/briefcase48.png',

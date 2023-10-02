@@ -58,7 +58,6 @@
   cursor: se-resize;
 
   position: absolute;
-  z-index: 100;
   top: -$size * 2;
   left: -$size * 2;
 
@@ -66,17 +65,8 @@
   height: $size * 3;
 
   opacity: 0.5;
-}
-
-.corner {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-
-  overflow: hidden;
-
-  width: 15px;
-  height: 15px;
-
-  fill: rgb(50 50 50);
+  background-image: url("/interface/corner.svg");
+  background-repeat: no-repeat;
+  background-position: $size / 2 $size / 2;
+  background-size: $size + $size / 4;
 }
