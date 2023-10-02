@@ -58,17 +58,21 @@ const filesSlice = createSlice({
     addHiddenFile(state, action: PayloadAction<string>) {
       state.hiddenList = [...state.hiddenList, action.payload];
     },
+
     addOpenedFile(state, action: PayloadAction<Item>) {
       if (!state.openedList.some((item) => item.id === action.payload.id)) {
         state.openedList.push(action.payload);
       }
     },
+
     increaceZIndex(state) {
       state.zIndex++;
     },
+
     removeHiddenFile(state, action: PayloadAction<string>) {
       state.hiddenList = state.hiddenList.filter((a) => a !== action.payload);
     },
+
     removeOpenedFile(state, action: PayloadAction<Item>) {
       state.openedList = state.openedList.filter((a) => a.id !== action.payload.id);
     },
