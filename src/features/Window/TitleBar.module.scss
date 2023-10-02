@@ -19,7 +19,7 @@
 
   background: linear-gradient(90deg, rgb(128 128 128) 0%, rgb(181 181 181) 100%);
 
-  :global(.active) & {
+  .active & {
     color: #ffffff;
     background: linear-gradient(90deg, var(--title-bar) 0%, #1084d0 100%);
   }

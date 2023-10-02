@@ -53,10 +53,10 @@ export default function Window({ item }: { item: Item }) {
       <motion.div
         className={clsx(
           styles.window,
-          item.type,
-          active === item.id ? 'active' : '',
-          hiddenList.includes(item.id) ? 'hidden' : '',
-          expanded ? 'expanded' : ''
+          styles[item.type],
+          active === item.id ? styles.active : '',
+          hiddenList.includes(item.id) ? styles.hidden : '',
+          expanded ? styles.expanded : ''
         )}
         drag
         dragControls={dragControls}
@@ -82,6 +82,7 @@ export default function Window({ item }: { item: Item }) {
           />
         )}
         <TitleBar
+          active={active === item.id}
           controls={dragControls}
           expanded={expanded}
           item={item}

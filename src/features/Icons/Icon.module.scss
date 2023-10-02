@@ -18,23 +18,39 @@
     height: 16px;
   }
 
-  :global(.folder) &.small {
-    background-image: url("/icons/folder-closed16.png");
+  &.toggle-theme.big {
+    background-image: url("/icons/themes48.png");
   }
 
-  :global(.file) &.small {
-    background-image: url("/icons/file16.png");
+  &.file.big {
+    background-image: url("/icons/notepad48.png");
   }
 
-  :global(.folder) &.big {
-    background-image: url("/icons/folder-closed48.png");
-  }
-
-  :global(.file) &.big {
+  &.file.active.big {
     background-image: url("/icons/file48.png");
   }
 
-  :global(.toggle-theme) &.big {
-    background-image: url("/icons/themes48.png");
+  &.file.small {
+    background-image: url("/icons/notepad16.png");
+  }
+
+  &.file.active.small {
+    background-image: url("/icons/file16.png");
+  }
+
+  &.folder.big {
+    background-image: url("/icons/folder-closed48.png");
+  }
+
+  &.folder.small {
+    background-image: url("/icons/folder-closed16.png");
+  }
+
+  &.folder.active.big {
+    background-image: url("/icons/folder-opened48.png");
+  }
+
+  &.folder.active.small {
+    background-image: url("/icons/folder-opened16.png");
   }
 }

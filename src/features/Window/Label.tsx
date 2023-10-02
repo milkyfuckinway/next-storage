@@ -36,15 +36,15 @@ export default function Label({ item }: { item: Item }) {
 
   return (
     <button
-      className={clsx(
-        styles.label,
-        item.type !== 'button' ? item.type : item.action,
-        openedList.includes(item) ? 'opened' : ''
-      )}
+      className={clsx(styles.label, openedList.includes(item) ? styles.active : '')}
       onClick={handleClick}
       type="button"
     >
-      <Icon size="big" />
+      <Icon
+        active={openedList.includes(item)}
+        icon={item.type !== 'button' ? item.type : item.action}
+        size="big"
+      />
       <div className={styles.label__name}>{item.name}</div>
     </button>
   );

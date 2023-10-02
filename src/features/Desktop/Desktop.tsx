@@ -36,6 +36,9 @@ export default function Desktop() {
         ))}
       </div>
       <div className={styles.footer}>
+        <button className={styles.start} type="button">
+          ПУСК
+        </button>
         {openedList.map((file) => (
           <Anchor
             active={active}

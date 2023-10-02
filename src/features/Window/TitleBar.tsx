@@ -1,4 +1,6 @@
 import { addHiddenFile, removeOpenedFile } from '@/store/files.slice';
+import { useAppSelector } from '@/store/store';
+import clsx from 'clsx';
 import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,17 +10,21 @@ import styles from './TitleBar.module.scss';
 import WindowButton from './WindowButton';
 
 export default function TitleBar({
+  active,
   controls,
   expanded,
   item,
   setExpanded,
 }: {
+  active: boolean;
   controls: DragControls;
   expanded: boolean;
   item: Item;
   setExpanded: React.Dispatch<SetStateAction<boolean>>;
 }) {
   const dispatch = useDispatch();
+
+  const currentActive = useAppSelector((state) => state.files.active);
 
   function startDrag(evt: PointerEvent | React.PointerEvent<Element>) {
     controls.start(evt);
@@ -37,7 +43,7 @@ export default function TitleBar({
   };
 
   return (
-    <div className={styles.titlebar}>
+    <div className={clsx(styles.titlebar, active ? styles.active : '')}>
       <div
         className={styles.titlebar__dragarea}
         onPointerDown={startDrag}
@@ -45,7 +51,7 @@ export default function TitleBar({
       />
       <div className={styles.titlebar__content}>
         <div className={styles.titlebar__details}>
-          <Icon size="small" />
+          <Icon active={currentActive === item.id} icon={item.type} size="small" />
           <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>

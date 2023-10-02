@@ -18,7 +18,6 @@ export default function Anchor({
     <button
       className={clsx(
         styles.anchor,
-        file.type,
         active === file.id ? styles.active : '',
         hiddenList.includes(file.id) ? styles.hidden : ''
       )}
@@ -27,7 +26,7 @@ export default function Anchor({
       type="button"
     >
       <div className={styles.anchor__content}>
-        <Icon size="small" />
+        <Icon active={active === file.id} icon={file.type} size="small" />
         <div className={styles.anchor__text}>{file.name}</div>
       </div>
     </button>

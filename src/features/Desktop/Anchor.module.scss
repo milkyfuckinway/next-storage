@@ -34,22 +34,8 @@
 }
 
 .anchor__icon {
-  flex-shrink: 0;
-
   width: 24px;
   height: 24px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px;
-
-  .folder & {
-    background-image: url("/icons/folder-closed16.png");
-  }
-
-  .file & {
-    background-image: url("/icons/file16.png");
-  }
 }
 
 .anchor__text {

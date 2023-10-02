@@ -33,3 +33,16 @@
 
   background-color: #e6e6e6;
 }
+
+.start {
+  @include border;
+
+  user-select: none;
+  flex-shrink: 0;
+  width: 80px;
+  height: 24px;
+
+  &:active {
+    @include border-active;
+  }
+}
