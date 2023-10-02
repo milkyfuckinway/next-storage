@@ -1,7 +1,8 @@
 .button {
-  $size: 16px;
+  $size: 20px;
+  $type: groove;
 
-  @include border;
+  @include border(2px, $type);
 
   display: flex;
   align-items: center;
@@ -9,15 +10,23 @@
   width: $size;
   height: $size;
 
-  background-color: rgb(192 192 192);
-
-  &:active {
-    @include border-active;
-
-    background-color: rgb(100 100 100);
-  }
+  background-color: rgb(200 200 200);
 
   & svg {
     padding: 2px;
+
+    &.collapse {
+      margin-top: auto;
+    }
+  }
+
+  &:active {
+    @include border-active(2px, $type);
+
+    background-color: rgb(128 128 128);
+
+    & svg {
+      fill: rgb(16 45 208);
+    }
   }
 }
