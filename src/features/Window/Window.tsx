@@ -1,4 +1,5 @@
-import { increaceZIndex, setBackgroundImage, setFileActive } from '@/store/files.slice';
+import { setBackgroundImage } from '@/store/background.slice';
+import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';

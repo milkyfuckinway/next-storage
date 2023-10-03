@@ -15,7 +15,7 @@ export default function Desktop() {
   const hiddenList = useAppSelector((state) => state.files.hiddenList);
   const openedList = useAppSelector((state) => state.files.openedList);
   const active = useAppSelector((state) => state.files.active);
-  const backgroundImage = useAppSelector((state) => state.files.backgroundImage);
+  const backgroundImage = useAppSelector((state) => state.background.backgroundImage);
 
   const handleUnhide = (item: Item) => {
     dispatch(setFileActive(item.id));

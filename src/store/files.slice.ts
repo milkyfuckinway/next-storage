@@ -35,17 +35,37 @@ const files = [
   },
   { action: 'toggle-theme', id: uuidv4(), name: 'Изменить тему', type: 'button' },
   {
-    action: 'image',
+    files: [
+      {
+        action: 'image',
+        id: uuidv4(),
+        name: 'Изображение',
+        src: '/images/uv-texture.png',
+        type: 'image',
+      },
+      {
+        action: 'image',
+        id: uuidv4(),
+        name: 'Изображение',
+        src: '/images/blackThatch.webp',
+        type: 'image',
+      },
+      {
+        action: 'image',
+        id: uuidv4(),
+        name: 'Изображение',
+        src: '/images/land.webp',
+        type: 'image',
+      },
+    ],
     id: uuidv4(),
-    name: 'Изображение',
-    src: '/images/uv-texture.png',
-    type: 'image',
+    name: 'Обои',
+    type: 'folder',
   },
 ];
 
 type InitialState = {
   active: string;
-  backgroundImage: string;
   files: Item[];
   hiddenList: string[];
   openedList: Item[];
@@ -54,7 +74,6 @@ type InitialState = {
 
 const initialState = {
   active: '',
-  backgroundImage: '',
   files,
   hiddenList: [],
   openedList: [],
@@ -87,10 +106,6 @@ const filesSlice = createSlice({
       state.openedList = state.openedList.filter((a) => a.id !== action.payload.id);
     },
 
-    setBackgroundImage(state, action: PayloadAction<string>) {
-      state.backgroundImage = action.payload;
-    },
-
     setFileActive(state, action: PayloadAction<string>) {
       state.active = action.payload;
     },
@@ -103,7 +118,6 @@ export const {
   increaceZIndex,
   removeHiddenFile,
   removeOpenedFile,
-  setBackgroundImage,
   setFileActive,
 } = filesSlice.actions;
 

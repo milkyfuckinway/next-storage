@@ -1,6 +1,6 @@
 .button {
   $size: 20px;
-  $type: groove;
+  $type: solid;
 
   @include border(2px, $type);
 
