@@ -1,11 +1,12 @@
 import { CloseIcon, CollapseIcon, ExpandIcon } from '@/assets/svg/index.svg';
 import clsx from 'clsx';
 
+import ButtonComponent from './ButtonComponent';
 import styles from './WindowButton.module.scss';
 
 export default function WindowButton({ onClick, type }: { onClick: () => void; type: string }) {
   return (
-    <button className={styles.button} onClick={onClick} type="button">
+    <ButtonComponent onClick={onClick}>
       {type === 'collapse' && (
         <div className={clsx(styles.icon, styles.collapse)}>
           <CollapseIcon />
@@ -21,6 +22,6 @@ export default function WindowButton({ onClick, type }: { onClick: () => void; t
           <CloseIcon />
         </div>
       )}
-    </button>
+    </ButtonComponent>
   );
 }
