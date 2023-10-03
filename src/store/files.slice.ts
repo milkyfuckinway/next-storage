@@ -1,51 +1,60 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-type InitialState = {
-  active: string;
-  files: Item[];
-  hiddenList: string[];
-  openedList: Item[];
-  zIndex: number;
-};
+import { v4 as uuidv4 } from 'uuid';
 
 const files = [
   {
     files: [
       {
         content: { link: 'link-d', paragraph: 'paragraph-d' },
-        id: '4',
+        id: uuidv4(),
         name: 'd',
         type: 'file',
       },
       {
         content: { link: 'link-e', paragraph: 'paragraph-e' },
-        id: '5',
+        id: uuidv4(),
         name: 'e',
         type: 'file',
       },
     ],
-    id: '1',
+    id: uuidv4(),
     name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     type: 'folder',
   },
   {
     content: { link: 'link-b', paragraph: 'paragraph-b' },
-    id: '2',
+    id: uuidv4(),
     name: 'bbbbbbbbb bbbbbb bbbbbbbb',
     type: 'file',
   },
   {
     content: { link: 'link-c', paragraph: 'paragraph-c' },
-    id: '3',
+    id: uuidv4(),
     name: 'c',
     type: 'file',
   },
-  { action: 'toggle-theme', id: '7', name: 'Изменить тему', type: 'button' },
-  { action: 'image', id: '8', name: 'Изображение', src: '/images/uv-texture.png', type: 'image' },
+  { action: 'toggle-theme', id: uuidv4(), name: 'Изменить тему', type: 'button' },
+  {
+    action: 'image',
+    id: uuidv4(),
+    name: 'Изображение',
+    src: '/images/uv-texture.png',
+    type: 'image',
+  },
 ];
+
+type InitialState = {
+  active: string;
+  backgroundImage: string;
+  files: Item[];
+  hiddenList: string[];
+  openedList: Item[];
+  zIndex: number;
+};
 
 const initialState = {
   active: '',
+  backgroundImage: '',
   files,
   hiddenList: [],
   openedList: [],
@@ -78,6 +87,10 @@ const filesSlice = createSlice({
       state.openedList = state.openedList.filter((a) => a.id !== action.payload.id);
     },
 
+    setBackgroundImage(state, action: PayloadAction<string>) {
+      state.backgroundImage = action.payload;
+    },
+
     setFileActive(state, action: PayloadAction<string>) {
       state.active = action.payload;
     },
@@ -90,6 +103,7 @@ export const {
   increaceZIndex,
   removeHiddenFile,
   removeOpenedFile,
+  setBackgroundImage,
   setFileActive,
 } = filesSlice.actions;
 

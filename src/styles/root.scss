@@ -1,4 +1,17 @@
-/*
+:root {
+  --dvh: 100vh;
+  --fz: 14px;
+
+  // 48px + fz*2 + gap(4px)
+  --square: calc(48px + 14px + 14px + 4px);
+}
+
+// Resources
+// https://www.ncscolorguide.com/ncs/s-0300-s-0585
+// https://margaret2.github.io/pantone-colors/
+// https://www.pantone-colours.com/
+
+// Palettes
 
 // Pantone colors
 $pantone-bright-white: #f4f5f0;
@@ -16,52 +29,24 @@ $pantone-solar-power: #f4bf3a;
 
 $modded-pantone-phantom-darker: hsl(260 3% 14%);
 
-*/
-
-:root {
-  --dvh: 100vh;
-  --fz: 14px;
-
-  // 48px + fz*2 + gap(4px)
-  --square: calc(48px + 14px + 14px + 4px);
-}
-
 :root[data-theme="light"] {
-  --title-bar: #{#000080};
+  --title-bar-start: #{#000080};
+  --title-bar-end: #{#1084d0};
   --background-primary: #{$pantone-bright-white};
   --background-secondary: #{$pantone-bright-cobalt};
   --text-primary: #{$pantone-jet-black};
   --text-secondary: #{$pantone-bright-white};
   --accent: #{#ff0000};
-  --theme-icon: #{$pantone-solar-power};
-  --theme-icon-background: #{$pantone-twilight-blue};
-  --theme-switch-background: #{$pantone-dusk-blue};
   --spinner: #{$pantone-night-sky};
-  --switch-background: #{$pantone-dusk-blue};
-  --switch-pin: #{$pantone-twilight-blue};
-  --button-primary-background: #{$pantone-bright-cobalt};
-  --button-primary-text: #{$pantone-bright-white};
-  --list-background: #{$pantone-bright-cobalt};
-  --progressbar: #{$pantone-dusk-blue};
-  --selected: #{$pantone-dusk-blue};
 }
 
 :root[data-theme="dark"] {
-  --title-bar: #{#000080};
+  --title-bar-start: #{hsl(0, 0%, 10%)};
+  --title-bar-end: #{hsl(0, 0%, 35%)};
   --background-primary: #{$pantone-phantom};
   --background-secondary: #{$pantone-jet-black};
   --text-primary: #{$pantone-bright-white};
   --text-secondary: #{$pantone-bright-white};
   --accent: #{#ff0000};
-  --theme-icon: #{$pantone-moonbeam};
-  --theme-icon-background: #{$pantone-night-sky};
-  --theme-switch-background: #{$pantone-phantom};
   --spinner: #{$pantone-bright-white};
-  --switch-background: #{$pantone-phantom};
-  --switch-pin: #{$pantone-moonbeam};
-  --button-primary-background: #{$pantone-jet-black};
-  --button-primary-text: #{$pantone-bright-white};
-  --list-background: #{$pantone-jet-black};
-  --progressbar: #{$pantone-moonbeam};
-  --selected: #{$modded-pantone-phantom-darker};
 }

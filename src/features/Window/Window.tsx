@@ -1,4 +1,4 @@
-import { increaceZIndex, setFileActive } from '@/store/files.slice';
+import { increaceZIndex, setBackgroundImage, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';
@@ -46,6 +46,10 @@ export default function Window({ item }: { item: Item }) {
     }
   };
 
+  const onSetWallpaper = (img: string) => {
+    dispatch(setBackgroundImage(img));
+  };
+
   const { left, top } = calculatePosition(openedList.length - hiddenList.length);
 
   return (
@@ -89,6 +93,11 @@ export default function Window({ item }: { item: Item }) {
           item={item}
           setExpanded={setExpanded}
         />
+        {item.type === 'image' && (
+          <button onClick={() => onSetWallpaper(item.src)} type="button">
+            Установить как обои
+          </button>
+        )}
         <div className={styles.content}>
           {item.type === 'folder' &&
             item.files &&

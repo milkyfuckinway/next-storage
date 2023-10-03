@@ -15,6 +15,7 @@ export default function Desktop() {
   const hiddenList = useAppSelector((state) => state.files.hiddenList);
   const openedList = useAppSelector((state) => state.files.openedList);
   const active = useAppSelector((state) => state.files.active);
+  const backgroundImage = useAppSelector((state) => state.files.backgroundImage);
 
   const handleUnhide = (item: Item) => {
     dispatch(setFileActive(item.id));
@@ -27,7 +28,7 @@ export default function Desktop() {
 
   return (
     <div className={styles.screen}>
-      <div className={styles.desktop}>
+      <div className={styles.desktop} style={{ backgroundImage: `url(${backgroundImage})` }}>
         {files.map((item) => (
           <Label item={item} key={item.id} />
         ))}
