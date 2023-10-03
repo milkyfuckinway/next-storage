@@ -47,7 +47,7 @@ const files = [
         action: 'image',
         id: uuidv4(),
         name: 'Изображение',
-        src: '/images/blackThatch.webp',
+        src: '/images/black-thatch.webp',
         type: 'image',
       },
       {
