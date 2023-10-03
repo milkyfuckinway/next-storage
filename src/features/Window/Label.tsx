@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import Icon from '../Icons/Icon';
 import styles from './Label.module.scss';
 
-export default function Label({ item }: { item: Item }) {
+export default function Label({ item }: { item: DesktopFile }) {
   const dispatch = useDispatch();
   const globalZIndex = useAppSelector((state) => state.files.zIndex);
   const windowRef = useRef<HTMLDivElement>(null);

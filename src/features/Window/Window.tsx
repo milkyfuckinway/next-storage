@@ -1,4 +1,3 @@
-import { setBackgroundImage } from '@/store/background.slice';
 import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
@@ -7,6 +6,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import ImageBar from './ImageBar';
 import Label from './Label';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
@@ -19,7 +19,7 @@ const calculatePosition = (cycle: number) => {
   return { left, top };
 };
 
-export default function Window({ item }: { item: Item }) {
+export default function Window({ item }: { item: DesktopFile }) {
   const dispatch = useDispatch();
 
   const active = useAppSelector((state) => state.files.active);
@@ -46,11 +46,6 @@ export default function Window({ item }: { item: Item }) {
       dispatch(increaceZIndex());
     }
   };
-
-  const onSetWallpaper = (img: string) => {
-    dispatch(setBackgroundImage(img));
-  };
-
   const { left, top } = calculatePosition(openedList.length - hiddenList.length);
 
   return (
@@ -94,17 +89,13 @@ export default function Window({ item }: { item: Item }) {
           item={item}
           setExpanded={setExpanded}
         />
-        {item.type === 'image' && (
-          <button onClick={() => onSetWallpaper(item.src)} type="button">
-            Установить как обои
-          </button>
-        )}
+        {item.type === 'image' && <ImageBar item={item} />}
         <div className={styles.content}>
           {item.type === 'folder' &&
             item.files &&
             item.files.map((a) => <Label item={a} key={a.id} />)}
 
-          {item.type === 'file' && item.content && (
+          {item.type === 'text' && item.content && (
             <>
               <a href={item.content?.link}>{item.content.link}</a>
               <p>{item.content?.paragraph}</p>

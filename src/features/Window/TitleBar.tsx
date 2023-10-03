@@ -19,7 +19,7 @@ export default function TitleBar({
   active: boolean;
   controls: DragControls;
   expanded: boolean;
-  item: Item;
+  item: DesktopFile;
   setExpanded: React.Dispatch<SetStateAction<boolean>>;
 }) {
   const dispatch = useDispatch();

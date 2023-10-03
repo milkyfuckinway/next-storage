@@ -5,35 +5,35 @@ declare module '*.svg' {
   export default SVG;
 }
 
-interface BaseItem {
+interface BaseFile {
   id: string;
   name: string;
   type: string;
 }
 
-interface Content {
+interface TextContent {
   link: string;
   paragraph: string;
 }
 
-interface File extends BaseItem {
-  content: Content;
-  type: 'file';
+interface TextFile extends BaseFile {
+  content: TextContent;
+  type: 'text';
 }
 
-interface Folder extends BaseItem {
-  files: File[];
+interface FolderFile extends BaseFile {
+  files: TextFile[];
   type: 'folder';
 }
 
-interface Button extends BaseItem {
+interface ButtonFile extends BaseFile {
   action: 'toggle-theme';
   type: 'button';
 }
 
-interface Image extends BaseItem {
+interface ImageFile extends BaseFile {
   src: string;
   type: 'image';
 }
 
-type Item = Button | File | Folder | Image;
+type DesktopFile = ButtonFile | FolderFile | ImageFile | TextFile;

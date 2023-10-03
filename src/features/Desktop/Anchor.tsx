@@ -10,8 +10,8 @@ export default function Anchor({
   hiddenList,
 }: {
   active: string;
-  file: Item;
-  handleUnhide: (item: Item) => void;
+  file: DesktopFile;
+  handleUnhide: (item: DesktopFile) => void;
   hiddenList: string[];
 }) {
   return (
