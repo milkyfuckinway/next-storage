@@ -21,7 +21,7 @@
 
   background-image: var(--wallpaper-image);
   background-position: var(--wallpaper-position);
-  background-size: cover;
+  background-size: var(--wallpaper-size);
 }
 
 .footer {

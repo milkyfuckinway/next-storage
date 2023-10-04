@@ -14,6 +14,10 @@ export default function ImageBar({ item }: { item: ImageFile }) {
     document.documentElement.style.setProperty('--wallpaper-position', position);
   };
 
+  const onSetSize = (size: string) => {
+    document.documentElement.style.setProperty('--wallpaper-size', size);
+  };
+
   return (
     <div className={styles.imagebar}>
       <ButtonComponent onClick={() => onSetWallpaper(item.src)}>
@@ -27,6 +31,9 @@ export default function ImageBar({ item }: { item: ImageFile }) {
         <ButtonComponent onClick={() => onSetPosition('right')}>→</ButtonComponent>
         <ButtonComponent onClick={() => onSetPosition('bottom')}>↓</ButtonComponent>
       </div>
+      <ButtonComponent onClick={() => onSetSize('auto')}>auto</ButtonComponent>
+      <ButtonComponent onClick={() => onSetSize('contain')}>contain</ButtonComponent>
+      <ButtonComponent onClick={() => onSetSize('cover')}>cover</ButtonComponent>
     </div>
   );
 }
