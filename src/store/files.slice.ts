@@ -1,64 +1,63 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 
 const files = [
   {
     files: [
       {
         content: { link: 'link-d', paragraph: 'paragraph-d' },
-        id: uuidv4(),
+        id: '5',
         name: 'd',
         type: 'text',
       },
       {
         content: { link: 'link-e', paragraph: 'paragraph-e' },
-        id: uuidv4(),
+        id: '6',
         name: 'e',
         type: 'text',
       },
     ],
-    id: uuidv4(),
+    id: '1',
     name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     type: 'folder',
   },
   {
     content: { link: 'link-b', paragraph: 'paragraph-b' },
-    id: uuidv4(),
+    id: '2',
     name: 'bbbbbbbbb bbbbbb bbbbbbbb',
     type: 'text',
   },
   {
     content: { link: 'link-c', paragraph: 'paragraph-c' },
-    id: uuidv4(),
+    id: '3',
     name: 'c',
     type: 'text',
   },
-  { action: 'toggle-theme', id: uuidv4(), name: 'Изменить тему', type: 'button' },
+  { action: 'toggle-theme', id: '7', name: 'Изменить тему', type: 'button' },
   {
     files: [
       {
         action: 'image',
-        id: uuidv4(),
+        id: '8',
         name: 'Изображение',
         src: '/images/uv-texture.png',
         type: 'image',
       },
       {
         action: 'image',
-        id: uuidv4(),
+        id: '9',
         name: 'Изображение',
         src: '/images/black-thatch.webp',
         type: 'image',
       },
       {
         action: 'image',
-        id: uuidv4(),
+        id: '10',
         name: 'Изображение',
         src: '/images/land.webp',
         type: 'image',
       },
     ],
-    id: uuidv4(),
+    id: '4',
     name: 'Обои',
     type: 'folder',
   },
