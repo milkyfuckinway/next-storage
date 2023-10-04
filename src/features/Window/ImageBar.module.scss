@@ -1,0 +1,30 @@
+.position {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 60px;
+
+  & button {
+    height: 20px;
+  }
+
+  & button:nth-child(1) {
+    grid-area: 1 / 2;
+  }
+
+  & button:nth-child(2) {
+    grid-area: 2 / 1;
+  }
+
+  & button:nth-child(3) {
+    grid-area: 2 / 2;
+  }
+
+  & button:nth-child(4) {
+    grid-area: 2 / 3;
+  }
+
+  & button:nth-child(5) {
+    grid-area: 3 / 2;
+  }
+}

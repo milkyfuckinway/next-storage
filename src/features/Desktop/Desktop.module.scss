@@ -19,7 +19,8 @@
 
   padding: 5px;
 
-  background-position: center;
+  background-image: var(--wallpaper-image);
+  background-position: var(--wallpaper-position);
   background-size: cover;
 }
 
