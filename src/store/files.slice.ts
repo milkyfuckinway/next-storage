@@ -1,4 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
+
+// eslint-disable-next-line no-console
+console.log(nanoid());
 
 const files = [
   {
@@ -60,6 +64,12 @@ const files = [
     id: '8fMd6-ag08Yg6zBNOKhRU',
     name: 'Обои',
     type: 'folder',
+  },
+  {
+    application: 'explorer',
+    id: 'PMRE0gXoIebjAzVX6_TPb',
+    name: 'Internet Explorer',
+    type: 'application',
   },
 ];
 

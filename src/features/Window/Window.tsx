@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import InternetExplorer from '../Applications/InternetExplorer';
 import ImageBar from './ImageBar';
 import Label from './Label';
 import TitleBar from './TitleBar';
@@ -118,6 +119,7 @@ export default function Window({ item }: { item: DesktopFile }) {
               <Image alt="image" height={100} src={item.src} width={100} />
             </div>
           )}
+          {item.type === 'application' && <InternetExplorer />}
         </div>
       </motion.div>
     )

@@ -52,7 +52,16 @@ export default function Label({ item }: { item: DesktopFile }) {
     >
       <Icon
         active={openedList.includes(item)}
-        icon={item.type !== 'button' ? item.type : item.action}
+        icon={(() => {
+          switch (item.type) {
+            case 'button':
+              return item.action;
+            case 'application':
+              return item.application;
+            default:
+              return item.type;
+          }
+        })()}
         size="big"
         src={item.type === 'image' ? item.src : ''}
       />

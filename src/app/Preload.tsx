@@ -23,6 +23,9 @@ const images = [
   'icons/themes16.png',
   'icons/themes32.png',
   'icons/themes48.png',
+  'icons/internetexplorer16.png',
+  'icons/internetexplorer32.png',
+  'icons/internetexplorer48.png',
 ];
 
 export default function Preload() {

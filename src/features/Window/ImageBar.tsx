@@ -25,7 +25,7 @@ export default function ImageBar({ item }: { item: ImageFile }) {
     <div className={styles.imagebar}>
       <ButtonComponent onClick={() => setSettings(!settings)}>Настройки</ButtonComponent>
       {settings && (
-        <div>
+        <div className={styles.settings}>
           <ButtonComponent onClick={() => onSetWallpaper(item.src)}>
             Установить как обои
           </ButtonComponent>

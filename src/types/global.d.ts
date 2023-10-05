@@ -35,5 +35,9 @@ interface ImageFile extends BaseFile {
   src: string;
   type: 'image';
 }
+interface Application extends BaseFile {
+  application: 'explorer';
+  type: 'application';
+}
 
-type DesktopFile = ButtonFile | FolderFile | ImageFile | TextFile;
+type DesktopFile = Application | ButtonFile | FolderFile | ImageFile | TextFile;

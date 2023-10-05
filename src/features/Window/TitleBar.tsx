@@ -53,7 +53,7 @@ export default function TitleBar({
         <div className={styles.titlebar__details}>
           <Icon
             active={currentActive === item.id}
-            icon={item.type}
+            icon={item.type !== 'application' ? item.type : item.application}
             size="small"
             src={item.type === 'image' ? item.src : ''}
           />
