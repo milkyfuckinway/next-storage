@@ -61,7 +61,7 @@
   }
 }
 
-.pin {
+.corner {
   $size: 10px;
 
   cursor: se-resize;
@@ -72,12 +72,19 @@
 
   width: $size * 3;
   height: $size * 3;
+}
+
+.pin {
+  $size: 10px;
+
+  width: 100%;
+  height: 100%;
 
   opacity: 0.5;
   background-image: url("/interface/corner.svg");
   background-repeat: no-repeat;
-  background-position: $size / 2 $size / 2;
-  background-size: $size + $size / 4;
+  background-position: 5px 5px;
+  background-size: 12px;
 }
 
 .image {

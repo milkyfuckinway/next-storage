@@ -15,8 +15,8 @@ const displayWidth = window.innerWidth;
 const displayHeight = window.innerHeight;
 
 const calculatePosition = (cycle: number) => {
-  const left = `${displayWidth * 0.1 + cycle * 10}px`;
-  const top = `${displayHeight * 0.1 + cycle * 10}px`;
+  const left = `${(displayWidth - displayWidth * 0.7) / 2 + cycle * 20}px`;
+  const top = `${(displayHeight - displayHeight * 0.5) / 2 + cycle * 20}px`;
   return { left, top };
 };
 
@@ -84,14 +84,16 @@ export default function Window({ item }: { item: DesktopFile }) {
       >
         {!expanded && (
           <motion.div
-            className={styles.pin}
+            className={styles.corner}
             drag
             dragConstraints={{ left: 200, top: 140 }}
             dragControls={resizeControls}
             dragElastic={0}
             dragMomentum={false}
             style={{ touchAction: 'none', x: handleX, y: handleY }}
-          />
+          >
+            <div className={styles.pin} />
+          </motion.div>
         )}
         <TitleBar
           active={active === item.id}
