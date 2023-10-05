@@ -1,3 +1,18 @@
+// Resources
+// https://www.ncscolorguide.com/ncs/s-0300-s-0585
+// https://margaret2.github.io/pantone-colors/
+// https://www.pantone-colours.com/
+
+// Palettes
+
+// Pantone colors
+$pantone-bright-white: #f4f5f0;
+$pantone-night-sky: #2a2a35;
+
+// Modded
+
+$modded-pantone-phantom-darker: hsl(260 3% 14%);
+
 :root {
   --dvh: 100vh;
   --fz: 14px;
@@ -9,50 +24,16 @@
   --wallpaper-image: "";
   --wallpaper-position: center;
 
-  // --wallpaper-size: center;
-}
-
-// Resources
-// https://www.ncscolorguide.com/ncs/s-0300-s-0585
-// https://margaret2.github.io/pantone-colors/
-// https://www.pantone-colours.com/
-
-// Palettes
-
-// Pantone colors
-$pantone-bright-white: #f4f5f0;
-$pantone-moonbeam: #cdc6bd;
-$pantone-silver: #a2a2a1;
-$pantone-dusk-blue: #7ba0c0;
-$pantone-bright-cobalt: #385d8d;
-$pantone-twilight-blue: #313d64;
-$pantone-night-sky: #2a2a35;
-$pantone-jet-black: #2d2c2f;
-$pantone-phantom: #39373b;
-$pantone-solar-power: #f4bf3a;
-
-// Modded
-
-$modded-pantone-phantom-darker: hsl(260 3% 14%);
-
-:root[data-theme="light"] {
-  --title-bar-start: #{#000080};
-  --title-bar-end: #{#1084d0};
-  --background-primary: #{$pantone-bright-white};
-  --background-secondary: #{$pantone-bright-cobalt};
-  --text-primary: #{$pantone-jet-black};
-  --text-secondary: #{$pantone-bright-white};
-  --accent: #{#ff0000};
+  // colors
+  --text-primary: #000000;
+  --system-gray: rgb(192 192 192);
+  --system-background: #ffffff;
   --spinner: #{$pantone-night-sky};
 }
 
 :root[data-theme="dark"] {
-  --title-bar-start: #{hsl(0, 0%, 10%)};
-  --title-bar-end: #{hsl(0, 0%, 35%)};
-  --background-primary: #{$pantone-phantom};
-  --background-secondary: #{$pantone-jet-black};
-  --text-primary: #{$pantone-bright-white};
-  --text-secondary: #{$pantone-bright-white};
-  --accent: #{#ff0000};
+  --text-primary: #ffffff;
+  --system-gray: hsl(0 0% 20%);
+  --system-background: hsl(0 0% 25%);
   --spinner: #{$pantone-bright-white};
 }

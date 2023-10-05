@@ -11,12 +11,19 @@ import Label from './Label';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
+const displayWidth = window.innerWidth;
+const displayHeight = window.innerHeight;
+
 const calculatePosition = (cycle: number) => {
-  // const displayWidth = window.innerWidth;
-  // const displayHeight = window.innerHeight;
-  const left = `${50 + cycle * 10}px`;
-  const top = `${200 + cycle * 10}px`;
+  const left = `${displayWidth * 0.1 + cycle * 10}px`;
+  const top = `${displayHeight * 0.1 + cycle * 10}px`;
   return { left, top };
+};
+
+const calculateWidth = () => {
+  const width = displayWidth * 0.7;
+  const height = displayHeight * 0.5;
+  return { height, width };
 };
 
 export default function Window({ item }: { item: DesktopFile }) {
@@ -29,8 +36,10 @@ export default function Window({ item }: { item: DesktopFile }) {
 
   const [expanded, setExpanded] = useState(false);
 
-  const handleX = useMotionValue(300);
-  const handleY = useMotionValue(200);
+  const { height, width } = calculateWidth();
+
+  const handleX = useMotionValue(width);
+  const handleY = useMotionValue(height);
 
   const windowWidth = useTransform(handleX, [0, 10000], [0, 10000]);
   const windowHeight = useTransform(handleY, [0, 10000], [0, 10000]);
@@ -39,6 +48,7 @@ export default function Window({ item }: { item: DesktopFile }) {
   const resizeControls = useDragControls();
 
   const windowRef = useRef<HTMLDivElement>(null);
+
   const setCurrentFileActive = () => {
     dispatch(setFileActive(item.id));
     if (windowRef.current) {
@@ -46,6 +56,7 @@ export default function Window({ item }: { item: DesktopFile }) {
       dispatch(increaceZIndex());
     }
   };
+
   const { left, top } = calculatePosition(openedList.length - hiddenList.length);
 
   return (

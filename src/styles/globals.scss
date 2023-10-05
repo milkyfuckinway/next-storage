@@ -38,16 +38,8 @@ body {
 body {
   display: flex;
   flex-direction: column;
-
   min-height: var(--dvh);
-
-  color: var(--text-primary);
-
-  background-color: var(--background-primary);
-
-  transition:
-    color $td,
-    background-color $td;
+  color: #000000;
 }
 
 .no-transition {
