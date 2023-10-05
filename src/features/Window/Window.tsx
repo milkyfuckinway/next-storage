@@ -91,9 +91,7 @@ export default function Window({ item }: { item: DesktopFile }) {
             dragElastic={0}
             dragMomentum={false}
             style={{ touchAction: 'none', x: handleX, y: handleY }}
-          >
-            <div className={styles.pin} />
-          </motion.div>
+          />
         )}
         <TitleBar
           active={active === item.id}
