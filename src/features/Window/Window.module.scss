@@ -5,6 +5,7 @@
 
   position: absolute;
 
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 
@@ -53,8 +54,8 @@
   cursor: se-resize;
 
   position: absolute;
-  top: -$size * 2;
-  left: -$size * 2;
+  top: -$size * 3;
+  left: -$size * 3;
 
   width: $size * 3;
   height: $size * 3;

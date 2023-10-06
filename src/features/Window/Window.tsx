@@ -5,7 +5,6 @@ import { motion, useDragControls, useMotionValue, useTransform } from 'framer-mo
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import InternetExplorer from '../Applications/InternetExplorer';
 import WindowFolder from '../Applications/WindowFolder';
 import WindowImage from '../Applications/WindowImage';
 import WindowText from '../Applications/WindowText';
@@ -101,11 +100,13 @@ export default function Window({ item }: { item: DesktopFile }) {
           item={item}
           setExpanded={setExpanded}
         />
-        {item.type === 'folder' && <WindowFolder item={item} />}
-        {item.type === 'text' && <WindowText item={item} />}
+        {/* Image */}
         {item.type === 'image' && <ImageBar item={item} />}
         {item.type === 'image' && <WindowImage item={item} />}
-        {item.type === 'application' && <InternetExplorer />}
+        {/* Folder */}
+        {item.type === 'folder' && <WindowFolder item={item} />}
+        {/* Text */}
+        {item.type === 'text' && <WindowText item={item} />}
       </motion.div>
     )
   );

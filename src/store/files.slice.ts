@@ -80,13 +80,6 @@ const files = [
     name: 'Обои',
     type: 'folder',
   },
-  {
-    application: 'explorer',
-    icon: 'explorer',
-    id: 'PMRE0gXoIebjAzVX6_TPb',
-    name: 'Internet Explorer',
-    type: 'application',
-  },
 ];
 
 type InitialState = {

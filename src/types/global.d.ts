@@ -9,7 +9,7 @@ interface BaseFile {
   icon: string;
   id: string;
   name: string;
-  type: string;
+  type: 'button' | 'folder' | 'image' | 'text';
 }
 
 interface TextContent {
@@ -36,9 +36,5 @@ interface ImageFile extends BaseFile {
   src: string;
   type: 'image';
 }
-interface Application extends BaseFile {
-  application: 'explorer';
-  type: 'application';
-}
 
-type DesktopFile = Application | ButtonFile | FolderFile | ImageFile | TextFile;
+type DesktopFile = ButtonFile | FolderFile | ImageFile | TextFile;

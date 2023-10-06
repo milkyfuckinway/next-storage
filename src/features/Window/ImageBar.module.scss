@@ -1,6 +1,10 @@
+.imagebar {
+  width: 100%;
+  background-color: var(--system-gray);
+}
+
 .settings {
   display: grid;
-  grid-template-columns: auto auto auto;
 }
 
 .position {
