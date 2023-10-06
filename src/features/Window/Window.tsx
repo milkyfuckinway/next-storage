@@ -86,7 +86,7 @@ export default function Window({ item }: { item: DesktopFile }) {
           <motion.div
             className={styles.corner}
             drag
-            dragConstraints={{ left: 200, top: 140 }}
+            dragConstraints={{ left: 200, top: 50 }}
             dragControls={resizeControls}
             dragElastic={0}
             dragMomentum={false}

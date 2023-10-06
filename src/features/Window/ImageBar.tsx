@@ -1,3 +1,4 @@
+import { Arrow, Center } from '@/assets/svg/index.svg';
 import { useState } from 'react';
 
 import ButtonComponent from './ButtonComponent';
@@ -31,11 +32,33 @@ export default function ImageBar({ item }: { item: ImageFile }) {
           </ButtonComponent>
           <ButtonComponent onClick={() => onResetWallpaper()}>Сбросить обои</ButtonComponent>
           <div className={styles.position}>
-            <ButtonComponent onClick={() => onSetPosition('top')}>↑</ButtonComponent>
-            <ButtonComponent onClick={() => onSetPosition('left')}>←</ButtonComponent>
-            <ButtonComponent onClick={() => onSetPosition('center')}>↔</ButtonComponent>
-            <ButtonComponent onClick={() => onSetPosition('right')}>→</ButtonComponent>
-            <ButtonComponent onClick={() => onSetPosition('bottom')}>↓</ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('top left')}>
+              <Arrow style={{ rotate: '-45deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('top center')}>
+              <Arrow />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('top right')}>
+              <Arrow style={{ rotate: '45deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('left')}>
+              <Arrow style={{ rotate: '-90deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('center')}>
+              <Center />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('right')}>
+              <Arrow style={{ rotate: '90deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('bottom left')}>
+              <Arrow style={{ rotate: '-135deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('bottom center')}>
+              <Arrow style={{ rotate: '-180deg' }} />
+            </ButtonComponent>
+            <ButtonComponent onClick={() => onSetPosition('bottom right')}>
+              <Arrow style={{ rotate: '135deg' }} />
+            </ButtonComponent>
           </div>
           <ButtonComponent onClick={() => onSetSize('auto')}>Замостить</ButtonComponent>
           <ButtonComponent onClick={() => onSetSize('contain')}>По размеру</ButtonComponent>
