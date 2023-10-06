@@ -1,28 +1,42 @@
 .imagebar {
+  position: relative;
   width: 100%;
   background-color: var(--system-gray);
 }
 
 .settings {
-  display: grid;
+  position: absolute;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: var(--system-gray);
+
+  & button {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    height: 30px;
+    padding: 0 5px;
+
+    font-size: 14px;
+    line-height: 14px;
+
+    &.with-svg {
+      justify-content: space-between;
+    }
+
+    & svg {
+      width: auto;
+      height: 100%;
+      padding: 2px;
+    }
+  }
 }
 
 .position {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  width: 60px;
-
-  & button {
-    width: 20px;
-    height: 20px;
-    font-size: 14px;
-    line-height: 14px;
-
-    & svg {
-      width: 100%;
-      height: 100%;
-      padding: 2px;
-    }
-  }
+  width: 100%;
 }

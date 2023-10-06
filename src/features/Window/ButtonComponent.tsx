@@ -1,15 +1,21 @@
+import clsx from 'clsx';
+
 import styles from './ButtonComponent.module.scss';
 
-export default function ButtonComponent({
-  children,
-  onClick,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-}) {
+export default function ButtonComponent({ children, className, onClick }: ButtonProps) {
   return (
-    <button className={styles.button} onClick={onClick} type="button">
+    <button className={clsx(styles.button, className)} onClick={onClick} type="button">
       {children}
     </button>
   );
 }
+
+interface ButtonProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick: () => void;
+}
+
+ButtonComponent.defaultProps = {
+  className: '',
+};

@@ -1,5 +1,6 @@
-import { Arrow, Center } from '@/assets/svg/index.svg';
-import { useState } from 'react';
+import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/assets/svg/index.svg';
+import { useAppSelector } from '@/store/store';
+import { useEffect, useState } from 'react';
 
 import ButtonComponent from './ButtonComponent';
 import styles from './ImageBar.module.scss';
@@ -20,8 +21,20 @@ const onSetSize = (size: string) => {
   document.documentElement.style.setProperty('--wallpaper-size', size);
 };
 
+const onSetRepeat = (repeat: string) => {
+  document.documentElement.style.setProperty('--wallpaper-repeat', repeat);
+};
+
 export default function ImageBar({ item }: { item: ImageFile }) {
   const [settings, setSettings] = useState(false);
+  const active = useAppSelector((state) => state.files.active);
+
+  useEffect(() => {
+    if (item.id !== active) {
+      setSettings(false);
+    }
+  }, [active, item.id]);
+
   return (
     <div className={styles.imagebar}>
       <ButtonComponent onClick={() => setSettings(!settings)}>Настройки</ButtonComponent>
@@ -60,9 +73,30 @@ export default function ImageBar({ item }: { item: ImageFile }) {
               <Arrow style={{ rotate: '135deg' }} />
             </ButtonComponent>
           </div>
-          <ButtonComponent onClick={() => onSetSize('auto')}>Замостить</ButtonComponent>
-          <ButtonComponent onClick={() => onSetSize('contain')}>По размеру</ButtonComponent>
-          <ButtonComponent onClick={() => onSetSize('cover')}>Заполнение</ButtonComponent>
+          <ButtonComponent
+            className={styles['with-svg']}
+            onClick={() => {
+              onSetSize('auto');
+              onSetRepeat('repeat');
+            }}
+          >
+            <span>Мозайка</span>
+            <IconTile />
+          </ButtonComponent>
+          <ButtonComponent
+            className={styles['with-svg']}
+            onClick={() => {
+              onSetSize('auto');
+              onSetRepeat('no-repeat');
+            }}
+          >
+            <span>По размеру</span>
+            <IconCenter />
+          </ButtonComponent>
+          <ButtonComponent className={styles['with-svg']} onClick={() => onSetSize('cover')}>
+            <span>Заполнение</span>
+            <IconExpand />
+          </ButtonComponent>
         </div>
       )}
     </div>
