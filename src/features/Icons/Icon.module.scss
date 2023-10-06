@@ -27,7 +27,7 @@
     background-image: url("/icons/notepad48.png");
   }
 
-  &.text.active.big {
+  &.text.opened.big {
     background-image: url("/icons/file48.png");
   }
 
@@ -35,7 +35,7 @@
     background-image: url("/icons/notepad16.png");
   }
 
-  &.text.active.small {
+  &.text.opened.small {
     background-image: url("/icons/file16.png");
   }
 
@@ -47,11 +47,11 @@
     background-image: url("/icons/folder-closed16.png");
   }
 
-  &.folder.active.big {
+  &.folder.opened.big {
     background-image: url("/icons/folder-opened48.png");
   }
 
-  &.folder.active.small {
+  &.folder.opened.small {
     background-image: url("/icons/folder-opened16.png");
   }
 

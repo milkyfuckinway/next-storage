@@ -11,7 +11,7 @@ export default function Anchor({
 }: {
   active: string;
   file: DesktopFile;
-  handleUnhide: (item: DesktopFile) => void;
+  handleUnhide: (file: DesktopFile) => void;
   hiddenList: string[];
 }) {
   return (
@@ -26,12 +26,7 @@ export default function Anchor({
       type="button"
     >
       <div className={styles.anchor__content}>
-        <Icon
-          active={active === file.id}
-          icon={file.type}
-          size="small"
-          src={file.type === 'image' ? file.src : ''}
-        />
+        <Icon item={file} size="small" />
         <div className={styles.anchor__text}>{file.name}</div>
       </div>
     </button>

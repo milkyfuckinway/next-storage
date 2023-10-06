@@ -2,13 +2,14 @@ import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import InternetExplorer from '../Applications/InternetExplorer';
+import WindowFolder from '../Applications/WindowFolder';
+import WindowImage from '../Applications/WindowImage';
+import WindowText from '../Applications/WindowText';
 import ImageBar from './ImageBar';
-import Label from './Label';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
@@ -66,7 +67,6 @@ export default function Window({ item }: { item: DesktopFile }) {
       <motion.div
         className={clsx(
           styles.window,
-          styles[item.type],
           active === item.id ? styles.active : '',
           hiddenList.includes(item.id) ? styles.hidden : '',
           expanded ? styles.expanded : ''
@@ -101,26 +101,11 @@ export default function Window({ item }: { item: DesktopFile }) {
           item={item}
           setExpanded={setExpanded}
         />
+        {item.type === 'folder' && <WindowFolder item={item} />}
+        {item.type === 'text' && <WindowText item={item} />}
         {item.type === 'image' && <ImageBar item={item} />}
-        <div className={styles.content}>
-          {item.type === 'folder' &&
-            item.files &&
-            item.files.map((a) => <Label item={a} key={a.id} />)}
-
-          {item.type === 'text' && item.content && (
-            <>
-              <a href={item.content?.link}>{item.content.link}</a>
-              <p>{item.content?.paragraph}</p>
-            </>
-          )}
-
-          {item.type === 'image' && item.src && (
-            <div className={styles.image}>
-              <Image alt="image" height={100} src={item.src} width={100} />
-            </div>
-          )}
-          {item.type === 'application' && <InternetExplorer />}
-        </div>
+        {item.type === 'image' && <WindowImage item={item} />}
+        {item.type === 'application' && <InternetExplorer />}
       </motion.div>
     )
   );

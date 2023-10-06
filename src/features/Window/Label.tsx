@@ -50,21 +50,7 @@ export default function Label({ item }: { item: DesktopFile }) {
       onClick={handleClick}
       type="button"
     >
-      <Icon
-        active={openedList.includes(item)}
-        icon={(() => {
-          switch (item.type) {
-            case 'button':
-              return item.action;
-            case 'application':
-              return item.application;
-            default:
-              return item.type;
-          }
-        })()}
-        size="big"
-        src={item.type === 'image' ? item.src : ''}
-      />
+      <Icon item={item} size="big" />
       <div className={styles.label__name}>{item.name}</div>
     </button>
   );

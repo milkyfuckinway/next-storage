@@ -1,5 +1,4 @@
 import { addHiddenFile, removeOpenedFile } from '@/store/files.slice';
-import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
 import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
@@ -23,8 +22,6 @@ export default function TitleBar({
   setExpanded: React.Dispatch<SetStateAction<boolean>>;
 }) {
   const dispatch = useDispatch();
-
-  const currentActive = useAppSelector((state) => state.files.active);
 
   function startDrag(evt: PointerEvent | React.PointerEvent<Element>) {
     controls.start(evt);
@@ -51,12 +48,7 @@ export default function TitleBar({
       />
       <div className={styles.titlebar__content}>
         <div className={styles.titlebar__details}>
-          <Icon
-            active={currentActive === item.id}
-            icon={item.type !== 'application' ? item.type : item.application}
-            size="small"
-            src={item.type === 'image' ? item.src : ''}
-          />
+          <Icon item={item} size="small" />
           <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>

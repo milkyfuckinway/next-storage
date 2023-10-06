@@ -6,6 +6,7 @@ declare module '*.svg' {
 }
 
 interface BaseFile {
+  icon: string;
   id: string;
   name: string;
   type: string;
