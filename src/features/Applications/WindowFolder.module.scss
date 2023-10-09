@@ -1,5 +1,5 @@
 .content {
-  @include border-active;
+  @include border-active(2px);
 
   overflow: auto;
   display: grid;

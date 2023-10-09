@@ -3,11 +3,13 @@ import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import filesReducer from './files.slice';
 import themeReducer from './theme.slice';
+import wallpaperReducer from './wallpaper.slice';
 
 export const store = configureStore({
   reducer: {
     files: filesReducer,
     theme: themeReducer,
+    wallpaper: wallpaperReducer,
   },
 });
 

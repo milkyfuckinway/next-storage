@@ -2,6 +2,7 @@
 
 import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
+import convertStringToUrl from '@/utils/helpers';
 import { useDispatch } from 'react-redux';
 
 import Label from '../Window/Label';
@@ -16,6 +17,12 @@ export default function Desktop() {
   const openedList = useAppSelector((state) => state.files.openedList);
   const active = useAppSelector((state) => state.files.active);
 
+  const backgroundColor = useAppSelector((state) => state.wallpaper.color);
+  const backgroundImage = useAppSelector((state) => state.wallpaper.image);
+  const backgroundPosition = useAppSelector((state) => state.wallpaper.position);
+  const backgroundRepeat = useAppSelector((state) => state.wallpaper.repeat);
+  const backgroundSize = useAppSelector((state) => state.wallpaper.size);
+
   const handleUnhide = (item: DesktopFile) => {
     dispatch(setFileActive(item.id));
     if (hiddenList.includes(item.id)) {
@@ -27,7 +34,16 @@ export default function Desktop() {
 
   return (
     <div className={styles.screen}>
-      <div className={styles.desktop}>
+      <div
+        className={styles.desktop}
+        style={{
+          backgroundColor,
+          backgroundImage: convertStringToUrl(backgroundImage),
+          backgroundPosition,
+          backgroundRepeat,
+          backgroundSize,
+        }}
+      >
         {files.map((item) => (
           <Label item={item} key={item.id} />
         ))}

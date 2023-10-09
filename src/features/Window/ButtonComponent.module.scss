@@ -1,7 +1,7 @@
 .button {
   $type: solid;
 
-  @include border(2px, $type);
+  @include border(1px, $type);
 
   background-color: rgb(200 200 200);
 
@@ -10,10 +10,16 @@
     height: 8px;
   }
 
-  &:active {
-    @include border-active(2px, $type);
+  &:disabled {
+    color: rgb(160 160 160);
+    fill: rgb(160 160 160);
+  }
 
-    & svg {
+  &:not(:disabled):active {
+    @include border-active(1px, $type);
+
+    & svg,
+    & span {
       transform: translate(1px, 1px);
       fill: rgb(16 45 208);
     }

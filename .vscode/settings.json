@@ -11,13 +11,13 @@
   "editor.formatOnSaveMode": "file",
   "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
-  "editor.codeActionsOnSave": [
-    "source.formatDocument",
-    "source.organizeImports",
-    "source.fixAll",
-    "source.fixAll.eslint",
-    "source.fixAll.stylelint"
-  ],
+  "editor.codeActionsOnSave": {
+    "source.formatDocument": true,
+    "source.organizeImports": true,
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
