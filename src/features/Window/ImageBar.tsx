@@ -7,16 +7,18 @@ import {
   setWallpaperRepeat,
   setWallpaperSize,
 } from '@/store/wallpaper.slice';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useClickAway } from 'react-use';
 
 import ButtonComponent from './ButtonComponent';
 import styles from './ImageBar.module.scss';
 
 export default function ImageBar({ item }: { item: ImageFile }) {
   const dispatch = useDispatch();
-  const [settings, setSettings] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const active = useAppSelector((state) => state.files.active);
+  const settings = useRef(null);
 
   // const backgroundColor = useAppSelector((state) => state.wallpaper.color);
   const backgroundImage = useAppSelector((state) => state.wallpaper.image);
@@ -26,9 +28,13 @@ export default function ImageBar({ item }: { item: ImageFile }) {
 
   useEffect(() => {
     if (item.id !== active) {
-      setSettings(false);
+      setIsSettingsOpen(false);
     }
   }, [active, item.id]);
+
+  useClickAway(settings, () => {
+    setIsSettingsOpen(false);
+  });
 
   const onSetWallpaper = () => {
     dispatch(setWallpaperImage(item.src));
@@ -51,11 +57,11 @@ export default function ImageBar({ item }: { item: ImageFile }) {
 
   return (
     <div className={styles.imagebar}>
-      <ButtonComponent onClick={() => setSettings(!settings)}>
+      <ButtonComponent onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
         <span>Настройки</span>
       </ButtonComponent>
-      {settings && (
-        <div className={styles.settings}>
+      {isSettingsOpen && (
+        <div className={styles.settings} ref={settings}>
           <ButtonComponent disabled={item.src === backgroundImage} onClick={onSetWallpaper}>
             <span> Установить как обои</span>
           </ButtonComponent>

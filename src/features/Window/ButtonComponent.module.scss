@@ -3,11 +3,27 @@
 
   @include border(1px, $type);
 
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  font-size: 14px;
+  line-height: 14px;
+
   background-color: rgb(200 200 200);
 
   & svg {
+    flex-shrink: 0;
     width: 8px;
     height: 8px;
+  }
+
+  & span {
+    flex-shrink: 0;
+    height: auto;
   }
 
   &:disabled {

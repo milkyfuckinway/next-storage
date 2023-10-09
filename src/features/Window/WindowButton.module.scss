@@ -1,5 +1,5 @@
 .icon {
-  $size: 20px;
+  $size: 10px;
 
   display: flex;
   align-items: center;
@@ -7,7 +7,6 @@
 
   width: $size;
   height: $size;
-  padding: 4px;
 
   &.collapse {
     align-items: flex-end;
