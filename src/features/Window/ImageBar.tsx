@@ -1,6 +1,7 @@
 import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/assets/svg/index.svg';
 import { useAppSelector } from '@/store/store';
 import {
+  resetWallpaper,
   setWallpaperImage,
   setWallpaperPosition,
   setWallpaperRepeat,
@@ -31,6 +32,9 @@ export default function ImageBar({ item }: { item: ImageFile }) {
 
   const onSetWallpaper = () => {
     dispatch(setWallpaperImage(item.src));
+    dispatch(setWallpaperSize('auto'));
+    dispatch(setWallpaperRepeat('repeat'));
+    dispatch(setWallpaperPosition('center center'));
   };
 
   const onResetWallpaper = () => {
@@ -120,7 +124,7 @@ export default function ImageBar({ item }: { item: ImageFile }) {
             >
               <Arrow style={{ rotate: '135deg' }} />
             </ButtonComponent>
-          </div>{' '}
+          </div>
           <ButtonComponent
             className={styles['with-svg']}
             disabled={
@@ -156,6 +160,12 @@ export default function ImageBar({ item }: { item: ImageFile }) {
           >
             <span>Заполнение</span>
             <IconExpand />
+          </ButtonComponent>
+          <ButtonComponent
+            disabled={backgroundImage.length === 0}
+            onClick={() => dispatch(resetWallpaper())}
+          >
+            <span>Сбросить</span>
           </ButtonComponent>
         </div>
       )}

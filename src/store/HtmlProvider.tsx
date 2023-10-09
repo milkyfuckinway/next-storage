@@ -10,6 +10,13 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from './store';
 import { setTheme } from './theme.slice';
+import {
+  setWallpaperColor,
+  setWallpaperImage,
+  setWallpaperPosition,
+  setWallpaperRepeat,
+  setWallpaperSize,
+} from './wallpaper.slice';
 
 const EestiFont = localFont({
   preload: true,
@@ -42,6 +49,28 @@ function HtmlProvider({ children }: { children: React.ReactNode }) {
     const theme = localStorage.getItem('theme');
     if (theme) {
       dispatch(setTheme(theme));
+    }
+
+    // Apply backgorund from local storage
+    const backgroundColor = localStorage.getItem('backgroundColor');
+    if (backgroundColor) {
+      dispatch(setWallpaperColor(backgroundColor));
+    }
+    const backgroundImage = localStorage.getItem('backgroundImage');
+    if (backgroundImage) {
+      dispatch(setWallpaperImage(backgroundImage));
+    }
+    const backgroundPosition = localStorage.getItem('backgroundPosition');
+    if (backgroundPosition) {
+      dispatch(setWallpaperPosition(backgroundPosition));
+    }
+    const backgroundRepeat = localStorage.getItem('backgroundRepeat');
+    if (backgroundRepeat) {
+      dispatch(setWallpaperRepeat(backgroundRepeat));
+    }
+    const backgroundSize = localStorage.getItem('backgroundSize');
+    if (backgroundSize) {
+      dispatch(setWallpaperSize(backgroundSize));
     }
 
     // Set isLoading to false
