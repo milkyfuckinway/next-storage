@@ -57,114 +57,116 @@ export default function ImageBar({ item }: { item: ImageFile }) {
 
   return (
     <div className={styles.imagebar}>
-      <ButtonComponent onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
-        <span>Настройки</span>
-      </ButtonComponent>
-      {isSettingsOpen && (
-        <div className={styles.settings} ref={settings}>
-          <ButtonComponent disabled={item.src === backgroundImage} onClick={onSetWallpaper}>
-            <span> Установить как обои</span>
-          </ButtonComponent>
-          <div className={styles.position}>
+      <div ref={settings} style={{ width: 'min-content' }}>
+        <ButtonComponent onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
+          <span>Настройки</span>
+        </ButtonComponent>
+        {isSettingsOpen && (
+          <div className={styles.settings}>
+            <ButtonComponent disabled={item.src === backgroundImage} onClick={onSetWallpaper}>
+              <span> Установить как обои</span>
+            </ButtonComponent>
+            <div className={styles.position}>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'left top'}
+                onClick={() => onSetPosition('left top')}
+              >
+                <Arrow style={{ rotate: '-45deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'center top'}
+                onClick={() => onSetPosition('center top')}
+              >
+                <Arrow />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'right top'}
+                onClick={() => onSetPosition('right top')}
+              >
+                <Arrow style={{ rotate: '45deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'left center'}
+                onClick={() => onSetPosition('left center')}
+              >
+                <Arrow style={{ rotate: '-90deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'center center'}
+                onClick={() => onSetPosition('center center')}
+              >
+                <Center />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'right center'}
+                onClick={() => onSetPosition('right center')}
+              >
+                <Arrow style={{ rotate: '90deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'left bottom'}
+                onClick={() => onSetPosition('left bottom')}
+              >
+                <Arrow style={{ rotate: '-135deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'center bottom'}
+                onClick={() => onSetPosition('center bottom')}
+              >
+                <Arrow style={{ rotate: '-180deg' }} />
+              </ButtonComponent>
+              <ButtonComponent
+                disabled={item.src !== backgroundImage || backgroundPosition === 'right bottom'}
+                onClick={() => onSetPosition('right bottom')}
+              >
+                <Arrow style={{ rotate: '135deg' }} />
+              </ButtonComponent>
+            </div>
             <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'left top'}
-              onClick={() => onSetPosition('left top')}
+              className={styles['with-svg']}
+              disabled={
+                item.src !== backgroundImage ||
+                (backgroundSize === 'auto' && backgroundRepeat === 'no-repeat')
+              }
+              onClick={() => {
+                onSetSize('auto');
+                onSetRepeat('no-repeat');
+              }}
             >
-              <Arrow style={{ rotate: '-45deg' }} />
+              <span>По размеру</span>
+              <IconCenter />
             </ButtonComponent>
             <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'center top'}
-              onClick={() => onSetPosition('center top')}
+              className={styles['with-svg']}
+              disabled={
+                item.src !== backgroundImage ||
+                (backgroundSize === 'auto' && backgroundRepeat === 'repeat')
+              }
+              onClick={() => {
+                onSetSize('auto');
+                onSetRepeat('repeat');
+              }}
             >
-              <Arrow />
+              <span>Мозайка</span>
+              <IconTile />
             </ButtonComponent>
             <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'right top'}
-              onClick={() => onSetPosition('right top')}
+              className={styles['with-svg']}
+              disabled={item.src !== backgroundImage || backgroundSize === 'cover'}
+              onClick={() => onSetSize('cover')}
             >
-              <Arrow style={{ rotate: '45deg' }} />
+              <span>Заполнение</span>
+              <IconExpand />
             </ButtonComponent>
             <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'left center'}
-              onClick={() => onSetPosition('left center')}
+              disabled={backgroundImage.length === 0}
+              onClick={() => dispatch(resetWallpaper())}
             >
-              <Arrow style={{ rotate: '-90deg' }} />
-            </ButtonComponent>
-            <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'center center'}
-              onClick={() => onSetPosition('center center')}
-            >
-              <Center />
-            </ButtonComponent>
-            <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'right center'}
-              onClick={() => onSetPosition('right center')}
-            >
-              <Arrow style={{ rotate: '90deg' }} />
-            </ButtonComponent>
-            <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'left bottom'}
-              onClick={() => onSetPosition('left bottom')}
-            >
-              <Arrow style={{ rotate: '-135deg' }} />
-            </ButtonComponent>
-            <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'center bottom'}
-              onClick={() => onSetPosition('center bottom')}
-            >
-              <Arrow style={{ rotate: '-180deg' }} />
-            </ButtonComponent>
-            <ButtonComponent
-              disabled={item.src !== backgroundImage || backgroundPosition === 'right bottom'}
-              onClick={() => onSetPosition('right bottom')}
-            >
-              <Arrow style={{ rotate: '135deg' }} />
+              <span>Сбросить</span>
             </ButtonComponent>
           </div>
-          <ButtonComponent
-            className={styles['with-svg']}
-            disabled={
-              item.src !== backgroundImage ||
-              (backgroundSize === 'auto' && backgroundRepeat === 'no-repeat')
-            }
-            onClick={() => {
-              onSetSize('auto');
-              onSetRepeat('no-repeat');
-            }}
-          >
-            <span>По размеру</span>
-            <IconCenter />
-          </ButtonComponent>
-          <ButtonComponent
-            className={styles['with-svg']}
-            disabled={
-              item.src !== backgroundImage ||
-              (backgroundSize === 'auto' && backgroundRepeat === 'repeat')
-            }
-            onClick={() => {
-              onSetSize('auto');
-              onSetRepeat('repeat');
-            }}
-          >
-            <span>Мозайка</span>
-            <IconTile />
-          </ButtonComponent>
-          <ButtonComponent
-            className={styles['with-svg']}
-            disabled={item.src !== backgroundImage || backgroundSize === 'cover'}
-            onClick={() => onSetSize('cover')}
-          >
-            <span>Заполнение</span>
-            <IconExpand />
-          </ButtonComponent>
-          <ButtonComponent
-            disabled={backgroundImage.length === 0}
-            onClick={() => dispatch(resetWallpaper())}
-          >
-            <span>Сбросить</span>
-          </ButtonComponent>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
