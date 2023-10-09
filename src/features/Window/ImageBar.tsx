@@ -37,10 +37,6 @@ export default function ImageBar({ item }: { item: ImageFile }) {
     dispatch(setWallpaperPosition('center center'));
   };
 
-  const onResetWallpaper = () => {
-    dispatch(setWallpaperImage(''));
-  };
-
   const onSetPosition = (position: string) => {
     dispatch(setWallpaperPosition(position));
   };
@@ -62,12 +58,6 @@ export default function ImageBar({ item }: { item: ImageFile }) {
         <div className={styles.settings}>
           <ButtonComponent disabled={item.src === backgroundImage} onClick={onSetWallpaper}>
             <span> Установить как обои</span>
-          </ButtonComponent>
-          <ButtonComponent
-            disabled={item.src !== backgroundImage}
-            onClick={() => onResetWallpaper()}
-          >
-            <span>Сбросить обои</span>
           </ButtonComponent>
           <div className={styles.position}>
             <ButtonComponent
