@@ -10,12 +10,6 @@
 
   background-color: rgb(192 192 192);
 
-  transition:
-    top 0.3s,
-    left 0.3s,
-    width 0.3s,
-    height 0.3s;
-
   &:not(.expanded)::before {
     content: "";
 
