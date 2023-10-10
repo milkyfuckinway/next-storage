@@ -21,7 +21,6 @@
 
     //Intellisence
     "christian-kohler.path-intellisense",
-    "mrmlnc.vscode-scss",
 
     //MultiCommand
     "ryuta46.multi-command",
