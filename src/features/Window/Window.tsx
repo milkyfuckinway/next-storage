@@ -107,8 +107,7 @@ export default function Window({ item }: { item: DesktopFile }) {
         {/* Path bar */}
         <div className={styles.pathbar}>
           <div className={styles.path}>
-            {/* {`C:/desktop/${item.path}/${item.name}/`.replace(/\/+/g, '/')} */}
-            {`C:/desktop/${item.path}/${item.name}/`}
+            {`C:/desktop/${item.path}/${item.name}/`.replace(/\/+/g, '/')}
           </div>
         </div>
 
