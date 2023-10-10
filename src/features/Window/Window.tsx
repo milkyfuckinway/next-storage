@@ -12,19 +12,25 @@ import WindowText from '../Text/WindowText';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 
-const displayWidth = window.innerWidth;
-const displayHeight = window.innerHeight;
+const WINDOW_WIDTH = 0.75;
+const WINDOW_HEIGHT = 0.65;
+const HEADER_HEIGHT = 32;
+const CYCLE_BIAS = 10;
+const DISPLAY_WIDTH = window.innerWidth;
+const DISPLAY_HEIGHT = window.innerHeight;
 
 const calculatePosition = (cycle: number) => {
-  const left = `${(displayWidth - displayWidth * 0.7) / 2 + cycle * 20}px`;
-  const top = `${(displayHeight - displayHeight * 0.5) / 2 + cycle * 20}px`;
+  const left = `${(DISPLAY_WIDTH - DISPLAY_WIDTH * WINDOW_WIDTH) / 2 + cycle * CYCLE_BIAS}px`;
+  const top = `${
+    (DISPLAY_HEIGHT - DISPLAY_HEIGHT * WINDOW_HEIGHT) / 2 + cycle * CYCLE_BIAS - HEADER_HEIGHT
+  }px`;
   return { left, top };
 };
 
 const calculateWidth = () => {
-  const width = displayWidth * 0.7;
-  const height = displayHeight * 0.5;
-  return { height, width };
+  const initialWidth = DISPLAY_WIDTH * WINDOW_WIDTH;
+  const initialHeight = DISPLAY_HEIGHT * WINDOW_HEIGHT;
+  return { initialHeight, initialWidth };
 };
 
 export default function Window({ item }: { item: DesktopFile }) {
@@ -37,10 +43,10 @@ export default function Window({ item }: { item: DesktopFile }) {
 
   const [expanded, setExpanded] = useState(false);
 
-  const { height, width } = calculateWidth();
+  const { initialHeight, initialWidth } = calculateWidth();
 
-  const handleX = useMotionValue(width);
-  const handleY = useMotionValue(height);
+  const handleX = useMotionValue(initialWidth);
+  const handleY = useMotionValue(initialHeight);
 
   const windowWidth = useTransform(handleX, [0, 10000], [0, 10000]);
   const windowHeight = useTransform(handleY, [0, 10000], [0, 10000]);
@@ -58,7 +64,7 @@ export default function Window({ item }: { item: DesktopFile }) {
     }
   };
 
-  const { left, top } = calculatePosition(openedList.length - hiddenList.length);
+  const { left, top } = calculatePosition(-1 + openedList.length - hiddenList.length);
 
   return (
     openedList.includes(item) &&
