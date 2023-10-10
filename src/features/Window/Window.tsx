@@ -5,10 +5,10 @@ import { motion, useDragControls, useMotionValue, useTransform } from 'framer-mo
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import WindowFolder from '../Applications/WindowFolder';
-import WindowImage from '../Applications/WindowImage';
-import WindowText from '../Applications/WindowText';
-import ImageBar from './ImageBar';
+import WindowFolder from '../Folder/WindowFolder';
+import ImageBar from '../Image/ImageBar';
+import WindowImage from '../Image/WindowImage';
+import WindowText from '../Text/WindowText';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 

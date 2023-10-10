@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import Icon from '../Icons/Icon';
 import styles from './Label.module.scss';
 
-export default function Label({ item }: { item: DesktopFile }) {
+export default function Label({ className, item }: { className?: string; item: DesktopFile }) {
   const dispatch = useDispatch();
   const globalZIndex = useAppSelector((state) => state.files.zIndex);
   const windowRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ export default function Label({ item }: { item: DesktopFile }) {
 
   return (
     <button
-      className={clsx(styles.label, openedList.includes(item) ? styles.active : '')}
+      className={clsx(className, styles.label, openedList.includes(item) ? styles.active : '')}
       onClick={handleClick}
       type="button"
     >

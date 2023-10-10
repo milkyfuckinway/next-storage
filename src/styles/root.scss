@@ -6,12 +6,8 @@
 // Palettes
 
 // Pantone colors
-$pantone-bright-white: #f4f5f0;
-$pantone-night-sky: #2a2a35;
 
 // Modded
-
-$modded-pantone-phantom-darker: hsl(260 3% 14%);
 
 :root {
   --dvh: 100vh;
@@ -22,14 +18,10 @@ $modded-pantone-phantom-darker: hsl(260 3% 14%);
 
   // Palette
   --text-primary: #000000;
-  --system-gray: rgb(192 192 192);
-  --system-background: #ffffff;
-  --spinner: #{$pantone-night-sky};
+  --spinner: #000000;
 }
 
 :root[data-theme="dark"] {
   --text-primary: #ffffff;
-  --system-gray: hsl(0 0% 20%);
-  --system-background: hsl(0 0% 25%);
-  --spinner: #{$pantone-bright-white};
+  --spinner: #ffffff;
 }

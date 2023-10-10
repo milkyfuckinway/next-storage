@@ -5,10 +5,10 @@ import { useAppSelector } from '@/store/store';
 import convertStringToUrl from '@/utils/helpers';
 import { useDispatch } from 'react-redux';
 
-import Label from '../Window/Label';
 import Window from '../Window/Window';
 import Anchor from './Anchor';
 import styles from './Desktop.module.scss';
+import Label from './Label';
 
 export default function Desktop() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export default function Desktop() {
         }}
       >
         {files.map((item) => (
-          <Label item={item} key={item.id} />
+          <Label className={styles['desktop-label']} item={item} key={item.id} />
         ))}
         {openedList.map((a) => (
           <Window item={a} key={a.id} />

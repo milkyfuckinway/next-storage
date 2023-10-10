@@ -4,9 +4,9 @@ import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 
+import WindowButton from '../Buttons/WindowButton';
 import Icon from '../Icons/Icon';
 import styles from './TitleBar.module.scss';
-import WindowButton from './WindowButton';
 
 export default function TitleBar({
   active,

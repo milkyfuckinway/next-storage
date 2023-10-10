@@ -46,3 +46,7 @@
     @include border-active;
   }
 }
+
+.desktop-label {
+  color: var(--text-primary);
+}

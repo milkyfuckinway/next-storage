@@ -1,14 +1,12 @@
 .imagebar {
   position: relative;
   width: 100%;
-  background-color: var(--system-gray);
 }
 
 .settings {
   position: absolute;
   display: flex;
   flex-flow: column wrap;
-  background-color: var(--system-gray);
 
   & button {
     height: 30px;

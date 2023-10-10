@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useClickAway } from 'react-use';
 
-import ButtonComponent from './ButtonComponent';
+import ButtonComponent from '../Buttons/ButtonComponent';
 import styles from './ImageBar.module.scss';
 
 export default function ImageBar({ item }: { item: ImageFile }) {
