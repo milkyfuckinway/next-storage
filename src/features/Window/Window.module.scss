@@ -5,7 +5,6 @@
 
   position: absolute;
 
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 
@@ -59,4 +58,18 @@
 
   width: $size * 3;
   height: $size * 3;
+}
+
+.pathbar {
+  padding: 5px 10px;
+  line-height: 150%;
+}
+
+.path {
+  @include border-active(2px, ridge);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  background-color: #ffffff;
 }

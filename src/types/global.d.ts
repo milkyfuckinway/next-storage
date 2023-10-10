@@ -9,6 +9,7 @@ interface BaseFile {
   icon: string;
   id: string;
   name: string;
+  path: string;
   type: 'button' | 'folder' | 'image' | 'text';
 }
 

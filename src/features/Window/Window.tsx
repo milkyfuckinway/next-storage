@@ -86,7 +86,7 @@ export default function Window({ item }: { item: DesktopFile }) {
           <motion.div
             className={styles.corner}
             drag
-            dragConstraints={{ left: 200, top: 50 }}
+            dragConstraints={{ left: 200, top: 100 }}
             dragControls={resizeControls}
             dragElastic={0}
             dragMomentum={false}
@@ -100,8 +100,19 @@ export default function Window({ item }: { item: DesktopFile }) {
           item={item}
           setExpanded={setExpanded}
         />
+        {/* Settings bar */}
         {/* Image */}
         {item.type === 'image' && <ImageBar item={item} />}
+
+        {/* Path bar */}
+        <div className={styles.pathbar}>
+          <div className={styles.path}>
+            {`C:/desktop/${item.path}/${item.name}/`.replace(/\/+/g, '/')}
+          </div>
+        </div>
+
+        {/* Content */}
+        {/* Image */}
         {item.type === 'image' && <WindowImage item={item} />}
         {/* Folder */}
         {item.type === 'folder' && <WindowFolder item={item} />}
