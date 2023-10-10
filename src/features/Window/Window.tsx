@@ -1,7 +1,13 @@
 import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
-import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useDragControls,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -69,62 +75,66 @@ export default function Window({ item }: { item: DesktopFile }) {
   return (
     openedList.includes(item) &&
     item.type !== 'button' && (
-      <motion.div
-        className={clsx(
-          styles.window,
-          active === item.id ? styles.active : '',
-          hiddenList.includes(item.id) ? styles.hidden : '',
-          expanded ? styles.expanded : ''
-        )}
-        drag
-        dragControls={dragControls}
-        dragListener={false}
-        dragTransition={{ power: 0 }}
-        initial={{ left, top }}
-        onTapStart={() => setCurrentFileActive()}
-        ref={windowRef}
-        style={{
-          height: expanded ? '100%' : windowHeight,
-          width: expanded ? '100%' : windowWidth,
-        }}
-      >
-        {!expanded && (
-          <motion.div
-            className={styles.corner}
-            drag
-            dragConstraints={{ left: 200, top: 100 }}
-            dragControls={resizeControls}
-            dragElastic={0}
-            dragMomentum={false}
-            style={{ touchAction: 'none', x: handleX, y: handleY }}
+      <AnimatePresence>
+        <motion.div
+          animate={{ scale: 1 }}
+          className={clsx(
+            styles.window,
+            active === item.id ? styles.active : '',
+            hiddenList.includes(item.id) ? styles.hidden : '',
+            expanded ? styles.expanded : ''
+          )}
+          drag
+          dragControls={dragControls}
+          dragListener={false}
+          dragTransition={{ power: 0 }}
+          exit={{ scale: 0 }}
+          initial={{ left, scale: 0, top }}
+          onTapStart={() => setCurrentFileActive()}
+          ref={windowRef}
+          style={{
+            height: expanded ? '100%' : windowHeight,
+            width: expanded ? '100%' : windowWidth,
+          }}
+        >
+          {!expanded && (
+            <motion.div
+              className={styles.corner}
+              drag
+              dragConstraints={{ left: 200, top: 100 }}
+              dragControls={resizeControls}
+              dragElastic={0}
+              dragMomentum={false}
+              style={{ touchAction: 'none', x: handleX, y: handleY }}
+            />
+          )}
+          <TitleBar
+            active={active === item.id}
+            controls={dragControls}
+            expanded={expanded}
+            item={item}
+            setExpanded={setExpanded}
           />
-        )}
-        <TitleBar
-          active={active === item.id}
-          controls={dragControls}
-          expanded={expanded}
-          item={item}
-          setExpanded={setExpanded}
-        />
-        {/* Settings bar */}
-        {/* Image */}
-        {item.type === 'image' && <ImageBar item={item} />}
+          {/* Settings bar */}
+          {/* Image */}
+          {item.type === 'image' && <ImageBar item={item} />}
 
-        {/* Path bar */}
-        <div className={styles.pathbar}>
-          <div className={styles.path}>
-            {`C:/desktop/${item.path}/${item.name}/`.replace(/\/+/g, '/')}
+          {/* Path bar */}
+          <div className={styles.pathbar}>
+            <div className={styles.path}>
+              {`C:/desktop/${item.path}/${item.name}`.replace(/\/+/g, '/')}
+            </div>
           </div>
-        </div>
 
-        {/* Content */}
-        {/* Image */}
-        {item.type === 'image' && <WindowImage item={item} />}
-        {/* Folder */}
-        {item.type === 'folder' && <WindowFolder item={item} />}
-        {/* Text */}
-        {item.type === 'text' && <WindowText item={item} />}
-      </motion.div>
+          {/* Content */}
+          {/* Image */}
+          {item.type === 'image' && <WindowImage item={item} />}
+          {/* Folder */}
+          {item.type === 'folder' && <WindowFolder item={item} />}
+          {/* Text */}
+          {item.type === 'text' && <WindowText item={item} />}
+        </motion.div>
+      </AnimatePresence>
     )
   );
 }

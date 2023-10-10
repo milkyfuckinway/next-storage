@@ -10,6 +10,12 @@
 
   background-color: rgb(192 192 192);
 
+  transition:
+    top 0.3s,
+    left 0.3s,
+    width 0.3s,
+    height 0.3s;
+
   &:not(.expanded)::before {
     content: "";
 
@@ -67,7 +73,11 @@
   @include border-active(1px, ridge);
 
   overflow: hidden;
+
+  padding: 0 5px;
+
   text-overflow: ellipsis;
   white-space: nowrap;
+
   background-color: #ffffff;
 }
