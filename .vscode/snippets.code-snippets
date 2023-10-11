@@ -16,5 +16,11 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["import styles from './${TM_FILENAME_BASE}.module.scss'"],
     "description": "Import SCSS Module as `styles`"
+  },
+  "classNameWithStyles": {
+    "prefix": "cs",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["className={styles.$1}"]
+    "description": "Class name with styles from module"
   }
 }
