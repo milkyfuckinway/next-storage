@@ -1,0 +1,11 @@
+.content {
+  @include border-active;
+
+  overflow: auto;
+
+  height: 100%;
+  margin: 10px;
+  padding: 5px;
+
+  background-color: #ffffff;
+}

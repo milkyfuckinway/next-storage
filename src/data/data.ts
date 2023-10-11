@@ -54,7 +54,7 @@ const files = [
     type: 'button',
   },
   {
-    action: 'change-color',
+    action: 'color_settings',
     icon: 'toggle-theme',
     id: '',
     name: 'Настройки цвета',

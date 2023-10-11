@@ -5,6 +5,7 @@ import { motion, useDragControls, useMotionValue, useTransform } from 'framer-mo
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import ColorSettings from '../Applications/ColorSettings';
 import WindowFolder from '../Folder/WindowFolder';
 import ImageBar from '../Image/ImageBar';
 import WindowImage from '../Image/WindowImage';
@@ -37,15 +38,30 @@ export default function Window({ item }: { item: DesktopFile }) {
   const windowRef = useRef<HTMLDivElement>(null);
 
   const calculateWidth = () => {
-    const initialWidth = DISPLAY_WIDTH * WINDOW_WIDTH;
-    const initialHeight = DISPLAY_HEIGHT * WINDOW_HEIGHT;
+    const initialWidth = () => {
+      if (item.type === 'application') {
+        if (item.action === 'color_settings') {
+          return 300;
+        }
+      }
+      return DISPLAY_WIDTH * WINDOW_WIDTH;
+    };
+    const initialHeight = () => {
+      if (item.type === 'application') {
+        if (item.action === 'color_settings') {
+          return 400;
+        }
+      }
+      return DISPLAY_HEIGHT * WINDOW_HEIGHT;
+    };
+
     return { initialHeight, initialWidth };
   };
 
   const { initialHeight, initialWidth } = calculateWidth();
 
-  const handleX = useMotionValue(initialWidth);
-  const handleY = useMotionValue(initialHeight);
+  const handleX = useMotionValue(initialWidth());
+  const handleY = useMotionValue(initialHeight());
 
   const windowWidth = useTransform(handleX, [0, 10000], [0, 10000]);
   const windowHeight = useTransform(handleY, [0, 10000], [0, 10000]);
@@ -113,7 +129,7 @@ export default function Window({ item }: { item: DesktopFile }) {
         {item.type === 'image' && <ImageBar item={item} />}
 
         {/* Path bar */}
-        <PathBar item={item} />
+        {item.type !== 'application' && <PathBar item={item} />}
 
         {/* Content */}
         {/* Image */}
@@ -122,6 +138,10 @@ export default function Window({ item }: { item: DesktopFile }) {
         {item.type === 'folder' && <WindowFolder item={item} />}
         {/* Text */}
         {item.type === 'text' && <WindowText item={item} />}
+
+        {/* Application */}
+        {/* Color settings */}
+        {item.type === 'application' && item.action === 'color_settings' && <ColorSettings />}
       </motion.div>
     )
   );
