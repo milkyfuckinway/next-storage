@@ -17,13 +17,11 @@
   --square: calc(48px + 14px + 14px + 4px);
 
   // Palette
-  --text-primary: #000000;
-  --background-primary: #ffffff;
   --spinner: #000000;
+  --desktop-text: #000000;
+  --desktop-background: rgb(0 128 131);
 }
 
 :root[data-theme="dark"] {
-  --text-primary: #ffffff;
-  --background-primary: #000000;
   --spinner: #ffffff;
 }
