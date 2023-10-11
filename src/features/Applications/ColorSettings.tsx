@@ -35,26 +35,33 @@ export default function ColorSettings() {
       </div>
       <div className={styles.settings}>
         <form>
-          <label>
-            <input
-              checked={backgroundType === 'color'}
-              name="background"
-              onChange={(evt) => setBackgroundType(evt.target.value)}
-              type="checkbox"
-              value="color"
-            />
-            <span>Цвет</span>
-          </label>
-          <label>
-            <input
-              checked={backgroundType === 'image'}
-              name="background"
-              onChange={(evt) => setBackgroundType(evt.target.value)}
-              type="checkbox"
-              value="image"
-            />
-            <span>Изображение</span>
-          </label>
+          <div className={styles.input}>
+            <label>
+              <input
+                checked={backgroundType === 'color'}
+                name="background"
+                onChange={(evt) => setBackgroundType(evt.target.value)}
+                type="checkbox"
+                value="color"
+              />
+              <div className={styles.pin} />
+              <span>Цвет</span>
+            </label>
+          </div>
+          <div className={styles.input}>
+            <label>
+              <input
+                checked={backgroundType === 'image'}
+                disabled={backgroundImage.length < 3}
+                name="background"
+                onChange={(evt) => setBackgroundType(evt.target.value)}
+                type="checkbox"
+                value="image"
+              />
+              <div className={styles.pin} />
+              <span>Изображение</span>
+            </label>
+          </div>
         </form>
       </div>
     </div>
