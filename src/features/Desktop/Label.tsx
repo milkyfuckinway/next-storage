@@ -46,12 +46,12 @@ export default function Label({ className, item }: { className?: string; item: D
 
   return (
     <button
-      className={clsx(className, styles.label, openedList.includes(item) ? styles.active : '')}
+      className={clsx(styles.label, openedList.includes(item) ? styles.active : '')}
       onClick={handleClick}
       type="button"
     >
       <Icon item={item} size="big" />
-      <div className={styles.label__name}>{item.name}</div>
+      <div className={clsx(className, styles.label__name)}>{item.name}</div>
     </button>
   );
 }

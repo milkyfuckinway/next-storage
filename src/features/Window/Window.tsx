@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import WindowFolder from '../Folder/WindowFolder';
 import ImageBar from '../Image/ImageBar';
 import WindowImage from '../Image/WindowImage';
+import PathBar from '../PathBar/PathBar';
 import WindowText from '../Text/WindowText';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
@@ -16,24 +17,11 @@ const WINDOW_WIDTH = 0.75;
 const WINDOW_HEIGHT = 0.65;
 const HEADER_HEIGHT = 32;
 const CYCLE_BIAS = 10;
-const DISPLAY_WIDTH = window.innerWidth;
-const DISPLAY_HEIGHT = window.innerHeight;
-
-const calculatePosition = (cycle: number) => {
-  const left = `${(DISPLAY_WIDTH - DISPLAY_WIDTH * WINDOW_WIDTH) / 2 + cycle * CYCLE_BIAS}px`;
-  const top = `${
-    (DISPLAY_HEIGHT - DISPLAY_HEIGHT * WINDOW_HEIGHT) / 2 + cycle * CYCLE_BIAS - HEADER_HEIGHT
-  }px`;
-  return { left, top };
-};
-
-const calculateWidth = () => {
-  const initialWidth = DISPLAY_WIDTH * WINDOW_WIDTH;
-  const initialHeight = DISPLAY_HEIGHT * WINDOW_HEIGHT;
-  return { initialHeight, initialWidth };
-};
 
 export default function Window({ item }: { item: DesktopFile }) {
+  const DISPLAY_WIDTH = window.innerWidth;
+  const DISPLAY_HEIGHT = window.innerHeight;
+
   const dispatch = useDispatch();
 
   const active = useAppSelector((state) => state.files.active);
@@ -43,6 +31,17 @@ export default function Window({ item }: { item: DesktopFile }) {
 
   const [expanded, setExpanded] = useState(false);
 
+  const dragControls = useDragControls();
+  const resizeControls = useDragControls();
+
+  const windowRef = useRef<HTMLDivElement>(null);
+
+  const calculateWidth = () => {
+    const initialWidth = DISPLAY_WIDTH * WINDOW_WIDTH;
+    const initialHeight = DISPLAY_HEIGHT * WINDOW_HEIGHT;
+    return { initialHeight, initialWidth };
+  };
+
   const { initialHeight, initialWidth } = calculateWidth();
 
   const handleX = useMotionValue(initialWidth);
@@ -51,17 +50,20 @@ export default function Window({ item }: { item: DesktopFile }) {
   const windowWidth = useTransform(handleX, [0, 10000], [0, 10000]);
   const windowHeight = useTransform(handleY, [0, 10000], [0, 10000]);
 
-  const dragControls = useDragControls();
-  const resizeControls = useDragControls();
-
-  const windowRef = useRef<HTMLDivElement>(null);
-
   const setCurrentFileActive = () => {
     dispatch(setFileActive(item.id));
     if (windowRef.current) {
       windowRef.current.style.zIndex = `${globalZIndex}`;
       dispatch(increaceZIndex());
     }
+  };
+
+  const calculatePosition = (cycle: number) => {
+    const left = `${(DISPLAY_WIDTH - DISPLAY_WIDTH * WINDOW_WIDTH) / 2 + cycle * CYCLE_BIAS}px`;
+    const top = `${
+      (DISPLAY_HEIGHT - DISPLAY_HEIGHT * WINDOW_HEIGHT) / 2 + cycle * CYCLE_BIAS - HEADER_HEIGHT
+    }px`;
+    return { left, top };
   };
 
   const { left, top } = calculatePosition(-1 + openedList.length - hiddenList.length);
@@ -111,11 +113,7 @@ export default function Window({ item }: { item: DesktopFile }) {
         {item.type === 'image' && <ImageBar item={item} />}
 
         {/* Path bar */}
-        <div className={styles.pathbar}>
-          <div className={styles.path}>
-            {`C:/desktop/${item.path}/${item.name}`.replace(/\/+/g, '/')}
-          </div>
-        </div>
+        <PathBar item={item} />
 
         {/* Content */}
         {/* Image */}

@@ -1,0 +1,19 @@
+.pathbar {
+  padding: 5px 10px;
+  line-height: 150%;
+}
+
+.path {
+  @include border-active(1px, ridge);
+
+  cursor: text;
+
+  overflow: hidden;
+
+  padding: 0 5px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  background-color: #ffffff;
+}

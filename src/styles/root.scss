@@ -18,10 +18,12 @@
 
   // Palette
   --text-primary: #000000;
+  --background-primary: #ffffff;
   --spinner: #000000;
 }
 
 :root[data-theme="dark"] {
   --text-primary: #ffffff;
+  --background-primary: #000000;
   --spinner: #ffffff;
 }
