@@ -1,6 +1,8 @@
 .content {
   @include border-active(2px);
 
+  transform: translate3d(0, 0, 0);
+
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--square));
