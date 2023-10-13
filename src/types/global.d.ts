@@ -13,14 +13,14 @@ interface BaseFile {
   type: 'button' | 'folder' | 'image' | 'text';
 }
 
-interface TextContent {
+interface DocumentContent {
   link: string;
   paragraph: string;
 }
 
-interface TextFile extends BaseFile {
-  content: TextContent;
-  type: 'text';
+interface DocumentFile extends BaseFile {
+  content: DocumentContent;
+  type: 'document';
 }
 
 interface FolderFile extends BaseFile {
@@ -37,4 +37,4 @@ interface Application extends BaseFile {
   type: 'application';
 }
 
-type DesktopFile = Application | FolderFile | ImageFile | TextFile;
+type DesktopFile = Application | DocumentFile | FolderFile | ImageFile;

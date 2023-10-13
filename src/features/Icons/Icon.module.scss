@@ -23,36 +23,36 @@
     background-image: url("/icons/themes48.png");
   }
 
-  &.text.big {
-    background-image: url("/icons/notepad48.png");
+  &.document.big {
+    background-image: url("/icons/document_closed48.png");
   }
 
-  &.text.opened.big {
-    background-image: url("/icons/file48.png");
+  &.document.opened.big {
+    background-image: url("/icons/document_opened48.png");
   }
 
-  &.text.small {
-    background-image: url("/icons/notepad16.png");
+  &.document.small {
+    background-image: url("/icons/document_closed16.png");
   }
 
-  &.text.opened.small {
-    background-image: url("/icons/file16.png");
+  &.document.opened.small {
+    background-image: url("/icons/document_opened16.png");
   }
 
   &.folder.big {
-    background-image: url("/icons/folder-closed48.png");
+    background-image: url("/icons/folder_closed48.png");
   }
 
   &.folder.small {
-    background-image: url("/icons/folder-closed16.png");
+    background-image: url("/icons/folder_closed16.png");
   }
 
   &.folder.opened.big {
-    background-image: url("/icons/folder-opened48.png");
+    background-image: url("/icons/folder_opened48.png");
   }
 
   &.folder.opened.small {
-    background-image: url("/icons/folder-opened16.png");
+    background-image: url("/icons/folder_opened16.png");
   }
 
   &.explorer.big {

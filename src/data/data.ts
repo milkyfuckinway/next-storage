@@ -8,19 +8,19 @@ const files = [
     files: [
       {
         content: { link: 'link-d', paragraph: 'paragraph-d' },
-        icon: 'text',
+        icon: 'document',
         id: 'J9DtIJTfi-eekN2fpUlBv',
         name: 'd',
         path: '/aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        type: 'text',
+        type: 'document',
       },
       {
         content: { link: 'link-e', paragraph: 'paragraph-e' },
-        icon: 'text',
+        icon: 'document',
         id: 'nvZ14bVsTEc5Fwhw98yJa',
         name: 'e',
         path: '/aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        type: 'text',
+        type: 'document',
       },
     ],
     icon: 'folder',
@@ -31,19 +31,19 @@ const files = [
   },
   {
     content: { link: 'link-b', paragraph: 'paragraph-b' },
-    icon: 'text',
+    icon: 'document',
     id: 'NLtJjyLfS5znqdZ0UEOy1',
     name: 'bbbbbbbbb bbbbbb bbbbbbbb',
     path: '/',
-    type: 'text',
+    type: 'document',
   },
   {
     content: { link: 'link-c', paragraph: 'paragraph-c' },
-    icon: 'text',
+    icon: 'document',
     id: '_P2WH6uvhqFtaOdjuCvDw',
     name: 'c',
     path: '/',
-    type: 'text',
+    type: 'document',
   },
 
   {

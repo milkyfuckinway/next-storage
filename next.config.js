@@ -8,11 +8,7 @@ const nextConfig = {
     prependData: `@import "./src/styles/variables.scss"; @import "./src/styles/mixins.scss";`,
   },
   images: {
-    domains: ['firebasestorage.googleapis.com'],
-    unoptimized: true,
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    formats: ['image/avif', 'image/webp'],
   },
   webpack: (config) => {
     config.module.rules.push({

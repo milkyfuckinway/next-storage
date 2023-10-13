@@ -136,7 +136,7 @@ export default function Window({ item }: { item: DesktopFile }) {
         {/* Folder */}
         {item.type === 'folder' && <WindowFolder item={item} />}
         {/* Text */}
-        {item.type === 'text' && <WindowText item={item} />}
+        {item.type === 'document' && <WindowText item={item} />}
 
         {/* Application */}
         {/* Color settings */}
