@@ -5,7 +5,6 @@ import {
   setFileActive,
 } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
-import { toggleTheme } from '@/store/theme.slice';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
@@ -29,18 +28,11 @@ export default function Label({ className, item }: { className?: string; item: D
   };
 
   const handleClick = () => {
-    if (item.type !== 'button') {
-      dispatch(addOpenedFile(item));
-      setCurrentFileActive();
+    dispatch(addOpenedFile(item));
+    setCurrentFileActive();
 
-      if (hiddenList.includes(item.id)) {
-        dispatch(removeHiddenFile(item.id));
-      }
-    }
-    if (item.type === 'button') {
-      if (item.action === 'toggle-theme') {
-        dispatch(toggleTheme());
-      }
+    if (hiddenList.includes(item.id)) {
+      dispatch(removeHiddenFile(item.id));
     }
   };
 

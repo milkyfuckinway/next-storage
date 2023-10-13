@@ -28,7 +28,7 @@ const images = [
   'icons/internetexplorer48.png',
 ];
 
-export default function Preload() {
+export default function ImagePreload() {
   return (
     <div className="visually-hidden">
       {images.map((image) => (

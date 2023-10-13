@@ -28,11 +28,6 @@ interface FolderFile extends BaseFile {
   type: 'folder';
 }
 
-interface ButtonFile extends BaseFile {
-  action: 'toggle-theme';
-  type: 'button';
-}
-
 interface ImageFile extends BaseFile {
   src: string;
   type: 'image';
@@ -42,4 +37,4 @@ interface Application extends BaseFile {
   type: 'application';
 }
 
-type DesktopFile = Application | ButtonFile | FolderFile | ImageFile | TextFile;
+type DesktopFile = Application | FolderFile | ImageFile | TextFile;

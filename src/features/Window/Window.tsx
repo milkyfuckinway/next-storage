@@ -85,8 +85,7 @@ export default function Window({ item }: { item: DesktopFile }) {
   const { left, top } = calculatePosition(-1 + openedList.length - hiddenList.length);
 
   return (
-    openedList.includes(item) &&
-    item.type !== 'button' && (
+    openedList.includes(item) && (
       <motion.div
         className={clsx(
           styles.window,

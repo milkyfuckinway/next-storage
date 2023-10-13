@@ -5,6 +5,7 @@ import { useAppSelector } from '@/store/store';
 import convertStringToUrl from '@/utils/helpers';
 import { useDispatch } from 'react-redux';
 
+import ThemeSwitcher from '../Buttons/ThemeSwitcher';
 import Window from '../Window/Window';
 import Anchor from './Anchor';
 import styles from './Desktop.module.scss';
@@ -50,6 +51,7 @@ export default function Desktop() {
         {openedList.map((a) => (
           <Window item={a} key={a.id} />
         ))}
+        <ThemeSwitcher />
       </div>
       <div className={styles.footer}>
         <button className={styles.start} type="button">

@@ -45,14 +45,7 @@ const files = [
     path: '/',
     type: 'text',
   },
-  {
-    action: 'toggle-theme',
-    icon: 'toggle-theme',
-    id: 'HDSTMs-GiIWOYIUH7B5jD',
-    name: 'Изменить тему',
-    path: '/',
-    type: 'button',
-  },
+
   {
     action: 'color_settings',
     icon: 'toggle-theme',
