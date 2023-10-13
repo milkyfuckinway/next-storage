@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const images = [
   'interface/corner.svg',
   'icons/briefcase16.png',
@@ -30,8 +32,7 @@ export default function ImagePreload() {
   return (
     <div className="visually-hidden">
       {images.map((image) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img alt="#" height={0} key={image} src={image} width={0} />
+        <Image alt="#" height={0} key={image} priority src={image} width={0} />
       ))}
     </div>
   );
