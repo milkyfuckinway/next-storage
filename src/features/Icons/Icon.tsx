@@ -1,7 +1,6 @@
+import iconPaths from '@/constants/IconPaths';
 import { useAppSelector } from '@/store/store';
-import clsx from 'clsx';
-
-import styles from './Icon.module.scss';
+import Image from 'next/image';
 
 export default function Icon({
   item,
@@ -12,21 +11,21 @@ export default function Icon({
 }) {
   const openedList = useAppSelector((state) => state.files.openedList);
 
-  // if (item.type !== 'image') {
-  //   console.log(iconPaths[item.icon].closed.big);
-  // }
+  const calcPath = () => {
+    if (openedList.includes(item)) {
+      return size === 'small' ? iconPaths[item.icon].opened.small : iconPaths[item.icon].opened.big;
+    }
+    return size === 'small' ? iconPaths[item.icon].closed.small : iconPaths[item.icon].closed.big;
+  };
 
-  return (
-    <div
-      className={clsx(
-        styles[size],
-        styles.icon,
-        styles[item.icon],
-        openedList.includes(item) ? styles.opened : ''
-      )}
-      style={
-        item.type === 'image' ? { backgroundImage: `url("${item.src}")` } : { backgroundImage: '' }
-      }
-    />
-  );
+  const calcSize = () => (size === 'small' ? 16 : 48);
+
+  if (item.type !== 'image') {
+    return (
+      <Image alt={item.type} height={calcSize()} priority src={calcPath()} width={calcSize()} />
+    );
+  }
+  if (item.type === 'image') {
+    return <Image alt={item.type} height={calcSize()} priority src={item.src} width={calcSize()} />;
+  }
 }
