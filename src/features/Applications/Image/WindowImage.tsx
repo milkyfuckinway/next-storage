@@ -6,7 +6,7 @@ export default function WindowImage({ item }: { item: ImageFile }) {
   return (
     <div className={styles.content}>
       <div className={styles.image}>
-        <Image alt="image" height={512} src={item.src} width={512} />
+        <Image alt="image" height={512} priority src={item.src} width={512} />
       </div>
     </div>
   );
