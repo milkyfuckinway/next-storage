@@ -2,6 +2,7 @@
 
 import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
+import calculateDocumentHeight from '@/utils/CalculateDocumentHeight';
 import convertStringToUrl from '@/utils/helpers';
 import { useDispatch } from 'react-redux';
 
@@ -23,6 +24,8 @@ export default function Desktop() {
   const backgroundPosition = useAppSelector((state) => state.wallpaper.position);
   const backgroundRepeat = useAppSelector((state) => state.wallpaper.repeat);
   const backgroundSize = useAppSelector((state) => state.wallpaper.size);
+
+  calculateDocumentHeight();
 
   const handleUnhide = (item: DesktopFile) => {
     dispatch(setFileActive(item.id));
