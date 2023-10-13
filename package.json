@@ -7,7 +7,7 @@
     "dev": "npm run open-browser && next dev",
     "build": "next build",
     "start": "npm run open-browser && next start",
-    "lint": "next lint --dir src",
+    "lint": "next lint",
     "lint:fix": "next lint --dir src --fix"
   },
   "dependencies": {

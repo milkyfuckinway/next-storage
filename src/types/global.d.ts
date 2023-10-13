@@ -10,7 +10,7 @@ interface BaseFile {
   id: string;
   name: string;
   path: string;
-  type: 'button' | 'folder' | 'image' | 'text';
+  type: 'button' | 'document' | 'folder' | 'image';
 }
 
 interface DocumentContent {
@@ -24,7 +24,7 @@ interface DocumentFile extends BaseFile {
 }
 
 interface FolderFile extends BaseFile {
-  files: TextFile[];
+  files: DocumentFile[];
   type: 'folder';
 }
 
