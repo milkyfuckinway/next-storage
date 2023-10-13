@@ -12,6 +12,10 @@ export default function Icon({
 }) {
   const openedList = useAppSelector((state) => state.files.openedList);
 
+  // if (item.type !== 'image') {
+  //   console.log(iconPaths[item.icon].closed.big);
+  // }
+
   return (
     <div
       className={clsx(
