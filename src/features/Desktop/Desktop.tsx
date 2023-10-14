@@ -34,7 +34,7 @@ export default function Desktop() {
     dispatch(setFileActive(item.id));
     if (hiddenList.includes(item.id)) {
       dispatch(removeHiddenFile(item.id));
-    } else {
+    } else if (item.id === active) {
       dispatch(addHiddenFile(item.id));
     }
   };
