@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 const EestiFont = localFont({
   preload: true,
   src: [
-    { path: '../fonts/GTEesti-400.woff2', weight: '400' },
-    { path: '../fonts/GTEesti-700.woff2', weight: '700' },
+    { path: '../assets/fonts/GTEesti-400.woff2', weight: '400' },
+    { path: '../assets/fonts/GTEesti-700.woff2', weight: '700' },
   ],
   variable: '--eesti',
 });
@@ -25,8 +25,8 @@ const EestiFont = localFont({
 const MsSansSerif = localFont({
   preload: true,
   src: [
-    { path: '../fonts/ms-sans-serif-regular.woff2', weight: '400' },
-    { path: '../fonts/ms-sans-serif-bold.woff2', weight: '700' },
+    { path: '../assets/fonts/ms-sans-serif-regular.woff2', weight: '400' },
+    { path: '../assets/fonts/ms-sans-serif-bold.woff2', weight: '700' },
   ],
   variable: '--ms',
 });
