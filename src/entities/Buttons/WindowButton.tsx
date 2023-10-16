@@ -1,4 +1,4 @@
-import { CloseIcon, CollapseIcon, ExpandIcon } from '@/assets/svg/index.svg';
+import { CloseIcon, CollapseIcon, ExpandIcon } from '@/shared/assets/svg/index.svg';
 import clsx from 'clsx';
 
 import ButtonComponent from './ButtonComponent';

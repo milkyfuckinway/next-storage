@@ -1,6 +1,6 @@
+import Icon from '@/entities/Icon/Icon';
 import clsx from 'clsx';
 
-import Icon from '../Icons/Icon';
 import styles from './Anchor.module.scss';
 
 export default function Anchor({

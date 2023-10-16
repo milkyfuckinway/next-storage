@@ -1,4 +1,4 @@
-import iconPaths from '@/constants/IconPaths';
+import iconPaths from '@/shared/constants/IconPaths';
 import { useAppSelector } from '@/store/store';
 import Image from 'next/image';
 

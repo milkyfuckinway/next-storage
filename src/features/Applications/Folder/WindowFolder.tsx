@@ -1,4 +1,5 @@
-import Label from '../../Desktop/Label';
+import Label from '@/features/Desktop/Label';
+
 import styles from './WindowFolder.module.scss';
 
 export default function WindowFolder({ item }: { item: FolderFile }) {

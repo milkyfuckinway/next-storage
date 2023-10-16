@@ -1,14 +1,12 @@
 'use client';
 
+import Window from '@/features/Window/Window';
+import { calculateDocumentHeight, convertStringToUrl } from '@/shared/utils/helpers';
 import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
-import calculateDocumentHeight from '@/utils/CalculateDocumentHeight';
-import convertStringToUrl from '@/utils/helpers';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import ThemeSwitcher from '../Buttons/ThemeSwitcher';
-import Window from '../Window/Window';
 import Anchor from './Anchor';
 import styles from './Desktop.module.scss';
 import Label from './Label';
@@ -57,7 +55,6 @@ export default function Desktop() {
         {openedList.map((a) => (
           <Window item={a} key={a.id} />
         ))}
-        <ThemeSwitcher />
       </div>
       <div className={styles.footer}>
         <button className={styles.start} type="button">

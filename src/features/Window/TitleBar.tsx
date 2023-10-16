@@ -1,11 +1,11 @@
+import WindowButton from '@/entities/Buttons/WindowButton';
+import Icon from '@/entities/Icon/Icon';
 import { addHiddenFile, removeOpenedFile } from '@/store/files.slice';
 import clsx from 'clsx';
 import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 
-import WindowButton from '../Buttons/WindowButton';
-import Icon from '../Icons/Icon';
 import styles from './TitleBar.module.scss';
 
 export default function TitleBar({

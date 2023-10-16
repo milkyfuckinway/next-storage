@@ -1,5 +1,5 @@
+import { convertStringToUrl } from '@/shared/utils/helpers';
 import { useAppSelector } from '@/store/store';
-import convertStringToUrl from '@/utils/helpers';
 import { useState } from 'react';
 
 import styles from './ColorSettings.module.scss';

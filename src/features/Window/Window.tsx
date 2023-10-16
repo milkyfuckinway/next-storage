@@ -1,3 +1,9 @@
+import PathBar from '@/entities/PathBar/PathBar';
+import WindowFolder from '@/features/Applications/Folder/WindowFolder';
+import ImageBar from '@/features/Applications/Image/ImageBar';
+import WindowImage from '@/features/Applications/Image/WindowImage';
+import WindowText from '@/features/Applications/Text/WindowText';
+import ColorSettings from '@/features/ColorSettings/ColorSettings';
 import { increaceZIndex, setFileActive } from '@/store/files.slice';
 import { useAppSelector } from '@/store/store';
 import clsx from 'clsx';
@@ -5,12 +11,6 @@ import { motion, useDragControls, useMotionValue, useTransform } from 'framer-mo
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import ColorSettings from '../Applications/ColorSettings/ColorSettings';
-import WindowFolder from '../Applications/Folder/WindowFolder';
-import ImageBar from '../Applications/Image/ImageBar';
-import WindowImage from '../Applications/Image/WindowImage';
-import WindowText from '../Applications/Text/WindowText';
-import PathBar from './PathBar';
 import TitleBar from './TitleBar';
 import styles from './Window.module.scss';
 

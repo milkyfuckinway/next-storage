@@ -1,4 +1,4 @@
-import data from '@/data/data';
+import data from '@/shared/data/data';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const { files } = data;

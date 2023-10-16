@@ -1,3 +1,4 @@
+import Icon from '@/entities/Icon/Icon';
 import {
   addOpenedFile,
   increaceZIndex,
@@ -9,7 +10,6 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Icon from '../Icons/Icon';
 import styles from './Label.module.scss';
 
 export default function Label({ className, item }: { className?: string; item: DesktopFile }) {

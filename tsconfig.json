@@ -25,12 +25,12 @@
     }
   },
   "include": [
-    "./src/types/global.d.ts",
+    "src/app/types/global.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/data/info"
+    "src/shared/data/info"
   ],
   "exclude": ["node_modules"]
 }

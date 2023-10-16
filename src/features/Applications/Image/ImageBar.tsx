@@ -1,4 +1,5 @@
-import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/assets/svg/index.svg';
+import ButtonComponent from '@/entities/Buttons/ButtonComponent';
+import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/shared/assets/svg/index.svg';
 import { useAppSelector } from '@/store/store';
 import {
   resetWallpaper,
@@ -11,7 +12,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useClickAway } from 'react-use';
 
-import ButtonComponent from '../../Buttons/ButtonComponent';
 import styles from './ImageBar.module.scss';
 
 export default function ImageBar({ item }: { item: ImageFile }) {
