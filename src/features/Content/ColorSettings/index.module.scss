@@ -13,8 +13,11 @@
 }
 
 .display {
+  flex-shrink: 0;
+
   width: 184px;
   height: 169px;
+
   background-image: url("/interface/monitor.png");
   background-repeat: no-repeat;
 }
