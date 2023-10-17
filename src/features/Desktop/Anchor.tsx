@@ -1,4 +1,4 @@
-import Icon from '@/entities/Icon/Icon';
+import IconComponent from '@/components/ui/IconComponent';
 import clsx from 'clsx';
 
 import styles from './Anchor.module.scss';
@@ -26,7 +26,7 @@ export default function Anchor({
       type="button"
     >
       <div className={styles.anchor__content}>
-        <Icon item={file} size="small" />
+        <IconComponent item={file} size="small" />
         <div className={styles.anchor__text}>{file.name}</div>
       </div>
     </button>

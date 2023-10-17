@@ -1,15 +1,15 @@
 'use client';
 
-import Window from '@/features/Window/Window';
+import Window from '@/features/Window';
+import { addHiddenFile, removeHiddenFile, setFileActive } from '@/shared/store/files.slice';
+import { useAppSelector } from '@/shared/store/store';
 import { calculateDocumentHeight, convertStringToUrl } from '@/shared/utils/helpers';
-import { addHiddenFile, removeHiddenFile, setFileActive } from '@/store/files.slice';
-import { useAppSelector } from '@/store/store';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Anchor from './Anchor';
-import styles from './Desktop.module.scss';
 import Label from './Label';
+import styles from './index.module.scss';
 
 export default function Desktop() {
   const dispatch = useDispatch();

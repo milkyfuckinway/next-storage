@@ -1,6 +1,6 @@
-import WindowButton from '@/entities/Buttons/WindowButton';
-import Icon from '@/entities/Icon/Icon';
-import { addHiddenFile, removeOpenedFile } from '@/store/files.slice';
+import IconComponent from '@/components/ui/IconComponent';
+import WindowButton from '@/features/Window/WindowControls';
+import { addHiddenFile, removeOpenedFile } from '@/shared/store/files.slice';
 import clsx from 'clsx';
 import { DragControls } from 'framer-motion';
 import { SetStateAction } from 'react';
@@ -48,7 +48,7 @@ export default function TitleBar({
       />
       <div className={styles.titlebar__content}>
         <div className={styles.titlebar__details}>
-          <Icon item={item} size="small" />
+          <IconComponent item={item} size="small" />
           <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>

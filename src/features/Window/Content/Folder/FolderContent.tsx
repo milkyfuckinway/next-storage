@@ -1,8 +1,8 @@
 import Label from '@/features/Desktop/Label';
 
-import styles from './WindowFolder.module.scss';
+import styles from './FolderContent.module.scss';
 
-export default function WindowFolder({ item }: { item: FolderFile }) {
+export default function FolderContent({ item }: { item: FolderFile }) {
   return (
     <div className={styles.content}>
       {item.files.map((a) => (

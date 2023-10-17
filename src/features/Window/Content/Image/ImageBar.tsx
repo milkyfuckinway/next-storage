@@ -1,13 +1,13 @@
-import ButtonComponent from '@/entities/Buttons/ButtonComponent';
+import ButtonComponent from '@/components/ui/ButtonComponent';
 import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/shared/assets/svg/index.svg';
-import { useAppSelector } from '@/store/store';
+import { useAppSelector } from '@/shared/store/store';
 import {
   resetWallpaper,
   setWallpaperImage,
   setWallpaperPosition,
   setWallpaperRepeat,
   setWallpaperSize,
-} from '@/store/wallpaper.slice';
+} from '@/shared/store/wallpaper.slice';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useClickAway } from 'react-use';

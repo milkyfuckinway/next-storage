@@ -1,6 +1,6 @@
-import styles from './WindowText.module.scss';
+import styles from './DocumentContent.module.scss';
 
-export default function WindowText({ item }: { item: DocumentFile }) {
+export default function DocumentContent({ item }: { item: DocumentFile }) {
   return (
     <div className={styles.content}>
       <a href={item.content?.link}>{item.content.link}</a>

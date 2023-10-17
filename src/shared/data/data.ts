@@ -1,8 +1,3 @@
-import { nanoid } from 'nanoid';
-
-// eslint-disable-next-line no-console
-console.log(nanoid());
-
 const files = [
   {
     files: [

@@ -1,6 +1,6 @@
 'use client';
 
-import { store } from '@/store/store';
+import { store } from '@/shared/store/store';
 import { Provider } from 'react-redux';
 
 function ProvidersComponent({ children }: { children: React.ReactNode }) {

@@ -1,10 +1,10 @@
 import { CloseIcon, CollapseIcon, ExpandIcon } from '@/shared/assets/svg/index.svg';
 import clsx from 'clsx';
 
-import ButtonComponent from './ButtonComponent';
-import styles from './WindowButton.module.scss';
+import ButtonComponent from '../../components/ui/ButtonComponent';
+import styles from './WindowControls.module.scss';
 
-export default function WindowButton({ onClick, type }: { onClick: () => void; type: string }) {
+export default function WindowControls({ onClick, type }: { onClick: () => void; type: string }) {
   return (
     <ButtonComponent onClick={onClick}>
       {type === 'collapse' && (

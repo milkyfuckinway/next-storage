@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProvidersComponent from '@/providers/ProvidersComponent';
+import ProvidersComponent from '@/components/providers/ProvidersComponent';
 import '@/styles/index.scss';
 import clsx from 'clsx';
 import localFont from 'next/font/local';

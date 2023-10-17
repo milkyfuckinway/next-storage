@@ -1,18 +1,18 @@
-import PathBar from '@/entities/PathBar/PathBar';
-import WindowFolder from '@/features/Applications/Folder/WindowFolder';
-import ImageBar from '@/features/Applications/Image/ImageBar';
-import WindowImage from '@/features/Applications/Image/WindowImage';
-import WindowText from '@/features/Applications/Text/WindowText';
-import ColorSettings from '@/features/ColorSettings/ColorSettings';
-import { increaceZIndex, setFileActive } from '@/store/files.slice';
-import { useAppSelector } from '@/store/store';
+import ColorSettings from '@/features/Window/Content/ColorSettings/ColorSettings';
+import ImageBar from '@/features/Window/Content/Image/ImageBar';
+import ImageContent from '@/features/Window/Content/Image/ImageContent';
+import PathBar from '@/features/Window/PathBar';
+import { increaceZIndex, setFileActive } from '@/shared/store/files.slice';
+import { useAppSelector } from '@/shared/store/store';
 import clsx from 'clsx';
 import { motion, useDragControls, useMotionValue, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import DocumentContent from './Content/Document/DocumentContent';
+import FolderContent from './Content/Folder/FolderContent';
 import TitleBar from './TitleBar';
-import styles from './Window.module.scss';
+import styles from './index.module.scss';
 
 const WINDOW_WIDTH = 0.75;
 const WINDOW_HEIGHT = 0.65;
@@ -132,11 +132,11 @@ export default function Window({ item }: { item: DesktopFile }) {
 
         {/* Content */}
         {/* Image */}
-        {item.type === 'image' && <WindowImage item={item} />}
+        {item.type === 'image' && <ImageContent item={item} />}
         {/* Folder */}
-        {item.type === 'folder' && <WindowFolder item={item} />}
+        {item.type === 'folder' && <FolderContent item={item} />}
         {/* Text */}
-        {item.type === 'document' && <WindowText item={item} />}
+        {item.type === 'document' && <DocumentContent item={item} />}
 
         {/* Application */}
         {/* Color settings */}

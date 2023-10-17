@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import styles from './WindowImage.module.scss';
+import styles from './ImageContent.module.scss';
 
-export default function WindowImage({ item }: { item: ImageFile }) {
+export default function ImageContent({ item }: { item: ImageFile }) {
   return (
     <div className={styles.content}>
       <div className={styles.image}>

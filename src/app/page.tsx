@@ -1,4 +1,4 @@
-import Desktop from '@/features/Desktop/Desktop';
+import Desktop from '@/features/Desktop';
 
 export default function Home() {
   return <Desktop />;

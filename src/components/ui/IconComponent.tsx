@@ -1,8 +1,8 @@
 import iconPaths from '@/shared/constants/IconPaths';
-import { useAppSelector } from '@/store/store';
+import { useAppSelector } from '@/shared/store/store';
 import Image from 'next/image';
 
-export default function Icon({
+export default function IconComponent({
   item,
   size,
 }: {

@@ -1,11 +1,11 @@
-import Icon from '@/entities/Icon/Icon';
+import IconComponent from '@/components/ui/IconComponent';
 import {
   addOpenedFile,
   increaceZIndex,
   removeHiddenFile,
   setFileActive,
-} from '@/store/files.slice';
-import { useAppSelector } from '@/store/store';
+} from '@/shared/store/files.slice';
+import { useAppSelector } from '@/shared/store/store';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
@@ -42,7 +42,7 @@ export default function Label({ className, item }: { className?: string; item: D
       onClick={handleClick}
       type="button"
     >
-      <Icon item={item} size="big" />
+      <IconComponent item={item} size="big" />
       <div className={clsx(className, styles.label__name)}>{item.name}</div>
     </button>
   );
