@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import PathBar from '../../PathBar';
+import PathBar from '../../Window/PathBar';
 import ImageBar from './ImageBar';
 import styles from './index.module.scss';
 

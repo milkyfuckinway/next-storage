@@ -1,4 +1,4 @@
-import PathBar from '../../PathBar';
+import PathBar from '../../Window/PathBar';
 import styles from './index.module.scss';
 
 export default function DocumentContent({ item }: { item: DocumentFile }) {

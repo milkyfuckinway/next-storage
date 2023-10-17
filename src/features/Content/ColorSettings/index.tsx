@@ -2,6 +2,7 @@ import { useAppSelector } from '@/shared/store/store';
 import { convertStringToUrl } from '@/shared/utils/helpers';
 import { useState } from 'react';
 
+import Tabs from './Tabs';
 import styles from './index.module.scss';
 
 export default function ColorSettings() {
@@ -63,6 +64,7 @@ export default function ColorSettings() {
             </label>
           </div>
         </form>
+        <Tabs />
       </div>
     </div>
   );
