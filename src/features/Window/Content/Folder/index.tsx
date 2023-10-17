@@ -1,7 +1,7 @@
 import Label from '@/features/Desktop/Label';
 
 import PathBar from '../../PathBar';
-import styles from './FolderContent.module.scss';
+import styles from './index.module.scss';
 
 export default function FolderContent({ item }: { item: FolderFile }) {
   return (

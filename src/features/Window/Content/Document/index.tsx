@@ -1,5 +1,5 @@
 import PathBar from '../../PathBar';
-import styles from './DocumentContent.module.scss';
+import styles from './index.module.scss';
 
 export default function DocumentContent({ item }: { item: DocumentFile }) {
   return (

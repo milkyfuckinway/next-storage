@@ -39,8 +39,7 @@
   display: grid;
   grid-template-rows: 48px calc(var(--fz) * 2);
   gap: 4px;
-  align-items: center;
-  justify-items: center;
+  place-items: center center;
 }
 
 .label__icon {

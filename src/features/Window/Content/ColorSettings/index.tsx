@@ -2,7 +2,7 @@ import { useAppSelector } from '@/shared/store/store';
 import { convertStringToUrl } from '@/shared/utils/helpers';
 import { useState } from 'react';
 
-import styles from './ColorSettings.module.scss';
+import styles from './index.module.scss';
 
 export default function ColorSettings() {
   const backgroundColor = useAppSelector((state) => state.wallpaper.color);

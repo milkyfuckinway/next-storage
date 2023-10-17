@@ -5,6 +5,8 @@ declare module '*.svg' {
   export default SVG;
 }
 
+type Size = 'big' | 'small';
+
 interface BaseFile {
   icon: 'document' | 'folder' | 'image' | 'theme';
   id: string;

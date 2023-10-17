@@ -2,8 +2,6 @@ import iconPaths from '@/shared/constants/IconPaths';
 import { useAppSelector } from '@/shared/store/store';
 import Image from 'next/image';
 
-type Size = 'big' | 'small';
-
 const calcSize = (size: Size) => (size === 'small' ? 16 : 48);
 
 const calcPath = ({
@@ -33,6 +31,7 @@ export default function IconComponent({ item, size }: { item: DesktopFile; size:
       alt={item.type}
       height={calcSize(size)}
       priority
+      quality={90}
       src={calcPath({ item, openedList, size })}
       width={calcSize(size)}
     />

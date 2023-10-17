@@ -1,5 +1,5 @@
-import ColorSettings from '@/features/Window/Content/ColorSettings/ColorSettings';
-import ImageContent from '@/features/Window/Content/Image/ImageContent';
+import ColorSettings from '@/features/Window/Content/ColorSettings';
+import ImageContent from '@/features/Window/Content/Image';
 import { increaceZIndex, setFileActive } from '@/shared/store/files.slice';
 import { useAppSelector } from '@/shared/store/store';
 import clsx from 'clsx';
@@ -7,8 +7,8 @@ import { motion, useDragControls, useMotionValue, useTransform } from 'framer-mo
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import DocumentContent from './Content/Document/DocumentContent';
-import FolderContent from './Content/Folder/FolderContent';
+import DocumentContent from './Content/Document';
+import FolderContent from './Content/Folder';
 import TitleBar from './TitleBar';
 import styles from './index.module.scss';
 
