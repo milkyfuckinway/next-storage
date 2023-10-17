@@ -19,6 +19,27 @@ const WINDOW_HEIGHT = 0.65;
 const HEADER_HEIGHT = 32;
 const CYCLE_BIAS = 10;
 
+const APPLICATION_SIZE: { [key: string]: { height: number; width: number } } = {
+  color_settings: {
+    height: 400,
+    width: 300,
+  },
+};
+
+const calculateWidth = (DISPLAY_HEIGHT: number, DISPLAY_WIDTH: number, item: DesktopFile) => {
+  const initialWidth = () =>
+    item.type === 'application' && item.action in APPLICATION_SIZE
+      ? APPLICATION_SIZE[item.action].width
+      : DISPLAY_WIDTH * WINDOW_WIDTH;
+
+  const initialHeight = () =>
+    item.type === 'application' && item.action in APPLICATION_SIZE
+      ? APPLICATION_SIZE[item.action].height
+      : DISPLAY_HEIGHT * WINDOW_HEIGHT;
+
+  return { initialHeight, initialWidth };
+};
+
 export default function Window({ item }: { item: DesktopFile }) {
   const DISPLAY_WIDTH = window.innerWidth;
   const DISPLAY_HEIGHT = window.innerHeight;
@@ -37,28 +58,7 @@ export default function Window({ item }: { item: DesktopFile }) {
 
   const windowRef = useRef<HTMLDivElement>(null);
 
-  const calculateWidth = () => {
-    const initialWidth = () => {
-      if (item.type === 'application') {
-        if (item.action === 'color_settings') {
-          return 300;
-        }
-      }
-      return DISPLAY_WIDTH * WINDOW_WIDTH;
-    };
-    const initialHeight = () => {
-      if (item.type === 'application') {
-        if (item.action === 'color_settings') {
-          return 400;
-        }
-      }
-      return DISPLAY_HEIGHT * WINDOW_HEIGHT;
-    };
-
-    return { initialHeight, initialWidth };
-  };
-
-  const { initialHeight, initialWidth } = calculateWidth();
+  const { initialHeight, initialWidth } = calculateWidth(DISPLAY_HEIGHT, DISPLAY_WIDTH, item);
 
   const handleX = useMotionValue(initialWidth());
   const handleY = useMotionValue(initialHeight());
@@ -75,10 +75,8 @@ export default function Window({ item }: { item: DesktopFile }) {
   };
 
   const calculatePosition = (cycle: number) => {
-    const left = `${(DISPLAY_WIDTH - DISPLAY_WIDTH * WINDOW_WIDTH) / 2 + cycle * CYCLE_BIAS}px`;
-    const top = `${
-      (DISPLAY_HEIGHT - DISPLAY_HEIGHT * WINDOW_HEIGHT) / 2 + cycle * CYCLE_BIAS - HEADER_HEIGHT
-    }px`;
+    const left = `${(DISPLAY_WIDTH - initialWidth()) / 2 + cycle * CYCLE_BIAS}px`;
+    const top = `${(DISPLAY_HEIGHT - initialHeight()) / 2 + cycle * CYCLE_BIAS - HEADER_HEIGHT}px`;
     return { left, top };
   };
 

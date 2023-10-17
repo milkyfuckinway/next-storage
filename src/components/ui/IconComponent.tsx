@@ -2,7 +2,7 @@ import iconPaths from '@/shared/constants/IconPaths';
 import { useAppSelector } from '@/shared/store/store';
 import Image from 'next/image';
 
-type Size = 'big' | 'medium' | 'small';
+type Size = 'big' | 'small';
 
 const calcSize = (size: Size) => (size === 'small' ? 16 : 48);
 
