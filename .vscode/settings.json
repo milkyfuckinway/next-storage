@@ -47,8 +47,8 @@
   "explorer.fileNesting.patterns": {
     "*.jsx": "${capture}.js, ${capture}.module.css, ${capture}.module.scss",
     "*.tsx": "${capture}.ts, ${capture}.module.css, ${capture}.module.scss",
-    "index.jsx": "data.ts, index.d.ts",
-    "index.tsx": "data.ts, index.d.ts",
+    "index.jsx": "data.ts",
+    "index.tsx": "data.ts",
     "index.svg.ts": "*.svg",
     "store.ts": "*.slice.ts",
     "package.json": "commitlint.config.ts, capacitor.config.ts, Contributing.md, .env.test, .env.sample, .eslintrc.js, .env.local, .env.production, .env.development, .env, .editorconfig, .eslintignore, .eslintrc, .eslintrc.json, .eslintrc.yml, .gitattributes, .gitignore, .lintstagedrc.json, .lintstagedrc.yml, LICENSE, .nvmrc, .ncurc.json, next-env.d.ts, next.config.js, postcss.config.js, .prettierrc.json, pocketbase.exe, .prettierignore, .prettierrc, package-lock.json, PRIVACY.md, requirements.md, Readme.md, .stylelintignore, .stylelintrc, tailwind.config.js, tsconfig.json, vite.config.ts, webpack.config.js, yarn.lock"

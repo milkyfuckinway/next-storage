@@ -1,7 +1,5 @@
 import ColorSettings from '@/features/Window/Content/ColorSettings/ColorSettings';
-import ImageBar from '@/features/Window/Content/Image/ImageBar';
 import ImageContent from '@/features/Window/Content/Image/ImageContent';
-import PathBar from '@/features/Window/PathBar';
 import { increaceZIndex, setFileActive } from '@/shared/store/files.slice';
 import { useAppSelector } from '@/shared/store/store';
 import clsx from 'clsx';
@@ -39,7 +37,6 @@ const calculateWidth = (DISPLAY_HEIGHT: number, DISPLAY_WIDTH: number, item: Des
 
   return { initialHeight, initialWidth };
 };
-
 export default function Window({ item }: { item: DesktopFile }) {
   const DISPLAY_WIDTH = window.innerWidth;
   const DISPLAY_HEIGHT = window.innerHeight;
@@ -121,23 +118,9 @@ export default function Window({ item }: { item: DesktopFile }) {
           item={item}
           setExpanded={setExpanded}
         />
-        {/* Settings bar */}
-        {/* Image */}
-        {item.type === 'image' && <ImageBar item={item} />}
-
-        {/* Path bar */}
-        {item.type !== 'application' && <PathBar item={item} />}
-
-        {/* Content */}
-        {/* Image */}
         {item.type === 'image' && <ImageContent item={item} />}
-        {/* Folder */}
         {item.type === 'folder' && <FolderContent item={item} />}
-        {/* Text */}
         {item.type === 'document' && <DocumentContent item={item} />}
-
-        {/* Application */}
-        {/* Color settings */}
         {item.type === 'application' && item.action === 'color_settings' && <ColorSettings />}
       </motion.div>
     )

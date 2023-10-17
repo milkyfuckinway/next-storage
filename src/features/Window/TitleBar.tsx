@@ -1,5 +1,6 @@
+import ButtonComponent from '@/components/ui/ButtonComponent';
 import IconComponent from '@/components/ui/IconComponent';
-import WindowButton from '@/features/Window/WindowControls';
+import { CloseIcon, CollapseIcon, ExpandIcon } from '@/shared/assets/svg/index.svg';
 import { addHiddenFile, removeOpenedFile } from '@/shared/store/files.slice';
 import clsx from 'clsx';
 import { DragControls } from 'framer-motion';
@@ -52,9 +53,24 @@ export default function TitleBar({
           <div className={styles.titlebar__name}>{item.name}</div>
         </div>
         <div className={styles.titlebar__controls}>
-          <WindowButton onClick={handleCollapse} type="collapse" />
-          <WindowButton onClick={handleExpand} type="expand" />
-          <WindowButton onClick={handleClose} type="close" />
+          <ButtonComponent
+            className={clsx(styles['button-icon'], styles['button-icon--collapse'])}
+            onClick={handleCollapse}
+          >
+            <CollapseIcon />
+          </ButtonComponent>
+          <ButtonComponent
+            className={clsx(styles['button-icon'], styles['button-icon--expand'])}
+            onClick={handleExpand}
+          >
+            <ExpandIcon />
+          </ButtonComponent>
+          <ButtonComponent
+            className={clsx(styles['button-icon'], styles['button-icon--close'])}
+            onClick={handleClose}
+          >
+            <CloseIcon />
+          </ButtonComponent>
         </div>
       </div>
     </div>

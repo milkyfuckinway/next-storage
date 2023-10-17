@@ -56,3 +56,22 @@
     margin-left: 2px;
   }
 }
+
+.button-icon {
+  $size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $size;
+  height: $size;
+
+  &--collapse {
+    align-items: flex-end;
+
+    svg {
+      height: auto;
+    }
+  }
+}
