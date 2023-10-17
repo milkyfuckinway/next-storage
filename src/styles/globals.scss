@@ -1,18 +1,8 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 
   overflow: hidden;
 
-  // EestiFont
-  // font-family: var(--eesti);
-
-  // MsSansSerif
   font-family: var(--ms);
   font-size: var(--fz);
   line-height: var(--fz);
