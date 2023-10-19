@@ -3,9 +3,17 @@ import { convertStringToUrl } from '@/shared/utils/helpers';
 import { useState } from 'react';
 
 import Tabs from './Tabs';
+import FirstTab from './Tabs/FirstTab';
 import styles from './index.module.scss';
 
-export default function ColorSettings() {
+function ElementTwo() {
+  return <p>TWO</p>;
+}
+function ElementThree() {
+  return <p>THREE</p>;
+}
+
+export default function Settings() {
   const backgroundColor = useAppSelector((state) => state.wallpaper.color);
   const backgroundImage = useAppSelector((state) => state.wallpaper.image);
   const backgroundPosition = useAppSelector((state) => state.wallpaper.position);
@@ -13,6 +21,24 @@ export default function ColorSettings() {
   const backgroundSize = useAppSelector((state) => state.wallpaper.size);
 
   const [backgroundType, setBackgroundType] = useState('color');
+
+  const tabs = [
+    {
+      element: <FirstTab backgroundType={backgroundType} setBackgroundType={setBackgroundType} />,
+      id: 1,
+      name: 'Один',
+    },
+    {
+      element: <ElementTwo />,
+      id: 2,
+      name: 'Два',
+    },
+    {
+      element: <ElementThree />,
+      id: 3,
+      name: 'Три',
+    },
+  ];
 
   return (
     <div className={styles.content}>
@@ -35,36 +61,7 @@ export default function ColorSettings() {
         </div>
       </div>
       <div className={styles.settings}>
-        <form>
-          <div className={styles.input}>
-            <label>
-              <input
-                checked={backgroundType === 'color'}
-                name="background"
-                onChange={(evt) => setBackgroundType(evt.target.value)}
-                type="checkbox"
-                value="color"
-              />
-              <div className={styles.pin} />
-              <span>Цвет</span>
-            </label>
-          </div>
-          <div className={styles.input}>
-            <label>
-              <input
-                checked={backgroundType === 'image'}
-                disabled={backgroundImage.length < 3}
-                name="background"
-                onChange={(evt) => setBackgroundType(evt.target.value)}
-                type="checkbox"
-                value="image"
-              />
-              <div className={styles.pin} />
-              <span>Изображение</span>
-            </label>
-          </div>
-        </form>
-        <Tabs />
+        <Tabs elements={tabs} />
       </div>
     </div>
   );

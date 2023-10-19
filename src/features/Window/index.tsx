@@ -1,5 +1,5 @@
-import ColorSettings from '@/features/Content/ColorSettings';
 import ImageContent from '@/features/Content/Image';
+import ColorSettings from '@/features/Content/Settings';
 import { increaceZIndex, setFileActive } from '@/shared/store/files.slice';
 import { useAppSelector } from '@/shared/store/store';
 import clsx from 'clsx';
