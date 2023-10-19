@@ -19,7 +19,6 @@
   border-top: 1px solid #ffffff;
   border-right: 1px solid #000000;
   border-left: 1px solid #ffffff;
-  border-radius: 2px 2px 0 0;
 
   &.active {
     $translate-height: 4px;
@@ -35,7 +34,7 @@
       bottom: -$translate-height;
 
       width: 1px;
-      height: $translate-height;
+      height: calc(100% + $translate-height);
     }
 
     &::before {
