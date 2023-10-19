@@ -61,11 +61,13 @@
 
 :where(button) {
   overflow: visible;
-  text-transform: none;
-}
 
-:where(button, [type="button"], [type="reset"], [type="submit"]) {
-  padding: 1px 6px;
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  text-transform: none;
+
   appearance: button;
 }
 

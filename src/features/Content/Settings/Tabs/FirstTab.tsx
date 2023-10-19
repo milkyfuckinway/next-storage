@@ -12,7 +12,7 @@ export default function FirstTab({
 }) {
   const backgroundImage = useAppSelector((state) => state.wallpaper.image);
   return (
-    <div className={styles.body}>
+    <div className={styles.container}>
       <div className={styles.input}>
         <label>
           <input

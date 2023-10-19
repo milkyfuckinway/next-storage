@@ -2,8 +2,8 @@ import { useAppSelector } from '@/shared/store/store';
 import { convertStringToUrl } from '@/shared/utils/helpers';
 import { useState } from 'react';
 
-import Tabs from './Tabs';
 import FirstTab from './Tabs/FirstTab';
+import Tabs from './Tabs/Tabs';
 import styles from './index.module.scss';
 
 function ElementTwo() {
@@ -38,6 +38,41 @@ export default function Settings() {
       id: 3,
       name: 'Три',
     },
+    {
+      element: <ElementThree />,
+      id: 4,
+      name: 'Четыре',
+    },
+    {
+      element: <ElementThree />,
+      id: 5,
+      name: 'Пять',
+    },
+    {
+      element: <ElementThree />,
+      id: 6,
+      name: 'Шесть',
+    },
+    {
+      element: <ElementThree />,
+      id: 7,
+      name: 'Семь',
+    },
+    {
+      element: <ElementThree />,
+      id: 8,
+      name: 'Восемь',
+    },
+    {
+      element: <ElementThree />,
+      id: 9,
+      name: 'Девять',
+    },
+    {
+      element: <ElementThree />,
+      id: 10,
+      name: 'Десять',
+    },
   ];
 
   return (
@@ -61,7 +96,7 @@ export default function Settings() {
         </div>
       </div>
       <div className={styles.settings}>
-        <Tabs elements={tabs} />
+        <Tabs tabs={tabs} />
       </div>
     </div>
   );

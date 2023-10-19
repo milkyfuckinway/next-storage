@@ -1,65 +1,59 @@
-.body {
+.tabs {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
 }
 
-.buttons {
+.tabs__controls {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  padding: 0 2px;
+  padding: 0 4px;
 }
 
-.button {
-  margin: 0;
-  padding: 0 10px;
+.tabs__control {
+  flex-grow: 1;
 
+  height: min-content;
+  padding: 2px;
+
+  background-color: rgb(192 192 192);
   border-top: 1px solid #ffffff;
   border-right: 1px solid #000000;
   border-left: 1px solid #ffffff;
   border-radius: 2px 2px 0 0;
 
   &.active {
+    $translate-height: 4px;
+
     position: relative;
-    padding: 2px 10px;
+    transform: translateY(-$translate-height);
 
-    &::before {
-      content: "";
-
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-
-      width: 100%;
-      height: 2px;
-
-      background-color: rgb(192 192 192);
-    }
-
+    &::before,
     &::after {
       content: "";
 
       position: absolute;
-      right: -1px;
-      bottom: -1px;
+      bottom: -$translate-height;
 
       width: 1px;
-      height: 1px;
+      height: $translate-height;
+    }
 
+    &::before {
+      left: -1px;
+      background-color: rgb(255 255 255);
+    }
+
+    &::after {
+      right: -1px;
       background-color: rgb(0 0 0);
     }
   }
 }
 
-.content {
+.tabs__content {
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
 
-  width: 100%;
-  height: 100%;
   padding: 10px;
 
   border-top: 1px solid #ffffff;
