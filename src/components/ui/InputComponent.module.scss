@@ -6,6 +6,10 @@
     align-items: center;
   }
 
+  & .label {
+    user-select: none;
+  }
+
   & input {
     @include visually-hidden;
 
@@ -36,7 +40,7 @@
       }
     }
 
-    &:disabled + .pin + span {
+    &:disabled + .pin + .label {
       opacity: 0.3;
     }
   }

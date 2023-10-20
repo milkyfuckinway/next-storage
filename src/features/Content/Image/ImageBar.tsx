@@ -1,13 +1,14 @@
 import ButtonComponent from '@/components/ui/ButtonComponent';
 import { Arrow, Center, IconCenter, IconExpand, IconTile } from '@/shared/assets/svg/index.svg';
-import { useAppSelector } from '@/shared/store/store';
 import {
-  resetWallpaper,
-  setWallpaperImage,
-  setWallpaperPosition,
-  setWallpaperRepeat,
-  setWallpaperSize,
-} from '@/shared/store/wallpaper.slice';
+  resetBackground,
+  setBackgroundImage,
+  setBackgroundPosition,
+  setBackgroundRepeat,
+  setBackgroundSize,
+  setBackgroundType,
+} from '@/shared/store/settings.slice';
+import { useAppSelector } from '@/shared/store/store';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useClickAway } from 'react-use';
@@ -20,11 +21,11 @@ export default function ImageBar({ item }: { item: ImageFile }) {
   const active = useAppSelector((state) => state.files.active);
   const settings = useRef(null);
 
-  // const backgroundColor = useAppSelector((state) => state.wallpaper.color);
-  const backgroundImage = useAppSelector((state) => state.wallpaper.image);
-  const backgroundPosition = useAppSelector((state) => state.wallpaper.position);
-  const backgroundRepeat = useAppSelector((state) => state.wallpaper.repeat);
-  const backgroundSize = useAppSelector((state) => state.wallpaper.size);
+  // const backgroundColor = useAppSelector((state) => state.settings.backgroundColor);
+  const backgroundImage = useAppSelector((state) => state.settings.backgroundImage);
+  const backgroundPosition = useAppSelector((state) => state.settings.backgroundPosition);
+  const backgroundRepeat = useAppSelector((state) => state.settings.backgroundRepeat);
+  const backgroundSize = useAppSelector((state) => state.settings.backgroundSize);
 
   useEffect(() => {
     if (item.id !== active) {
@@ -36,23 +37,24 @@ export default function ImageBar({ item }: { item: ImageFile }) {
     setIsSettingsOpen(false);
   });
 
-  const onSetWallpaper = () => {
-    dispatch(setWallpaperImage(item.src));
-    dispatch(setWallpaperSize('auto'));
-    dispatch(setWallpaperRepeat('repeat'));
-    dispatch(setWallpaperPosition('center center'));
+  const onsetBackground = () => {
+    dispatch(setBackgroundImage(item.src));
+    dispatch(setBackgroundType('image'));
+    dispatch(setBackgroundSize('auto'));
+    dispatch(setBackgroundRepeat('repeat'));
+    dispatch(setBackgroundPosition('center center'));
   };
 
   const onSetPosition = (position: string) => {
-    dispatch(setWallpaperPosition(position));
+    dispatch(setBackgroundPosition(position));
   };
 
   const onSetSize = (size: string) => {
-    dispatch(setWallpaperSize(size));
+    dispatch(setBackgroundSize(size));
   };
 
   const onSetRepeat = (repeat: string) => {
-    dispatch(setWallpaperRepeat(repeat));
+    dispatch(setBackgroundRepeat(repeat));
   };
 
   return (
@@ -63,7 +65,7 @@ export default function ImageBar({ item }: { item: ImageFile }) {
         </ButtonComponent>
         {isSettingsOpen && (
           <div className={styles.settings}>
-            <ButtonComponent disabled={item.src === backgroundImage} onClick={onSetWallpaper}>
+            <ButtonComponent disabled={item.src === backgroundImage} onClick={onsetBackground}>
               <span> Установить как обои</span>
             </ButtonComponent>
             <div className={styles.position}>
@@ -160,7 +162,7 @@ export default function ImageBar({ item }: { item: ImageFile }) {
             </ButtonComponent>
             <ButtonComponent
               disabled={backgroundImage.length === 0}
-              onClick={() => dispatch(resetWallpaper())}
+              onClick={() => dispatch(resetBackground())}
             >
               <span>Сбросить</span>
             </ButtonComponent>

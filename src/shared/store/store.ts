@@ -2,12 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import filesReducer from './files.slice';
-import wallpaperReducer from './wallpaper.slice';
+import settingsReducer from './settings.slice';
 
 export const store = configureStore({
   reducer: {
     files: filesReducer,
-    wallpaper: wallpaperReducer,
+    settings: settingsReducer,
   },
 });
 

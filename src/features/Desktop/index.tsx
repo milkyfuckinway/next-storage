@@ -15,11 +15,12 @@ export default function Desktop() {
   const openedList = useAppSelector((state) => state.files.openedList);
   const active = useAppSelector((state) => state.files.active);
 
-  const backgroundColor = useAppSelector((state) => state.wallpaper.color);
-  const backgroundImage = useAppSelector((state) => state.wallpaper.image);
-  const backgroundPosition = useAppSelector((state) => state.wallpaper.position);
-  const backgroundRepeat = useAppSelector((state) => state.wallpaper.repeat);
-  const backgroundSize = useAppSelector((state) => state.wallpaper.size);
+  const backgroundColor = useAppSelector((state) => state.settings.backgroundColor);
+  const backgroundImage = useAppSelector((state) => state.settings.backgroundImage);
+  const backgroundPosition = useAppSelector((state) => state.settings.backgroundPosition);
+  const backgroundRepeat = useAppSelector((state) => state.settings.backgroundRepeat);
+  const backgroundSize = useAppSelector((state) => state.settings.backgroundSize);
+  const backgroundType = useAppSelector((state) => state.settings.backgroundType);
 
   useEffect(() => {
     calculateDocumentHeight();
@@ -31,7 +32,7 @@ export default function Desktop() {
         className={styles.desktop}
         style={{
           backgroundColor,
-          backgroundImage: convertStringToUrl(backgroundImage),
+          backgroundImage: backgroundType === 'image' ? convertStringToUrl(backgroundImage) : '',
           backgroundPosition,
           backgroundRepeat,
           backgroundSize,

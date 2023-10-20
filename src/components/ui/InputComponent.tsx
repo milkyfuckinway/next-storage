@@ -31,7 +31,7 @@ export default function InputComponent({
           value={value}
         />
         <div className={styles.pin} />
-        <span>{label}</span>
+        <span className={styles.label}>{label}</span>
       </label>
     </div>
   );

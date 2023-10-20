@@ -3,6 +3,8 @@
 
   @include border(1px, $type);
 
+  user-select: none;
+
   display: flex;
   gap: 10px;
   align-items: center;

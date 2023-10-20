@@ -1,24 +1,22 @@
 import InputComponent from '@/components/ui/InputComponent';
+import { setBackgroundType } from '@/shared/store/settings.slice';
 import { useAppSelector } from '@/shared/store/store';
-import { SetStateAction } from 'react';
+import { useDispatch } from 'react-redux';
 
 import styles from './FirstTab.module.scss';
 
-export default function FirstTab({
-  backgroundType,
-  setBackgroundType,
-}: {
-  backgroundType: string;
-  setBackgroundType: React.Dispatch<SetStateAction<string>>;
-}) {
-  const backgroundImage = useAppSelector((state) => state.wallpaper.image);
+export default function FirstTab() {
+  const dispatch = useDispatch();
+  const backgroundImage = useAppSelector((state) => state.settings.backgroundImage);
+  const backgroundType = useAppSelector((state) => state.settings.backgroundType);
+
   return (
     <div className={styles.container}>
       <InputComponent
         checked={backgroundType === 'color'}
         label="Цвет"
         name="background"
-        onChange={(evt) => setBackgroundType(evt.target.value)}
+        onChange={(evt) => dispatch(setBackgroundType(evt.target.value))}
         value="color"
       />
       <InputComponent
@@ -26,7 +24,7 @@ export default function FirstTab({
         disabled={backgroundImage.length < 3}
         label="Изображение"
         name="background"
-        onChange={(evt) => setBackgroundType(evt.target.value)}
+        onChange={(evt) => dispatch(setBackgroundType(evt.target.value))}
         value="image"
       />
     </div>
