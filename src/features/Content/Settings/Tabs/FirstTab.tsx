@@ -1,3 +1,4 @@
+import InputComponent from '@/components/ui/InputComponent';
 import { useAppSelector } from '@/shared/store/store';
 import { SetStateAction } from 'react';
 
@@ -13,33 +14,21 @@ export default function FirstTab({
   const backgroundImage = useAppSelector((state) => state.wallpaper.image);
   return (
     <div className={styles.container}>
-      <div className={styles.input}>
-        <label>
-          <input
-            checked={backgroundType === 'color'}
-            name="background"
-            onChange={(evt) => setBackgroundType(evt.target.value)}
-            type="checkbox"
-            value="color"
-          />
-          <div className={styles.pin} />
-          <span>Цвет</span>
-        </label>
-      </div>
-      <div className={styles.input}>
-        <label>
-          <input
-            checked={backgroundType === 'image'}
-            disabled={backgroundImage.length < 3}
-            name="background"
-            onChange={(evt) => setBackgroundType(evt.target.value)}
-            type="checkbox"
-            value="image"
-          />
-          <div className={styles.pin} />
-          <span>Изображение</span>
-        </label>
-      </div>
+      <InputComponent
+        checked={backgroundType === 'color'}
+        label="Цвет"
+        name="background"
+        onChange={(evt) => setBackgroundType(evt.target.value)}
+        value="color"
+      />
+      <InputComponent
+        checked={backgroundType === 'image'}
+        disabled={backgroundImage.length < 3}
+        label="Изображение"
+        name="background"
+        onChange={(evt) => setBackgroundType(evt.target.value)}
+        value="image"
+      />
     </div>
   );
 }
