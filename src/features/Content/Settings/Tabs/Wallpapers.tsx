@@ -3,9 +3,9 @@ import { setBackgroundType } from '@/shared/store/settings.slice';
 import { useAppSelector } from '@/shared/store/store';
 import { useDispatch } from 'react-redux';
 
-import styles from './FirstTab.module.scss';
+import styles from './Wallpapers.module.scss';
 
-export default function FirstTab() {
+export default function Wallpapers() {
   const dispatch = useDispatch();
   const backgroundImage = useAppSelector((state) => state.settings.backgroundImage);
   const backgroundType = useAppSelector((state) => state.settings.backgroundType);

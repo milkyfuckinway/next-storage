@@ -64,11 +64,10 @@
   width: 100%;
   max-height: calc(var(--fz) * 2);
 
-  color: var(--desktop-text);
+  line-height: 100%;
+  color: #000000;
   text-overflow: ellipsis;
   word-break: break-word;
-
-  background-color: var(--desktop-background);
 
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

@@ -1,9 +1,10 @@
 import { useAppSelector } from '@/shared/store/store';
 import { convertStringToUrl } from '@/shared/utils/helpers';
 
-import FirstTab from './Tabs/FirstTab';
-import SecondTab from './Tabs/SecondTab';
+import DesktopBackground from './Tabs/DesktopBackground';
+import LabelBackground from './Tabs/LabelBackground';
 import Tabs from './Tabs/Tabs';
+import Wallpapers from './Tabs/Wallpapers';
 import styles from './index.module.scss';
 
 export default function Settings() {
@@ -13,17 +14,23 @@ export default function Settings() {
   const backgroundRepeat = useAppSelector((state) => state.settings.backgroundRepeat);
   const backgroundSize = useAppSelector((state) => state.settings.backgroundSize);
   const backgroundType = useAppSelector((state) => state.settings.backgroundType);
+  const labelBackgroundColor = useAppSelector((state) => state.settings.labelBackgroundColor);
 
   const tabs = [
     {
-      element: <FirstTab />,
+      element: <Wallpapers />,
       id: 1,
       name: 'Обои',
     },
     {
-      element: <SecondTab />,
+      element: <DesktopBackground />,
       id: 2,
-      name: 'Иконка',
+      name: 'Цвет рабочего стола',
+    },
+    {
+      element: <LabelBackground />,
+      id: 3,
+      name: 'Фон иконки',
     },
   ];
 
@@ -42,7 +49,9 @@ export default function Settings() {
         >
           <button className={styles.label} type="button">
             <div className={styles.label__icon} />
-            <div className={styles.label__name}>Имя файла</div>
+            <div className={styles.label__name} style={{ backgroundColor: labelBackgroundColor }}>
+              Имя файла
+            </div>
           </button>
         </div>
       </div>
