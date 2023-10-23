@@ -12,6 +12,7 @@ export default function Wallpapers() {
 
   return (
     <div className={styles.container}>
+      <h2>Отображение</h2>
       <InputComponent
         checked={backgroundType === 'color'}
         label="Цвет"

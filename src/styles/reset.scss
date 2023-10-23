@@ -1,6 +1,6 @@
 *,
-::after,
-::before {
+*::after,
+*::before {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -10,24 +10,61 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
-  line-height: 1.15;
+  line-height: 150%;
+}
+
+:where(html, body) {
+  overflow: hidden;
+  max-width: 100vw;
+  height: 100%;
+  margin: 0;
+}
+
+:where(html) {
+  scroll-behavior: smooth;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(body) {
+  max-width: 100vw;
 }
 
 :where(main) {
   display: block;
+  flex-grow: 1;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0 0 10px;
 }
 
 :where(h1) {
-  margin: 0.67em 0;
-  font-size: 2em;
+  font-size: 34px;
+}
+
+:where(h2) {
+  font-size: 30px;
+}
+
+:where(h3) {
+  font-size: 24px;
+}
+
+:where(h4) {
+  font-size: 20px;
+}
+
+:where(h5) {
+  font-size: 18px;
+}
+
+:where(h6) {
+  font-size: 16px;
 }
 
 :where(p + p) {
   margin-top: 1rem;
-}
-
-:where(a) {
-  background-color: transparent;
 }
 
 :where(abbr[title]) {
@@ -59,6 +96,18 @@
   border: 1px solid currentcolor;
 }
 
+:where(a, button) {
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+}
+
+:where(a) {
+  line-height: inherit;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 :where(button) {
   overflow: visible;
 
@@ -69,6 +118,7 @@
   text-transform: none;
 
   appearance: button;
+  background-color: inherit;
 }
 
 :where(input) {
@@ -145,7 +195,9 @@
 }
 
 :where(dl, ol, ul) {
-  margin: 1em 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 :where(ol ol, ol ul, ol dl, ul ol, ul ul, ul dl, dl ol, dl ul, dl dl) {
@@ -218,4 +270,14 @@
 
 :where([hidden]) {
   display: none;
+}
+
+:where([no-transition]) {
+  transition: none !important;
+}
+
+:where([visually-hidden]) {
+  position: fixed;
+  scale: 0;
+  clip: rect(0 0 0 0);
 }

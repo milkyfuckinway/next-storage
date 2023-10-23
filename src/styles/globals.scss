@@ -1,27 +1,5 @@
 html {
-  scroll-behavior: smooth;
-
-  overflow: hidden;
-
   font-family: var(--ms);
-  font-size: var(--fz);
-  line-height: var(--fz);
-
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: none;
-
-  -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body {
-  overflow-x: hidden;
-
-  max-width: 100vw;
-  height: 100%;
-  margin: 0;
-
-  line-height: 150%;
 }
 
 body {
@@ -31,46 +9,16 @@ body {
   color: #000000;
 }
 
-.no-transition {
-  transition: none !important;
-}
-
-.visually-hidden {
-  @include visually-hidden;
-}
-
-main {
-  flex-grow: 1;
-}
-
-a {
-  text-decoration: none;
-}
-
 button {
-  padding: 0;
   background-color: transparent;
   border: 0;
 }
 
 button,
 a {
-  cursor: pointer;
-
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-
   &:focus-visible {
     outline: none;
   }
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .section {
