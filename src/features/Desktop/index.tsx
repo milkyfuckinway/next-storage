@@ -1,5 +1,6 @@
 'use client';
 
+import ButtonComponent from '@/components/ui/ButtonComponent';
 import Window from '@/features/Window';
 import { useAppSelector } from '@/shared/store/store';
 import { calculateDocumentHeight, convertStringToUrl } from '@/shared/utils/helpers';
@@ -46,9 +47,13 @@ export default function Desktop() {
         ))}
       </div>
       <div className={styles.footer}>
-        <button className={styles.start} type="button">
+        <ButtonComponent
+          onClick={() => {
+            'work in progress';
+          }}
+        >
           ПУСК
-        </button>
+        </ButtonComponent>
         {openedList.map((item) => (
           <Anchor active={active} hiddenList={hiddenList} item={item} key={item.id} />
         ))}

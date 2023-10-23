@@ -27,7 +27,10 @@
 }
 
 :where(body) {
+  display: flex;
+  flex-direction: column;
   max-width: 100vw;
+  min-height: 100svh;
 }
 
 :where(main) {

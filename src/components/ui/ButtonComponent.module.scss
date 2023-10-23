@@ -3,6 +3,8 @@
 
   @include border(1px, $type);
 
+  @include no-focus;
+
   user-select: none;
 
   display: flex;

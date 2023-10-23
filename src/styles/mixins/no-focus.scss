@@ -1,0 +1,6 @@
+@mixin no-focus {
+  &:focus-visible,
+  &:focus {
+    outline: none;
+  }
+}

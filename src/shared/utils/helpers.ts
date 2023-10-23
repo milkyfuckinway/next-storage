@@ -7,6 +7,9 @@ export function calculateDocumentHeight() {
     document.documentElement.style.setProperty('--dvh', `${window.innerHeight}px`);
   }
 
+  document.body.style.minHeight = 'var(--dvh)';
+
   calcDvh();
+
   window.addEventListener('resize', calcDvh);
 }

@@ -33,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       className={clsx(EestiFont.variable, MsSansSerif.variable)}
       lang="en"
+      style={{ fontFamily: 'var(--ms)' }}
       suppressHydrationWarning
     >
       <body>
