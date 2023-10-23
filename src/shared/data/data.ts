@@ -45,7 +45,7 @@ const files = [
     action: 'color_settings',
     icon: 'theme',
     id: '',
-    name: 'Настройки цвета',
+    name: 'Настройки',
     path: '/',
     type: 'application',
   },

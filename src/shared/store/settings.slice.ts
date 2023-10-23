@@ -7,6 +7,7 @@ type InitialState = {
   backgroundRepeat: string;
   backgroundSize: string;
   backgroundType: string;
+  labelBackgroundColor: string;
 };
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   backgroundRepeat: '',
   backgroundSize: '',
   backgroundType: 'color',
+  labelBackgroundColor: 'transparent',
 } as InitialState;
 
 const settingsSlice = createSlice({
@@ -49,6 +51,10 @@ const settingsSlice = createSlice({
     setBackgroundType(state, action: PayloadAction<string>) {
       state.backgroundType = action.payload;
     },
+
+    setLabelBackgroundColor(state, action: PayloadAction<string>) {
+      state.labelBackgroundColor = action.payload;
+    },
   },
 });
 
@@ -60,6 +66,7 @@ export const {
   setBackgroundRepeat,
   setBackgroundSize,
   setBackgroundType,
+  setLabelBackgroundColor,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

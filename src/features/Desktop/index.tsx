@@ -39,7 +39,7 @@ export default function Desktop() {
         }}
       >
         {files.map((item) => (
-          <Label className={styles.themed} item={item} key={item.id} />
+          <Label item={item} key={item.id} type="desktop" />
         ))}
         {openedList.map((a) => (
           <Window item={a} key={a.id} />

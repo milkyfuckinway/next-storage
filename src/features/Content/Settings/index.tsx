@@ -2,6 +2,7 @@ import { useAppSelector } from '@/shared/store/store';
 import { convertStringToUrl } from '@/shared/utils/helpers';
 
 import FirstTab from './Tabs/FirstTab';
+import SecondTab from './Tabs/SecondTab';
 import Tabs from './Tabs/Tabs';
 import styles from './index.module.scss';
 
@@ -17,7 +18,12 @@ export default function Settings() {
     {
       element: <FirstTab />,
       id: 1,
-      name: 'Настройки цвета',
+      name: 'Обои',
+    },
+    {
+      element: <SecondTab />,
+      id: 2,
+      name: 'Иконка',
     },
   ];
 

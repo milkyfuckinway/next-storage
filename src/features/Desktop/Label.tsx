@@ -12,12 +12,13 @@ import { useDispatch } from 'react-redux';
 
 import styles from './Label.module.scss';
 
-export default function Label({ className, item }: { className?: string; item: DesktopFile }) {
+export default function Label({ item, type = '' }: { item: DesktopFile; type?: string }) {
   const dispatch = useDispatch();
   const globalZIndex = useAppSelector((state) => state.files.zIndex);
   const windowRef = useRef<HTMLDivElement>(null);
   const openedList = useAppSelector((state) => state.files.openedList);
   const hiddenList = useAppSelector((state) => state.files.hiddenList);
+  const labelBackgroundColor = useAppSelector((state) => state.settings.labelBackgroundColor);
 
   const setCurrentFileActive = () => {
     dispatch(setFileActive(item.id));
@@ -43,7 +44,12 @@ export default function Label({ className, item }: { className?: string; item: D
       type="button"
     >
       <IconComponent item={item} size="big" />
-      <div className={clsx(className, styles.label__name)}>{item.name}</div>
+      <div
+        className={styles.label__name}
+        style={{ backgroundColor: type === 'desktop' ? labelBackgroundColor : '' }}
+      >
+        {item.name}
+      </div>
     </button>
   );
 }

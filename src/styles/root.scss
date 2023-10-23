@@ -18,12 +18,4 @@
 
   // Palette
   --spinner: #000000;
-  --desktop-text: #000000;
-  --desktop-background: rgb(0 128 131);
-}
-
-:root[data-theme="dark"] {
-  --spinner: #ffffff;
-  --desktop-text: #ffffff;
-  --desktop-background: #000000;
 }
